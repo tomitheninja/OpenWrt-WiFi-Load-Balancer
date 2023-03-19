@@ -126,15 +126,25 @@ This is due to LAR (location aware regulatory) restrictions, which require manuf
 
 Additionally, the speed was unstable and asymmetric on the 2.4 GHz band.
 
-TODO: test with iperf while recording the MCS
+TODO: jitter test
 
 #### Switching to an USB wireless network adapter
 
-I removed the Intel adapter from the VM and added a TP-Link TL-WN722N v1 USB wireless network adapter.
+I removed the Intel adapter from the VM along it's configuration in the `/etc/config/wireless` file and connected a TP-Link TL-WN722N v1 USB wireless network adapter.
 
-The two packages I needed to install were `kmod-ath9k-htc` and `kmod-rtl8192cu` as described in the [OpenWrt wiki](https://forum.openwrt.org/t/add-tp-link-tl-wn722n-wifi-usb-adaptor/24253). Furthermore, I had to restart the host machine.
+The two packages I needed to install to get it working were `kmod-ath9k-htc` and `kmod-rtl8192cu` as described in the [OpenWrt wiki](https://forum.openwrt.org/t/add-tp-link-tl-wn722n-wifi-usb-adaptor/24253). Furthermore, I had to restart the host machine.
 
 TODO: speedtest
+
+#### Configuring the wireless network
+
+I used the `ip a` command to check the ip address of the network interfaces.
+I then opened the luci web interface on the given ip address and logged in with the root user.
+
+I saw the network adapter and a wireless network called OpenWrt.
+By default, the network was disabled and the encryption open network, because the hostapd package was not installed.
+
+I installed the hostapd package and restarted the VM. This time I was able to enable enable security and started the network.
 
 ## Performance evaluation
 
