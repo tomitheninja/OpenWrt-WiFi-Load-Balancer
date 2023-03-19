@@ -152,7 +152,9 @@ I installed the hostapd package and restarted the VM. This time I was able to en
 
 #### Installing prometheus and grafana
 
-Prometheus is an open-source systems monitoring and alerting toolkit [x](https://prometheus.io/docs/introduction/overview/). Grafana is an open-source dashboard and data visualization tool [x](https://grafana.com/grafana/). It can be configured to use Prometheus as a data source. It is easy to use, well documented and has a large community. [x](https://grafana.com/blog/2021/02/09/how-i-monitor-my-openwrt-router-with-grafana-cloud-and-prometheus/)
+Prometheus is an open-source systems monitoring and alerting toolkit [x](https://prometheus.io/docs/introduction/overview/).
+It consists of a server that scrapes metrics from targets and stores them in a time series database. There are many exporters available for different applications and services including OpenWrt.
+Grafana is an open-source dashboard and data visualization tool [x](https://grafana.com/grafana/). It can be configured to use Prometheus as a data source. It is easy to use, well documented and has a large community. [x](https://grafana.com/blog/2021/02/09/how-i-monitor-my-openwrt-router-with-grafana-cloud-and-prometheus/)
 
 The recommended packages can be installed using this command
 
@@ -185,6 +187,45 @@ As you can see, my phone was connected to the wireless network when the command 
 
 Note that this snippet is only a small part of the output.
 
+To make it externally accessible, I edited the `/etc/config/prometheus-node-exporter-lua` file and changed the `listen_interface` to `lan`.
+
+```bash
+config prometheus-node-exporter-lua 'main'
+    option listen_interface 'lan'
+    option listen_port '9100'
+```
+
+After restarting the prometheus-node-exporter-lua service, I was able to access the metrics from my host machine.
+
+Then I created this simple configuration file on my host machine to scrape the metrics from the AP.
+
+```yaml
+global:
+  scrape_interval: 1s
+  evaluation_interval: 1s
+
+scrape_configs:
+  - job_name: "accespoints"
+    static_configs:
+      - targets: ["192.168.122.23:9100"]
+```
+
+Then started the prometheus server with docker.
+
+```bash
+docker run --name prometheus -d -p 9090:9090 -v /etc/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml prom/prometheus
+```
+
+I visited localhost:9090 and executed the following query to check if everything was working properly.
+
+```promql
+wifi_station_receive_packets_total{mac="4E:C1:16:8C:AC:01",ifname="wlan0"}
+```
+
+I saw a flat line which I suspected was due to the fact that I was not generating any traffic. So I started a speedtest on my phone and executed the query again.
+
+![prometheus](./images/prometheus-initial.png)
+
 ### Experimental results and analysis
 
 ### Results visualization with Grafana
@@ -198,7 +239,3 @@ Note that this snippet is only a small part of the output.
 ### Future research directions
 
 ## References
-
-```
-
-```
