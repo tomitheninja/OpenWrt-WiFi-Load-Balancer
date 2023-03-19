@@ -119,6 +119,23 @@ To solve the problem, I copied the iwlwifi-QuZ-a0-hr-b0-66.ucode firmware file f
 
 After rebooting the VM, I could see the new interface.
 
+#### Issues with the Intel wireless network adapter
+
+Newer Intel wireless network adapters do not support AP mode on the 5 GHz band.
+This is due to LAR (location aware regulatory) restrictions, which require manufacturers to authorize adapters because the frequency range is also used by other wireless technologies.
+
+Additionally, the speed was unstable and asymmetric on the 2.4 GHz band.
+
+TODO: test with iperf while recording the MCS
+
+#### Switching to an USB wireless network adapter
+
+I removed the Intel adapter from the VM and added a TP-Link TL-WN722N v1 USB wireless network adapter.
+
+The two packages I needed to install were `kmod-ath9k-htc` and `kmod-rtl8192cu` as described in the [OpenWrt wiki](https://forum.openwrt.org/t/add-tp-link-tl-wn722n-wifi-usb-adaptor/24253). Furthermore, I had to restart the host machine.
+
+TODO: speedtest
+
 ## Performance evaluation
 
 ### Performance metrics
