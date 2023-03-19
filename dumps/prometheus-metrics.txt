@@ -1,0 +1,863 @@
+root@OpenWrt:~# curl localhost:9100/metrics
+# TYPE node_scrape_collector_duration_seconds gauge
+# TYPE node_scrape_collector_success gauge
+# TYPE node_nf_conntrack_entries gauge
+node_nf_conntrack_entries 14
+# TYPE node_nf_conntrack_entries_limit gauge
+node_nf_conntrack_entries_limit 63488
+node_scrape_collector_duration_seconds{collector="conntrack"} 0.00012516975402832
+node_scrape_collector_success{collector="conntrack"} 1
+# TYPE node_boot_time_seconds gauge
+node_boot_time_seconds 1679189778
+# TYPE node_context_switches_total counter
+node_context_switches_total 769960
+# TYPE node_cpu_seconds_total counter
+node_cpu_seconds_total{cpu="cpu0",mode="user"} 4.95
+node_cpu_seconds_total{cpu="cpu0",mode="nice"} 0
+node_cpu_seconds_total{cpu="cpu0",mode="system"} 4.33
+node_cpu_seconds_total{cpu="cpu0",mode="idle"} 6267.06
+node_cpu_seconds_total{cpu="cpu0",mode="iowait"} 0.05
+node_cpu_seconds_total{cpu="cpu0",mode="irq"} 0
+node_cpu_seconds_total{cpu="cpu0",mode="softirq"} 52.72
+node_cpu_seconds_total{cpu="cpu0",mode="steal"} 1.31
+node_cpu_seconds_total{cpu="cpu0",mode="guest"} 0
+node_cpu_seconds_total{cpu="cpu0",mode="guest_nice"} 0
+node_cpu_seconds_total{cpu="cpu1",mode="user"} 1.61
+node_cpu_seconds_total{cpu="cpu1",mode="nice"} 0
+node_cpu_seconds_total{cpu="cpu1",mode="system"} 1.29
+node_cpu_seconds_total{cpu="cpu1",mode="idle"} 6326.4
+node_cpu_seconds_total{cpu="cpu1",mode="iowait"} 0.35
+node_cpu_seconds_total{cpu="cpu1",mode="irq"} 0
+node_cpu_seconds_total{cpu="cpu1",mode="softirq"} 0.49
+node_cpu_seconds_total{cpu="cpu1",mode="steal"} 0.49
+node_cpu_seconds_total{cpu="cpu1",mode="guest"} 0
+node_cpu_seconds_total{cpu="cpu1",mode="guest_nice"} 0
+# TYPE node_intr_total counter
+node_intr_total 2600361
+# TYPE node_forks_total counter
+node_forks_total 4683
+# TYPE node_procs_running_total gauge
+node_procs_running_total 3
+# TYPE node_procs_blocked_total gauge
+node_procs_blocked_total 0
+node_scrape_collector_duration_seconds{collector="cpu"} 0.00078177452087402
+node_scrape_collector_success{collector="cpu"} 1
+# TYPE node_entropy_available_bits gauge
+node_entropy_available_bits 256
+
+# TYPE node_entropy_pool_size_bits gauge
+node_entropy_pool_size_bits 256
+
+node_scrape_collector_duration_seconds{collector="entropy"} 5.9127807617188e-05
+node_scrape_collector_success{collector="entropy"} 1
+# TYPE node_filefd_allocated gauge
+node_filefd_allocated 320
+# TYPE node_filefd_maximum gauge
+node_filefd_maximum 100402
+node_scrape_collector_duration_seconds{collector="filefd"} 6.7949295043945e-05
+node_scrape_collector_success{collector="filefd"} 1
+# TYPE node_load1 gauge
+node_load1 0.00
+# TYPE node_load5 gauge
+node_load5 0.00
+# TYPE node_load15 gauge
+node_load15 0.00
+node_scrape_collector_duration_seconds{collector="loadavg"} 5.8174133300781e-05
+node_scrape_collector_success{collector="loadavg"} 1
+# TYPE node_memory_MemTotal_bytes gauge
+node_memory_MemTotal_bytes 1034833920
+# TYPE node_memory_MemFree_bytes gauge
+node_memory_MemFree_bytes 967278592
+# TYPE node_memory_MemAvailable_bytes gauge
+node_memory_MemAvailable_bytes 949968896
+# TYPE node_memory_Buffers_bytes gauge
+node_memory_Buffers_bytes 1142784
+# TYPE node_memory_Cached_bytes gauge
+node_memory_Cached_bytes 23269376
+# TYPE node_memory_SwapCached_bytes gauge
+node_memory_SwapCached_bytes 0
+# TYPE node_memory_Active_bytes gauge
+node_memory_Active_bytes 15163392
+# TYPE node_memory_Inactive_bytes gauge
+node_memory_Inactive_bytes 8536064
+# TYPE node_memory_Active_anon_bytes gauge
+node_memory_Active_anon_bytes 1228800
+# TYPE node_memory_Inactive_anon_bytes gauge
+node_memory_Inactive_anon_bytes 3313664
+# TYPE node_memory_Active_file_bytes gauge
+node_memory_Active_file_bytes 13934592
+# TYPE node_memory_Inactive_file_bytes gauge
+node_memory_Inactive_file_bytes 5222400
+# TYPE node_memory_Unevictable_bytes gauge
+node_memory_Unevictable_bytes 4096000
+# TYPE node_memory_Mlocked_bytes gauge
+node_memory_Mlocked_bytes 0
+# TYPE node_memory_SwapTotal_bytes gauge
+node_memory_SwapTotal_bytes 0
+# TYPE node_memory_SwapFree_bytes gauge
+node_memory_SwapFree_bytes 0
+# TYPE node_memory_Dirty_bytes gauge
+node_memory_Dirty_bytes 0
+# TYPE node_memory_Writeback_bytes gauge
+node_memory_Writeback_bytes 0
+# TYPE node_memory_AnonPages_bytes gauge
+node_memory_AnonPages_bytes 3391488
+# TYPE node_memory_Mapped_bytes gauge
+node_memory_Mapped_bytes 5431296
+# TYPE node_memory_Shmem_bytes gauge
+node_memory_Shmem_bytes 5263360
+# TYPE node_memory_KReclaimable_bytes gauge
+node_memory_KReclaimable_bytes 4427776
+# TYPE node_memory_Slab_bytes gauge
+node_memory_Slab_bytes 19542016
+# TYPE node_memory_SReclaimable_bytes gauge
+node_memory_SReclaimable_bytes 4427776
+# TYPE node_memory_SUnreclaim_bytes gauge
+node_memory_SUnreclaim_bytes 15114240
+# TYPE node_memory_KernelStack_bytes gauge
+node_memory_KernelStack_bytes 1441792
+# TYPE node_memory_PageTables_bytes gauge
+node_memory_PageTables_bytes 671744
+# TYPE node_memory_NFS_Unstable_bytes gauge
+node_memory_NFS_Unstable_bytes 0
+# TYPE node_memory_Bounce_bytes gauge
+node_memory_Bounce_bytes 0
+# TYPE node_memory_WritebackTmp_bytes gauge
+node_memory_WritebackTmp_bytes 0
+# TYPE node_memory_CommitLimit_bytes gauge
+node_memory_CommitLimit_bytes 517414912
+# TYPE node_memory_Committed_AS_bytes gauge
+node_memory_Committed_AS_bytes 17063936
+# TYPE node_memory_VmallocTotal_bytes gauge
+node_memory_VmallocTotal_bytes 35184372087808
+# TYPE node_memory_VmallocUsed_bytes gauge
+node_memory_VmallocUsed_bytes 12402688
+# TYPE node_memory_VmallocChunk_bytes gauge
+node_memory_VmallocChunk_bytes 0
+# TYPE node_memory_Percpu_bytes gauge
+node_memory_Percpu_bytes 868352
+# TYPE node_memory_DirectMap4k_bytes gauge
+node_memory_DirectMap4k_bytes 54386688
+# TYPE node_memory_DirectMap2M_bytes gauge
+node_memory_DirectMap2M_bytes 1019215872
+# TYPE node_memory_DirectMap1G_bytes gauge
+node_memory_DirectMap1G_bytes 0
+node_scrape_collector_duration_seconds{collector="meminfo"} 0.001262903213501
+node_scrape_collector_success{collector="meminfo"} 1
+# TYPE node_nat_traffic gauge
+node_nat_traffic{dest="192.168.122.23",src="192.168.122.206"} 4082
+node_nat_traffic{dest="fe80:0000:0000:0000:8dbd:4361:86a4:70dd",src="fe80:0000:0000:0000:fced:deff:fead:beef"} 994
+node_nat_traffic{dest="127.0.0.1",src="127.0.0.1"} 19464
+node_nat_traffic{dest="192.168.122.23",src="192.168.122.1"} 3292
+node_nat_traffic{dest="192.168.122.23",src="192.168.122.206"} 1524
+node_nat_traffic{dest="192.168.122.23",src="192.168.122.1"} 27867
+node_nat_traffic{dest="192.168.122.23",src="192.168.122.206"} 2980
+node_nat_traffic{dest="192.168.122.23",src="192.168.122.1"} 124283
+node_nat_traffic{dest="192.168.122.23",src="192.168.122.206"} 5895
+node_scrape_collector_duration_seconds{collector="nat_traffic"} 0.0010979175567627
+node_scrape_collector_success{collector="nat_traffic"} 1
+# TYPE node_network_info gauge
+node_network_info{operstate="up",broadcast="ff:ff:ff:ff:ff:ff",ifalias="",address="18:d6:c7:0b:cf:e3",device="wlan0"} 1
+# TYPE node_network_address_assign_type gauge
+node_network_address_assign_type{device="wlan0"} 3
+# TYPE node_network_carrier gauge
+node_network_carrier{device="wlan0"} 1
+# TYPE node_network_carrier_changes_total counter
+node_network_carrier_changes_total{device="wlan0"} 2
+# TYPE node_network_carrier_up_changes_total counter
+node_network_carrier_up_changes_total{device="wlan0"} 1
+# TYPE node_network_carrier_down_changes_total counter
+node_network_carrier_down_changes_total{device="wlan0"} 1
+# TYPE node_network_device_id gauge
+node_network_device_id{device="wlan0"} 0
+# TYPE node_network_dormant gauge
+node_network_dormant{device="wlan0"} 0
+# TYPE node_network_flags gauge
+node_network_flags{device="wlan0"} 4867
+# TYPE node_network_iface_id gauge
+node_network_iface_id{device="wlan0"} 5
+# TYPE node_network_iface_link gauge
+node_network_iface_link{device="wlan0"} 5
+# TYPE node_network_iface_link_mode gauge
+node_network_iface_link_mode{device="wlan0"} 0
+# TYPE node_network_mtu_bytes gauge
+node_network_mtu_bytes{device="wlan0"} 1500
+# TYPE node_network_name_assign_type gauge
+node_network_name_assign_type{device="wlan0"} 3
+# TYPE node_network_net_dev_group gauge
+node_network_net_dev_group{device="wlan0"} 0
+# TYPE node_network_transmit_queue_length gauge
+node_network_transmit_queue_length{device="wlan0"} 1000
+# TYPE node_network_protocol_type gauge
+node_network_protocol_type{device="wlan0"} 1
+# TYPE node_network_info gauge
+node_network_info{operstate="unknown",broadcast="00:00:00:00:00:00",ifalias="",address="00:00:00:00:00:00",device="lo"} 1
+# TYPE node_network_address_assign_type gauge
+node_network_address_assign_type{device="lo"} 0
+# TYPE node_network_carrier gauge
+node_network_carrier{device="lo"} 1
+# TYPE node_network_carrier_changes_total counter
+node_network_carrier_changes_total{device="lo"} 0
+# TYPE node_network_carrier_up_changes_total counter
+node_network_carrier_up_changes_total{device="lo"} 0
+# TYPE node_network_carrier_down_changes_total counter
+node_network_carrier_down_changes_total{device="lo"} 0
+# TYPE node_network_device_id gauge
+node_network_device_id{device="lo"} 0
+# TYPE node_network_dormant gauge
+node_network_dormant{device="lo"} 0
+# TYPE node_network_flags gauge
+node_network_flags{device="lo"} 9
+# TYPE node_network_iface_id gauge
+node_network_iface_id{device="lo"} 1
+# TYPE node_network_iface_link gauge
+node_network_iface_link{device="lo"} 1
+# TYPE node_network_iface_link_mode gauge
+node_network_iface_link_mode{device="lo"} 0
+# TYPE node_network_mtu_bytes gauge
+node_network_mtu_bytes{device="lo"} 65536
+# TYPE node_network_net_dev_group gauge
+node_network_net_dev_group{device="lo"} 0
+# TYPE node_network_transmit_queue_length gauge
+node_network_transmit_queue_length{device="lo"} 1000
+# TYPE node_network_protocol_type gauge
+node_network_protocol_type{device="lo"} 772
+# TYPE node_network_info gauge
+node_network_info{duplex="unknown",broadcast="ff:ff:ff:ff:ff:ff",ifalias="",address="fe:ed:de:ad:be:ef",device="eth0",operstate="up"} 1
+# TYPE node_network_address_assign_type gauge
+node_network_address_assign_type{device="eth0"} 0
+# TYPE node_network_carrier gauge
+node_network_carrier{device="eth0"} 1
+# TYPE node_network_carrier_changes_total counter
+node_network_carrier_changes_total{device="eth0"} 2
+# TYPE node_network_carrier_up_changes_total counter
+node_network_carrier_up_changes_total{device="eth0"} 1
+# TYPE node_network_carrier_down_changes_total counter
+node_network_carrier_down_changes_total{device="eth0"} 1
+# TYPE node_network_device_id gauge
+node_network_device_id{device="eth0"} 0
+# TYPE node_network_dormant gauge
+node_network_dormant{device="eth0"} 0
+# TYPE node_network_flags gauge
+node_network_flags{device="eth0"} 4867
+# TYPE node_network_iface_id gauge
+node_network_iface_id{device="eth0"} 2
+# TYPE node_network_iface_link gauge
+node_network_iface_link{device="eth0"} 2
+# TYPE node_network_iface_link_mode gauge
+node_network_iface_link_mode{device="eth0"} 0
+# TYPE node_network_mtu_bytes gauge
+node_network_mtu_bytes{device="eth0"} 1500
+# TYPE node_network_net_dev_group gauge
+node_network_net_dev_group{device="eth0"} 0
+# TYPE node_network_transmit_queue_length gauge
+node_network_transmit_queue_length{device="eth0"} 1000
+# TYPE node_network_protocol_type gauge
+node_network_protocol_type{device="eth0"} 1
+# TYPE node_network_info gauge
+node_network_info{duplex="unknown",broadcast="ff:ff:ff:ff:ff:ff",ifalias="",address="fe:ed:de:ad:be:ef",device="br-lan",operstate="up"} 1
+# TYPE node_network_address_assign_type gauge
+node_network_address_assign_type{device="br-lan"} 3
+# TYPE node_network_carrier gauge
+node_network_carrier{device="br-lan"} 1
+# TYPE node_network_carrier_changes_total counter
+node_network_carrier_changes_total{device="br-lan"} 2
+# TYPE node_network_carrier_up_changes_total counter
+node_network_carrier_up_changes_total{device="br-lan"} 1
+# TYPE node_network_carrier_down_changes_total counter
+node_network_carrier_down_changes_total{device="br-lan"} 1
+# TYPE node_network_device_id gauge
+node_network_device_id{device="br-lan"} 0
+# TYPE node_network_dormant gauge
+node_network_dormant{device="br-lan"} 0
+# TYPE node_network_flags gauge
+node_network_flags{device="br-lan"} 4099
+# TYPE node_network_iface_id gauge
+node_network_iface_id{device="br-lan"} 4
+# TYPE node_network_iface_link gauge
+node_network_iface_link{device="br-lan"} 4
+# TYPE node_network_iface_link_mode gauge
+node_network_iface_link_mode{device="br-lan"} 0
+# TYPE node_network_mtu_bytes gauge
+node_network_mtu_bytes{device="br-lan"} 1500
+# TYPE node_network_name_assign_type gauge
+node_network_name_assign_type{device="br-lan"} 3
+# TYPE node_network_net_dev_group gauge
+node_network_net_dev_group{device="br-lan"} 0
+# TYPE node_network_transmit_queue_length gauge
+node_network_transmit_queue_length{device="br-lan"} 1000
+# TYPE node_network_protocol_type gauge
+node_network_protocol_type{device="br-lan"} 1
+node_scrape_collector_duration_seconds{collector="netclass"} 0.0050239562988281
+node_scrape_collector_success{collector="netclass"} 1
+# TYPE node_network_receive_bytes_total counter
+node_network_receive_bytes_total{device="wlan0"} 795925205
+node_network_receive_bytes_total{device="lo"} 227978
+node_network_receive_bytes_total{device="eth0"} 838712273
+node_network_receive_bytes_total{device="br-lan"} 4626907
+# TYPE node_network_receive_packets_total counter
+node_network_receive_packets_total{device="wlan0"} 735436
+node_network_receive_packets_total{device="lo"} 2132
+node_network_receive_packets_total{device="eth0"} 470895
+node_network_receive_packets_total{device="br-lan"} 12227
+# TYPE node_network_receive_errs_total counter
+node_network_receive_errs_total{device="wlan0"} 0
+node_network_receive_errs_total{device="lo"} 0
+node_network_receive_errs_total{device="eth0"} 0
+node_network_receive_errs_total{device="br-lan"} 0
+# TYPE node_network_receive_drop_total counter
+node_network_receive_drop_total{device="wlan0"} 0
+node_network_receive_drop_total{device="lo"} 0
+node_network_receive_drop_total{device="eth0"} 0
+node_network_receive_drop_total{device="br-lan"} 0
+# TYPE node_network_receive_fifo_total counter
+node_network_receive_fifo_total{device="wlan0"} 0
+node_network_receive_fifo_total{device="lo"} 0
+node_network_receive_fifo_total{device="eth0"} 0
+node_network_receive_fifo_total{device="br-lan"} 0
+# TYPE node_network_receive_frame_total counter
+node_network_receive_frame_total{device="wlan0"} 0
+node_network_receive_frame_total{device="lo"} 0
+node_network_receive_frame_total{device="eth0"} 0
+node_network_receive_frame_total{device="br-lan"} 0
+# TYPE node_network_receive_compressed_total counter
+node_network_receive_compressed_total{device="wlan0"} 0
+node_network_receive_compressed_total{device="lo"} 0
+node_network_receive_compressed_total{device="eth0"} 0
+node_network_receive_compressed_total{device="br-lan"} 0
+# TYPE node_network_receive_multicast_total counter
+node_network_receive_multicast_total{device="wlan0"} 0
+node_network_receive_multicast_total{device="lo"} 0
+node_network_receive_multicast_total{device="eth0"} 0
+node_network_receive_multicast_total{device="br-lan"} 3736
+# TYPE node_network_transmit_bytes_total counter
+node_network_transmit_bytes_total{device="wlan0"} 860728040
+node_network_transmit_bytes_total{device="lo"} 227978
+node_network_transmit_bytes_total{device="eth0"} 798810181
+node_network_transmit_bytes_total{device="br-lan"} 3043797
+# TYPE node_network_transmit_packets_total counter
+node_network_transmit_packets_total{device="wlan0"} 716135
+node_network_transmit_packets_total{device="lo"} 2132
+node_network_transmit_packets_total{device="eth0"} 742967
+node_network_transmit_packets_total{device="br-lan"} 8351
+# TYPE node_network_transmit_errs_total counter
+node_network_transmit_errs_total{device="wlan0"} 0
+node_network_transmit_errs_total{device="lo"} 0
+node_network_transmit_errs_total{device="eth0"} 0
+node_network_transmit_errs_total{device="br-lan"} 0
+# TYPE node_network_transmit_drop_total counter
+node_network_transmit_drop_total{device="wlan0"} 0
+node_network_transmit_drop_total{device="lo"} 0
+node_network_transmit_drop_total{device="eth0"} 0
+node_network_transmit_drop_total{device="br-lan"} 0
+# TYPE node_network_transmit_fifo_total counter
+node_network_transmit_fifo_total{device="wlan0"} 0
+node_network_transmit_fifo_total{device="lo"} 0
+node_network_transmit_fifo_total{device="eth0"} 0
+node_network_transmit_fifo_total{device="br-lan"} 0
+# TYPE node_network_transmit_colls_total counter
+node_network_transmit_colls_total{device="wlan0"} 0
+node_network_transmit_colls_total{device="lo"} 0
+node_network_transmit_colls_total{device="eth0"} 0
+node_network_transmit_colls_total{device="br-lan"} 0
+# TYPE node_network_transmit_carrier_total counter
+node_network_transmit_carrier_total{device="wlan0"} 0
+node_network_transmit_carrier_total{device="lo"} 0
+node_network_transmit_carrier_total{device="eth0"} 0
+node_network_transmit_carrier_total{device="br-lan"} 0
+# TYPE node_network_transmit_compressed_total counter
+node_network_transmit_compressed_total{device="wlan0"} 0
+node_network_transmit_compressed_total{device="lo"} 0
+node_network_transmit_compressed_total{device="eth0"} 0
+node_network_transmit_compressed_total{device="br-lan"} 0
+node_scrape_collector_duration_seconds{collector="netdev"} 0.0017650127410889
+node_scrape_collector_success{collector="netdev"} 1
+# TYPE node_netstat_IcmpMsg_InType3 gauge
+node_netstat_IcmpMsg_InType3 7
+# TYPE node_netstat_IcmpMsg_OutType3 gauge
+node_netstat_IcmpMsg_OutType3 8
+# TYPE node_netstat_Icmp_InMsgs gauge
+node_netstat_Icmp_InMsgs 7
+# TYPE node_netstat_Icmp_InErrors gauge
+node_netstat_Icmp_InErrors 0
+# TYPE node_netstat_Icmp_InCsumErrors gauge
+node_netstat_Icmp_InCsumErrors 0
+# TYPE node_netstat_Icmp_InDestUnreachs gauge
+node_netstat_Icmp_InDestUnreachs 7
+# TYPE node_netstat_Icmp_InTimeExcds gauge
+node_netstat_Icmp_InTimeExcds 0
+# TYPE node_netstat_Icmp_InParmProbs gauge
+node_netstat_Icmp_InParmProbs 0
+# TYPE node_netstat_Icmp_InSrcQuenchs gauge
+node_netstat_Icmp_InSrcQuenchs 0
+# TYPE node_netstat_Icmp_InRedirects gauge
+node_netstat_Icmp_InRedirects 0
+# TYPE node_netstat_Icmp_InEchos gauge
+node_netstat_Icmp_InEchos 0
+# TYPE node_netstat_Icmp_InEchoReps gauge
+node_netstat_Icmp_InEchoReps 0
+# TYPE node_netstat_Icmp_InTimestamps gauge
+node_netstat_Icmp_InTimestamps 0
+# TYPE node_netstat_Icmp_InTimestampReps gauge
+node_netstat_Icmp_InTimestampReps 0
+# TYPE node_netstat_Icmp_InAddrMasks gauge
+node_netstat_Icmp_InAddrMasks 0
+# TYPE node_netstat_Icmp_InAddrMaskReps gauge
+node_netstat_Icmp_InAddrMaskReps 0
+# TYPE node_netstat_Icmp_OutMsgs gauge
+node_netstat_Icmp_OutMsgs 8
+# TYPE node_netstat_Icmp_OutErrors gauge
+node_netstat_Icmp_OutErrors 0
+# TYPE node_netstat_Icmp_OutDestUnreachs gauge
+node_netstat_Icmp_OutDestUnreachs 8
+# TYPE node_netstat_Icmp_OutTimeExcds gauge
+node_netstat_Icmp_OutTimeExcds 0
+# TYPE node_netstat_Icmp_OutParmProbs gauge
+node_netstat_Icmp_OutParmProbs 0
+# TYPE node_netstat_Icmp_OutSrcQuenchs gauge
+node_netstat_Icmp_OutSrcQuenchs 0
+# TYPE node_netstat_Icmp_OutRedirects gauge
+node_netstat_Icmp_OutRedirects 0
+# TYPE node_netstat_Icmp_OutEchos gauge
+node_netstat_Icmp_OutEchos 0
+# TYPE node_netstat_Icmp_OutEchoReps gauge
+node_netstat_Icmp_OutEchoReps 0
+# TYPE node_netstat_Icmp_OutTimestamps gauge
+node_netstat_Icmp_OutTimestamps 0
+# TYPE node_netstat_Icmp_OutTimestampReps gauge
+node_netstat_Icmp_OutTimestampReps 0
+# TYPE node_netstat_Icmp_OutAddrMasks gauge
+node_netstat_Icmp_OutAddrMasks 0
+# TYPE node_netstat_Icmp_OutAddrMaskReps gauge
+node_netstat_Icmp_OutAddrMaskReps 0
+# TYPE node_netstat_IpExt_InNoRoutes gauge
+node_netstat_IpExt_InNoRoutes 2
+# TYPE node_netstat_IpExt_InTruncatedPkts gauge
+node_netstat_IpExt_InTruncatedPkts 0
+# TYPE node_netstat_IpExt_InMcastPkts gauge
+node_netstat_IpExt_InMcastPkts 0
+# TYPE node_netstat_IpExt_OutMcastPkts gauge
+node_netstat_IpExt_OutMcastPkts 0
+# TYPE node_netstat_IpExt_InBcastPkts gauge
+node_netstat_IpExt_InBcastPkts 28
+# TYPE node_netstat_IpExt_OutBcastPkts gauge
+node_netstat_IpExt_OutBcastPkts 2
+# TYPE node_netstat_IpExt_InOctets gauge
+node_netstat_IpExt_InOctets 4696846
+# TYPE node_netstat_IpExt_OutOctets gauge
+node_netstat_IpExt_OutOctets 3118623
+# TYPE node_netstat_IpExt_InMcastOctets gauge
+node_netstat_IpExt_InMcastOctets 0
+# TYPE node_netstat_IpExt_OutMcastOctets gauge
+node_netstat_IpExt_OutMcastOctets 0
+# TYPE node_netstat_IpExt_InBcastOctets gauge
+node_netstat_IpExt_InBcastOctets 26478
+# TYPE node_netstat_IpExt_OutBcastOctets gauge
+node_netstat_IpExt_OutBcastOctets 2058
+# TYPE node_netstat_IpExt_InCsumErrors gauge
+node_netstat_IpExt_InCsumErrors 0
+# TYPE node_netstat_IpExt_InNoECTPkts gauge
+node_netstat_IpExt_InNoECTPkts 10937
+# TYPE node_netstat_IpExt_InECT1Pkts gauge
+node_netstat_IpExt_InECT1Pkts 0
+# TYPE node_netstat_IpExt_InECT0Pkts gauge
+node_netstat_IpExt_InECT0Pkts 0
+# TYPE node_netstat_IpExt_InCEPkts gauge
+node_netstat_IpExt_InCEPkts 0
+# TYPE node_netstat_IpExt_ReasmOverlaps gauge
+node_netstat_IpExt_ReasmOverlaps 0
+# TYPE node_netstat_Ip_Forwarding gauge
+node_netstat_Ip_Forwarding 1
+# TYPE node_netstat_Ip_DefaultTTL gauge
+node_netstat_Ip_DefaultTTL 64
+# TYPE node_netstat_Ip_InReceives gauge
+node_netstat_Ip_InReceives 10790
+# TYPE node_netstat_Ip_InHdrErrors gauge
+node_netstat_Ip_InHdrErrors 16
+# TYPE node_netstat_Ip_InAddrErrors gauge
+node_netstat_Ip_InAddrErrors 0
+# TYPE node_netstat_Ip_ForwDatagrams gauge
+node_netstat_Ip_ForwDatagrams 0
+# TYPE node_netstat_Ip_InUnknownProtos gauge
+node_netstat_Ip_InUnknownProtos 0
+# TYPE node_netstat_Ip_InDiscards gauge
+node_netstat_Ip_InDiscards 0
+# TYPE node_netstat_Ip_InDelivers gauge
+node_netstat_Ip_InDelivers 10308
+# TYPE node_netstat_Ip_OutRequests gauge
+node_netstat_Ip_OutRequests 10073
+# TYPE node_netstat_Ip_OutDiscards gauge
+node_netstat_Ip_OutDiscards 0
+# TYPE node_netstat_Ip_OutNoRoutes gauge
+node_netstat_Ip_OutNoRoutes 1
+# TYPE node_netstat_Ip_ReasmTimeout gauge
+node_netstat_Ip_ReasmTimeout 0
+# TYPE node_netstat_Ip_ReasmReqds gauge
+node_netstat_Ip_ReasmReqds 22
+# TYPE node_netstat_Ip_ReasmOKs gauge
+node_netstat_Ip_ReasmOKs 11
+# TYPE node_netstat_Ip_ReasmFails gauge
+node_netstat_Ip_ReasmFails 0
+# TYPE node_netstat_Ip_FragOKs gauge
+node_netstat_Ip_FragOKs 0
+# TYPE node_netstat_Ip_FragFails gauge
+node_netstat_Ip_FragFails 0
+# TYPE node_netstat_Ip_FragCreates gauge
+node_netstat_Ip_FragCreates 0
+# TYPE node_netstat_TcpExt_SyncookiesSent gauge
+node_netstat_TcpExt_SyncookiesSent 0
+# TYPE node_netstat_TcpExt_SyncookiesRecv gauge
+node_netstat_TcpExt_SyncookiesRecv 0
+# TYPE node_netstat_TcpExt_SyncookiesFailed gauge
+node_netstat_TcpExt_SyncookiesFailed 0
+# TYPE node_netstat_TcpExt_EmbryonicRsts gauge
+node_netstat_TcpExt_EmbryonicRsts 0
+# TYPE node_netstat_TcpExt_PruneCalled gauge
+node_netstat_TcpExt_PruneCalled 0
+# TYPE node_netstat_TcpExt_RcvPruned gauge
+node_netstat_TcpExt_RcvPruned 0
+# TYPE node_netstat_TcpExt_OfoPruned gauge
+node_netstat_TcpExt_OfoPruned 0
+# TYPE node_netstat_TcpExt_OutOfWindowIcmps gauge
+node_netstat_TcpExt_OutOfWindowIcmps 0
+# TYPE node_netstat_TcpExt_LockDroppedIcmps gauge
+node_netstat_TcpExt_LockDroppedIcmps 0
+# TYPE node_netstat_TcpExt_ArpFilter gauge
+node_netstat_TcpExt_ArpFilter 0
+# TYPE node_netstat_TcpExt_TW gauge
+node_netstat_TcpExt_TW 54
+# TYPE node_netstat_TcpExt_TWRecycled gauge
+node_netstat_TcpExt_TWRecycled 0
+# TYPE node_netstat_TcpExt_TWKilled gauge
+node_netstat_TcpExt_TWKilled 0
+# TYPE node_netstat_TcpExt_PAWSActive gauge
+node_netstat_TcpExt_PAWSActive 0
+# TYPE node_netstat_TcpExt_PAWSEstab gauge
+node_netstat_TcpExt_PAWSEstab 0
+# TYPE node_netstat_TcpExt_DelayedACKs gauge
+node_netstat_TcpExt_DelayedACKs 12
+# TYPE node_netstat_TcpExt_DelayedACKLocked gauge
+node_netstat_TcpExt_DelayedACKLocked 0
+# TYPE node_netstat_TcpExt_DelayedACKLost gauge
+node_netstat_TcpExt_DelayedACKLost 4
+# TYPE node_netstat_TcpExt_ListenOverflows gauge
+node_netstat_TcpExt_ListenOverflows 0
+# TYPE node_netstat_TcpExt_ListenDrops gauge
+node_netstat_TcpExt_ListenDrops 0
+# TYPE node_netstat_TcpExt_TCPHPHits gauge
+node_netstat_TcpExt_TCPHPHits 1973
+# TYPE node_netstat_TcpExt_TCPPureAcks gauge
+node_netstat_TcpExt_TCPPureAcks 1764
+# TYPE node_netstat_TcpExt_TCPHPAcks gauge
+node_netstat_TcpExt_TCPHPAcks 4059
+# TYPE node_netstat_TcpExt_TCPRenoRecovery gauge
+node_netstat_TcpExt_TCPRenoRecovery 0
+# TYPE node_netstat_TcpExt_TCPSackRecovery gauge
+node_netstat_TcpExt_TCPSackRecovery 0
+# TYPE node_netstat_TcpExt_TCPSACKReneging gauge
+node_netstat_TcpExt_TCPSACKReneging 0
+# TYPE node_netstat_TcpExt_TCPSACKReorder gauge
+node_netstat_TcpExt_TCPSACKReorder 0
+# TYPE node_netstat_TcpExt_TCPRenoReorder gauge
+node_netstat_TcpExt_TCPRenoReorder 0
+# TYPE node_netstat_TcpExt_TCPTSReorder gauge
+node_netstat_TcpExt_TCPTSReorder 0
+# TYPE node_netstat_TcpExt_TCPFullUndo gauge
+node_netstat_TcpExt_TCPFullUndo 0
+# TYPE node_netstat_TcpExt_TCPPartialUndo gauge
+node_netstat_TcpExt_TCPPartialUndo 0
+# TYPE node_netstat_TcpExt_TCPDSACKUndo gauge
+node_netstat_TcpExt_TCPDSACKUndo 0
+# TYPE node_netstat_TcpExt_TCPLossUndo gauge
+node_netstat_TcpExt_TCPLossUndo 0
+# TYPE node_netstat_TcpExt_TCPLostRetransmit gauge
+node_netstat_TcpExt_TCPLostRetransmit 0
+# TYPE node_netstat_TcpExt_TCPRenoFailures gauge
+node_netstat_TcpExt_TCPRenoFailures 0
+# TYPE node_netstat_TcpExt_TCPSackFailures gauge
+node_netstat_TcpExt_TCPSackFailures 0
+# TYPE node_netstat_TcpExt_TCPLossFailures gauge
+node_netstat_TcpExt_TCPLossFailures 0
+# TYPE node_netstat_TcpExt_TCPFastRetrans gauge
+node_netstat_TcpExt_TCPFastRetrans 0
+# TYPE node_netstat_TcpExt_TCPSlowStartRetrans gauge
+node_netstat_TcpExt_TCPSlowStartRetrans 0
+# TYPE node_netstat_TcpExt_TCPTimeouts gauge
+node_netstat_TcpExt_TCPTimeouts 0
+# TYPE node_netstat_TcpExt_TCPLossProbes gauge
+node_netstat_TcpExt_TCPLossProbes 0
+# TYPE node_netstat_TcpExt_TCPLossProbeRecovery gauge
+node_netstat_TcpExt_TCPLossProbeRecovery 0
+# TYPE node_netstat_TcpExt_TCPRenoRecoveryFail gauge
+node_netstat_TcpExt_TCPRenoRecoveryFail 0
+# TYPE node_netstat_TcpExt_TCPSackRecoveryFail gauge
+node_netstat_TcpExt_TCPSackRecoveryFail 0
+# TYPE node_netstat_TcpExt_TCPRcvCollapsed gauge
+node_netstat_TcpExt_TCPRcvCollapsed 0
+# TYPE node_netstat_TcpExt_TCPBacklogCoalesce gauge
+node_netstat_TcpExt_TCPBacklogCoalesce 14
+# TYPE node_netstat_TcpExt_TCPDSACKOldSent gauge
+node_netstat_TcpExt_TCPDSACKOldSent 0
+# TYPE node_netstat_TcpExt_TCPDSACKOfoSent gauge
+node_netstat_TcpExt_TCPDSACKOfoSent 0
+# TYPE node_netstat_TcpExt_TCPDSACKRecv gauge
+node_netstat_TcpExt_TCPDSACKRecv 0
+# TYPE node_netstat_TcpExt_TCPDSACKOfoRecv gauge
+node_netstat_TcpExt_TCPDSACKOfoRecv 0
+# TYPE node_netstat_TcpExt_TCPAbortOnData gauge
+node_netstat_TcpExt_TCPAbortOnData 0
+# TYPE node_netstat_TcpExt_TCPAbortOnClose gauge
+node_netstat_TcpExt_TCPAbortOnClose 0
+# TYPE node_netstat_TcpExt_TCPAbortOnMemory gauge
+node_netstat_TcpExt_TCPAbortOnMemory 0
+# TYPE node_netstat_TcpExt_TCPAbortOnTimeout gauge
+node_netstat_TcpExt_TCPAbortOnTimeout 0
+# TYPE node_netstat_TcpExt_TCPAbortOnLinger gauge
+node_netstat_TcpExt_TCPAbortOnLinger 0
+# TYPE node_netstat_TcpExt_TCPAbortFailed gauge
+node_netstat_TcpExt_TCPAbortFailed 0
+# TYPE node_netstat_TcpExt_TCPMemoryPressures gauge
+node_netstat_TcpExt_TCPMemoryPressures 0
+# TYPE node_netstat_TcpExt_TCPMemoryPressuresChrono gauge
+node_netstat_TcpExt_TCPMemoryPressuresChrono 0
+# TYPE node_netstat_TcpExt_TCPSACKDiscard gauge
+node_netstat_TcpExt_TCPSACKDiscard 0
+# TYPE node_netstat_TcpExt_TCPDSACKIgnoredOld gauge
+node_netstat_TcpExt_TCPDSACKIgnoredOld 0
+# TYPE node_netstat_TcpExt_TCPDSACKIgnoredNoUndo gauge
+node_netstat_TcpExt_TCPDSACKIgnoredNoUndo 0
+# TYPE node_netstat_TcpExt_TCPSpuriousRTOs gauge
+node_netstat_TcpExt_TCPSpuriousRTOs 0
+# TYPE node_netstat_TcpExt_TCPMD5NotFound gauge
+node_netstat_TcpExt_TCPMD5NotFound 0
+# TYPE node_netstat_TcpExt_TCPMD5Unexpected gauge
+node_netstat_TcpExt_TCPMD5Unexpected 0
+# TYPE node_netstat_TcpExt_TCPMD5Failure gauge
+node_netstat_TcpExt_TCPMD5Failure 0
+# TYPE node_netstat_TcpExt_TCPSackShifted gauge
+node_netstat_TcpExt_TCPSackShifted 0
+# TYPE node_netstat_TcpExt_TCPSackMerged gauge
+node_netstat_TcpExt_TCPSackMerged 0
+# TYPE node_netstat_TcpExt_TCPSackShiftFallback gauge
+node_netstat_TcpExt_TCPSackShiftFallback 0
+# TYPE node_netstat_TcpExt_TCPBacklogDrop gauge
+node_netstat_TcpExt_TCPBacklogDrop 0
+# TYPE node_netstat_TcpExt_PFMemallocDrop gauge
+node_netstat_TcpExt_PFMemallocDrop 0
+# TYPE node_netstat_TcpExt_TCPMinTTLDrop gauge
+node_netstat_TcpExt_TCPMinTTLDrop 0
+# TYPE node_netstat_TcpExt_TCPDeferAcceptDrop gauge
+node_netstat_TcpExt_TCPDeferAcceptDrop 0
+# TYPE node_netstat_TcpExt_IPReversePathFilter gauge
+node_netstat_TcpExt_IPReversePathFilter 0
+# TYPE node_netstat_TcpExt_TCPTimeWaitOverflow gauge
+node_netstat_TcpExt_TCPTimeWaitOverflow 0
+# TYPE node_netstat_TcpExt_TCPReqQFullDoCookies gauge
+node_netstat_TcpExt_TCPReqQFullDoCookies 0
+# TYPE node_netstat_TcpExt_TCPReqQFullDrop gauge
+node_netstat_TcpExt_TCPReqQFullDrop 0
+# TYPE node_netstat_TcpExt_TCPRetransFail gauge
+node_netstat_TcpExt_TCPRetransFail 0
+# TYPE node_netstat_TcpExt_TCPRcvCoalesce gauge
+node_netstat_TcpExt_TCPRcvCoalesce 1236
+# TYPE node_netstat_TcpExt_TCPOFOQueue gauge
+node_netstat_TcpExt_TCPOFOQueue 151
+# TYPE node_netstat_TcpExt_TCPOFODrop gauge
+node_netstat_TcpExt_TCPOFODrop 0
+# TYPE node_netstat_TcpExt_TCPOFOMerge gauge
+node_netstat_TcpExt_TCPOFOMerge 0
+# TYPE node_netstat_TcpExt_TCPChallengeACK gauge
+node_netstat_TcpExt_TCPChallengeACK 0
+# TYPE node_netstat_TcpExt_TCPSYNChallenge gauge
+node_netstat_TcpExt_TCPSYNChallenge 0
+# TYPE node_netstat_TcpExt_TCPFastOpenActive gauge
+node_netstat_TcpExt_TCPFastOpenActive 0
+# TYPE node_netstat_TcpExt_TCPFastOpenActiveFail gauge
+node_netstat_TcpExt_TCPFastOpenActiveFail 0
+# TYPE node_netstat_TcpExt_TCPFastOpenPassive gauge
+node_netstat_TcpExt_TCPFastOpenPassive 0
+# TYPE node_netstat_TcpExt_TCPFastOpenPassiveFail gauge
+node_netstat_TcpExt_TCPFastOpenPassiveFail 0
+# TYPE node_netstat_TcpExt_TCPFastOpenListenOverflow gauge
+node_netstat_TcpExt_TCPFastOpenListenOverflow 0
+# TYPE node_netstat_TcpExt_TCPFastOpenCookieReqd gauge
+node_netstat_TcpExt_TCPFastOpenCookieReqd 0
+# TYPE node_netstat_TcpExt_TCPFastOpenBlackhole gauge
+node_netstat_TcpExt_TCPFastOpenBlackhole 0
+# TYPE node_netstat_TcpExt_TCPSpuriousRtxHostQueues gauge
+node_netstat_TcpExt_TCPSpuriousRtxHostQueues 0
+# TYPE node_netstat_TcpExt_BusyPollRxPackets gauge
+node_netstat_TcpExt_BusyPollRxPackets 0
+# TYPE node_netstat_TcpExt_TCPAutoCorking gauge
+node_netstat_TcpExt_TCPAutoCorking 1729
+# TYPE node_netstat_TcpExt_TCPFromZeroWindowAdv gauge
+node_netstat_TcpExt_TCPFromZeroWindowAdv 0
+# TYPE node_netstat_TcpExt_TCPToZeroWindowAdv gauge
+node_netstat_TcpExt_TCPToZeroWindowAdv 0
+# TYPE node_netstat_TcpExt_TCPWantZeroWindowAdv gauge
+node_netstat_TcpExt_TCPWantZeroWindowAdv 0
+# TYPE node_netstat_TcpExt_TCPSynRetrans gauge
+node_netstat_TcpExt_TCPSynRetrans 0
+# TYPE node_netstat_TcpExt_TCPOrigDataSent gauge
+node_netstat_TcpExt_TCPOrigDataSent 6090
+# TYPE node_netstat_TcpExt_TCPHystartTrainDetect gauge
+node_netstat_TcpExt_TCPHystartTrainDetect 0
+# TYPE node_netstat_TcpExt_TCPHystartTrainCwnd gauge
+node_netstat_TcpExt_TCPHystartTrainCwnd 0
+# TYPE node_netstat_TcpExt_TCPHystartDelayDetect gauge
+node_netstat_TcpExt_TCPHystartDelayDetect 0
+# TYPE node_netstat_TcpExt_TCPHystartDelayCwnd gauge
+node_netstat_TcpExt_TCPHystartDelayCwnd 0
+# TYPE node_netstat_TcpExt_TCPACKSkippedSynRecv gauge
+node_netstat_TcpExt_TCPACKSkippedSynRecv 0
+# TYPE node_netstat_TcpExt_TCPACKSkippedPAWS gauge
+node_netstat_TcpExt_TCPACKSkippedPAWS 0
+# TYPE node_netstat_TcpExt_TCPACKSkippedSeq gauge
+node_netstat_TcpExt_TCPACKSkippedSeq 0
+# TYPE node_netstat_TcpExt_TCPACKSkippedFinWait2 gauge
+node_netstat_TcpExt_TCPACKSkippedFinWait2 0
+# TYPE node_netstat_TcpExt_TCPACKSkippedTimeWait gauge
+node_netstat_TcpExt_TCPACKSkippedTimeWait 0
+# TYPE node_netstat_TcpExt_TCPACKSkippedChallenge gauge
+node_netstat_TcpExt_TCPACKSkippedChallenge 0
+# TYPE node_netstat_TcpExt_TCPWinProbe gauge
+node_netstat_TcpExt_TCPWinProbe 0
+# TYPE node_netstat_TcpExt_TCPKeepAlive gauge
+node_netstat_TcpExt_TCPKeepAlive 1112
+# TYPE node_netstat_TcpExt_TCPMTUPFail gauge
+node_netstat_TcpExt_TCPMTUPFail 0
+# TYPE node_netstat_TcpExt_TCPMTUPSuccess gauge
+node_netstat_TcpExt_TCPMTUPSuccess 0
+# TYPE node_netstat_TcpExt_TCPDelivered gauge
+node_netstat_TcpExt_TCPDelivered 6135
+# TYPE node_netstat_TcpExt_TCPDeliveredCE gauge
+node_netstat_TcpExt_TCPDeliveredCE 0
+# TYPE node_netstat_TcpExt_TCPAckCompressed gauge
+node_netstat_TcpExt_TCPAckCompressed 0
+# TYPE node_netstat_TcpExt_TCPZeroWindowDrop gauge
+node_netstat_TcpExt_TCPZeroWindowDrop 0
+# TYPE node_netstat_TcpExt_TCPRcvQDrop gauge
+node_netstat_TcpExt_TCPRcvQDrop 0
+# TYPE node_netstat_TcpExt_TCPWqueueTooBig gauge
+node_netstat_TcpExt_TCPWqueueTooBig 0
+# TYPE node_netstat_TcpExt_TCPFastOpenPassiveAltKey gauge
+node_netstat_TcpExt_TCPFastOpenPassiveAltKey 0
+# TYPE node_netstat_TcpExt_TcpTimeoutRehash gauge
+node_netstat_TcpExt_TcpTimeoutRehash 0
+# TYPE node_netstat_TcpExt_TcpDuplicateDataRehash gauge
+node_netstat_TcpExt_TcpDuplicateDataRehash 0
+# TYPE node_netstat_TcpExt_TCPDSACKRecvSegs gauge
+node_netstat_TcpExt_TCPDSACKRecvSegs 0
+# TYPE node_netstat_TcpExt_TCPDSACKIgnoredDubious gauge
+node_netstat_TcpExt_TCPDSACKIgnoredDubious 0
+# TYPE node_netstat_Tcp_RtoAlgorithm gauge
+node_netstat_Tcp_RtoAlgorithm 1
+# TYPE node_netstat_Tcp_RtoMin gauge
+node_netstat_Tcp_RtoMin 200
+# TYPE node_netstat_Tcp_RtoMax gauge
+node_netstat_Tcp_RtoMax 120000
+# TYPE node_netstat_Tcp_MaxConn gauge
+node_netstat_Tcp_MaxConn -1
+# TYPE node_netstat_Tcp_ActiveOpens gauge
+node_netstat_Tcp_ActiveOpens 50
+# TYPE node_netstat_Tcp_PassiveOpens gauge
+node_netstat_Tcp_PassiveOpens 26
+# TYPE node_netstat_Tcp_AttemptFails gauge
+node_netstat_Tcp_AttemptFails 0
+# TYPE node_netstat_Tcp_EstabResets gauge
+node_netstat_Tcp_EstabResets 0
+# TYPE node_netstat_Tcp_CurrEstab gauge
+node_netstat_Tcp_CurrEstab 4
+# TYPE node_netstat_Tcp_InSegs gauge
+node_netstat_Tcp_InSegs 8790
+# TYPE node_netstat_Tcp_OutSegs gauge
+node_netstat_Tcp_OutSegs 8810
+# TYPE node_netstat_Tcp_RetransSegs gauge
+node_netstat_Tcp_RetransSegs 0
+# TYPE node_netstat_Tcp_InErrs gauge
+node_netstat_Tcp_InErrs 0
+# TYPE node_netstat_Tcp_OutRsts gauge
+node_netstat_Tcp_OutRsts 41
+# TYPE node_netstat_Tcp_InCsumErrors gauge
+node_netstat_Tcp_InCsumErrors 0
+# TYPE node_netstat_UdpLite_InDatagrams gauge
+node_netstat_UdpLite_InDatagrams 0
+# TYPE node_netstat_UdpLite_NoPorts gauge
+node_netstat_UdpLite_NoPorts 0
+# TYPE node_netstat_UdpLite_InErrors gauge
+node_netstat_UdpLite_InErrors 0
+# TYPE node_netstat_UdpLite_OutDatagrams gauge
+node_netstat_UdpLite_OutDatagrams 0
+# TYPE node_netstat_UdpLite_RcvbufErrors gauge
+node_netstat_UdpLite_RcvbufErrors 0
+# TYPE node_netstat_UdpLite_SndbufErrors gauge
+node_netstat_UdpLite_SndbufErrors 0
+# TYPE node_netstat_UdpLite_InCsumErrors gauge
+node_netstat_UdpLite_InCsumErrors 0
+# TYPE node_netstat_UdpLite_IgnoredMulti gauge
+node_netstat_UdpLite_IgnoredMulti 0
+# TYPE node_netstat_Udp_InDatagrams gauge
+node_netstat_Udp_InDatagrams 1466
+# TYPE node_netstat_Udp_NoPorts gauge
+node_netstat_Udp_NoPorts 8
+# TYPE node_netstat_Udp_InErrors gauge
+node_netstat_Udp_InErrors 0
+# TYPE node_netstat_Udp_OutDatagrams gauge
+node_netstat_Udp_OutDatagrams 1485
+# TYPE node_netstat_Udp_RcvbufErrors gauge
+node_netstat_Udp_RcvbufErrors 0
+# TYPE node_netstat_Udp_SndbufErrors gauge
+node_netstat_Udp_SndbufErrors 0
+# TYPE node_netstat_Udp_InCsumErrors gauge
+node_netstat_Udp_InCsumErrors 0
+# TYPE node_netstat_Udp_IgnoredMulti gauge
+node_netstat_Udp_IgnoredMulti 28
+node_scrape_collector_duration_seconds{collector="netstat"} 0.0021650791168213
+node_scrape_collector_success{collector="netstat"} 1
+# TYPE node_openwrt_info gauge
+node_openwrt_info{revision="r19803-9a599fee93",target="x86/64",board_name="qemu-standard-pc-q35-ich9-2009",id="OpenWrt",model="QEMU Standard PC (Q35 + ICH9, 2009)",release="22.03.2",system="Intel(R) Core(TM) i5-10300H CPU @ 2.50GHz"} 1
+node_scrape_collector_duration_seconds{collector="openwrt"} 2.288818359375e-05
+node_scrape_collector_success{collector="openwrt"} 1
+# TYPE node_time_seconds gauge
+node_time_seconds 1679196108
+node_scrape_collector_duration_seconds{collector="time"} 6.9141387939453e-06
+node_scrape_collector_success{collector="time"} 1
+# TYPE node_uname_info gauge
+node_uname_info{version="#0 SMP Fri Oct 14 22:44:41 2022",machine="x86_64",release="5.10.146",domainname="(none)",nodename="OpenWrt",sysname="Linux"} 1
+node_scrape_collector_duration_seconds{collector="uname"} 6.103515625e-05
+node_scrape_collector_success{collector="uname"} 1
+# TYPE wifi_network_quality gauge
+# TYPE wifi_network_bitrate gauge
+# TYPE wifi_network_noise_dbm gauge
+# TYPE wifi_network_signal_dbm gauge
+wifi_network_quality{mode="Master",ifname="wlan0",ssid="OpenWrt",channel="1",device="radio0",bssid="18:d6:c7:0b:cf:e3",country="CN",frequency="2412"} 97
+wifi_network_noise_dbm{mode="Master",ifname="wlan0",ssid="OpenWrt",channel="1",device="radio0",bssid="18:d6:c7:0b:cf:e3",country="CN",frequency="2412"} 0
+wifi_network_bitrate{mode="Master",ifname="wlan0",ssid="OpenWrt",channel="1",device="radio0",bssid="18:d6:c7:0b:cf:e3",country="CN",frequency="2412"} 72200
+wifi_network_signal_dbm{mode="Master",ifname="wlan0",ssid="OpenWrt",channel="1",device="radio0",bssid="18:d6:c7:0b:cf:e3",country="CN",frequency="2412"} -42
+node_scrape_collector_duration_seconds{collector="wifi"} 0.0011990070343018
+node_scrape_collector_success{collector="wifi"} 1
+# TYPE wifi_stations gauge
+# TYPE wifi_station_signal_dbm gauge
+# TYPE wifi_station_inactive_milliseconds gauge
+# TYPE wifi_station_expected_throughput_kilobits_per_second gauge
+# TYPE wifi_station_transmit_kilobits_per_second gauge
+# TYPE wifi_station_receive_kilobits_per_second gauge
+# TYPE wifi_station_transmit_packets_total counter
+# TYPE wifi_station_receive_packets_total counter
+# TYPE wifi_station_transmit_bytes_total counter
+# TYPE wifi_station_receive_bytes_total counter
+wifi_station_signal_dbm{mac="5C:C5:D4:04:5E:A7",ifname="wlan0"} -46
+wifi_station_inactive_milliseconds{mac="5C:C5:D4:04:5E:A7",ifname="wlan0"} 890
+wifi_station_transmit_kilobits_per_second{mac="5C:C5:D4:04:5E:A7",ifname="wlan0"} 72200
+wifi_station_receive_kilobits_per_second{mac="5C:C5:D4:04:5E:A7",ifname="wlan0"} 6000
+wifi_station_transmit_packets_total{mac="5C:C5:D4:04:5E:A7",ifname="wlan0"} 1022
+wifi_station_receive_packets_total{mac="5C:C5:D4:04:5E:A7",ifname="wlan0"} 1177
+wifi_station_signal_dbm{mac="4E:C1:16:8C:AC:01",ifname="wlan0"} -39
+wifi_station_inactive_milliseconds{mac="4E:C1:16:8C:AC:01",ifname="wlan0"} 4150
+wifi_station_transmit_kilobits_per_second{mac="4E:C1:16:8C:AC:01",ifname="wlan0"} 72200
+wifi_station_receive_kilobits_per_second{mac="4E:C1:16:8C:AC:01",ifname="wlan0"} 6000
+wifi_station_transmit_packets_total{mac="4E:C1:16:8C:AC:01",ifname="wlan0"} 103446
+wifi_station_receive_packets_total{mac="4E:C1:16:8C:AC:01",ifname="wlan0"} 187999
+wifi_stations{ifname="wlan0"} 2
+node_scrape_collector_duration_seconds{collector="wifi_stations"} 0.00032901763916016
+node_scrape_collector_success{collector="wifi_stations"} 1

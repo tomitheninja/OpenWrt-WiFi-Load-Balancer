@@ -150,6 +150,41 @@ I installed the hostapd package and restarted the VM. This time I was able to en
 
 ### Performance metrics
 
+#### Installing prometheus and grafana
+
+Prometheus is an open-source systems monitoring and alerting toolkit [x](https://prometheus.io/docs/introduction/overview/). Grafana is an open-source dashboard and data visualization tool [x](https://grafana.com/grafana/). It can be configured to use Prometheus as a data source. It is easy to use, well documented and has a large community. [x](https://grafana.com/blog/2021/02/09/how-i-monitor-my-openwrt-router-with-grafana-cloud-and-prometheus/)
+
+The recommended packages can be installed using this command
+
+```bash
+opkg install prometheus-node-exporter-lua \
+prometheus-node-exporter-lua-nat_traffic \
+prometheus-node-exporter-lua-netstat \
+prometheus-node-exporter-lua-openwrt \
+prometheus-node-exporter-lua-wifi \
+prometheus-node-exporter-lua-wifi_stations
+```
+
+By default it is only accessible from localhost. To test it, I used the curl command.
+
+```console
+root@OpenWrt:~# curl localhost:9100/metrics
+...
+wifi_station_signal_dbm{mac="4E:C1:16:8C:AC:01",ifname="wlan0"} -39
+wifi_station_inactive_milliseconds{mac="4E:C1:16:8C:AC:01",ifname="wlan0"} 4150
+wifi_station_transmit_kilobits_per_second{mac="4E:C1:16:8C:AC:01",ifname="wlan0"} 72200
+wifi_station_receive_kilobits_per_second{mac="4E:C1:16:8C:AC:01",ifname="wlan0"} 6000
+wifi_station_transmit_packets_total{mac="4E:C1:16:8C:AC:01",ifname="wlan0"} 103446
+wifi_station_receive_packets_total{mac="4E:C1:16:8C:AC:01",ifname="wlan0"} 187999
+wifi_stations{ifname="wlan0"} 2
+node_scrape_collector_duration_seconds{collector="wifi_stations"} 0.00032901763916016
+node_scrape_collector_success{collector="wifi_stations"} 1
+```
+
+As you can see, my phone was connected to the wireless network when the command was executed and was capable of transmitting with roughly 72 Mbps and receiving with 6 Mbps.
+
+Note that this snippet is only a small part of the output.
+
 ### Experimental results and analysis
 
 ### Results visualization with Grafana
@@ -163,3 +198,7 @@ I installed the hostapd package and restarted the VM. This time I was able to en
 ### Future research directions
 
 ## References
+
+```
+
+```
