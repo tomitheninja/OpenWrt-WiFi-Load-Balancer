@@ -204,18 +204,20 @@ A számítógépem specifikációjának megfelelően a \href{https://downloads.o
 
 \subsubsection{Virtuális környezet Windows alatt WSL2 segítségével}
 
-A Windows Subsystem for Linux (WSL) egy olyan alkalmazás, amely lehetővé teszi a Linux-alapú operációs rendszerek futtatását Windows alatt. A WSL2 egy újabb verziója a WSL-nek, amely a Linux kernelt futtatja a Windows alatt, így alacsonyabb szintű hozzáférést biztosít a hardverhez. \cite{wsl2}
+A Windows Subsystem for Linux (WSL) egy olyan program, amely lehetővé teszi a Linux-alapú operációs rendszerek futtatását Windows alatt. A WSL2 egy újabb verziója a WSL-nek, lehetővé teszi a Linux kernel futtatását a Windows alatt, így alacsonyabb szintű hozzáférést biztosít a hardverhez. \cite{wsl2}
 
-Bár a WSL2 a Hyper-V alapú virtualizáció segítségével egy tényleges Linux rendszert futtat, mégsem képes sem a PCI csatornán keresztül csatlakoztatott eszközöket, sem az USB csatlakozású eszközöket átadni a virtuális gépnek. Bár elméletileg lehetséges lenne a külső eszközök átadása a virtuális rendszernek USB over IP protokoll használatával, de a gyakorlatban ez nehezen elvégezhető, mivel ennek a protokollnak kifejlesztésekor a cél eszközök nem hálózati kontrollerek, hanem perifériák és tárolóeszközök voltak. \cite{wsl2_usbip}
+Azonban a WSL2 nem képes sem a PCI csatornán keresztül csatlakoztatott eszközöket, sem az USB csatlakozású eszközöket átadni a virtuális gépnek.
+
+Bár elméletileg lehetséges lenne a külső eszközök átadása a virtuális rendszernek USB over IP protokoll használatával, de a gyakorlatban ez nehezen elvégezhető, mivel ennek a protokollnak kifejlesztésekor a cél eszközök nem hálózati kontrollerek, hanem perifériák és tárolóeszközök voltak. \cite{wsl2_usbip}
 
 \subsubsection{Virtuális környezet Windows alatt Oracle VirtualBox segítségével}
 
-Az Oracle VirtualBox egy alternatív virtális környezet, amely használatához először ki le kell tiltani a WSL környezetet, mivel a kettő nem egyidejűleg futtatható. Ezután telepíthető a VirtualBox.
+Az Oracle VirtualBox egy alternatív virtuális környezet, amely használatához először le kell tiltani a WSL környezetet, mivel a kettő nem futtatható egyidejűleg.
 
 Ezt legegyszerűbben a host rendszeren futó parancsorból lehet elvégezni:
 
 \begin{lstlisting}[language=Bash]
-    bcdedit /set hypervisorlaunchtype off
+  bcdedit /set hypervisorlaunchtype off
 \end{lstlisting}
 
 
@@ -224,23 +226,98 @@ Ez a parancs letiltja a WSL indítását, így az Oracle VirtualBox is futtathat
 Ámbár az Oracle Virtualbox nem támogatja a .img kiterjesztésű képeket, de tartalmazza a VBoxManage nevű programot, amely segítségével az img kép átkonvertálható .vdi kiterjesztésű virtuális lemezzé.
 
 \begin{lstlisting}[language=Bash]
-    & 'C:\Program Files\Oracle\VirtualBox\VBoxManage.exe' convertfromraw  --format VDI '.\openwrt-22.03.3-x86-64-generic-ext4-combined.img' '.\openwrt.vdi'
+  & 'C:\Program Files\Oracle\VirtualBox\VBoxManage.exe' convertfromraw  --format VDI '.\openwrt-22.03.3-x86-64-generic-ext4-combined.img' '.\openwrt.vdi'
 \end{lstlisting}
 
-Az újonnan létrejött openwrt.vdi kép segítségével létrehozható a virtuális gép. Alapértelmezetten a host gépről nem érhető el a virtuális gép hálózata, azonban ez megoldható port-forwarding szabályok felvétele segítségével a Virtuaális gép beállításainak Hálózat / adapter1 / speciális / port forwarding menüpontjában.
+Az újonnan létrejött openwrt.vdi kép segítségével létrehozható a virtuális gép. Alapértelmezetten a host gépről nem érhető el a virtuális gép hálózata, azonban ez megoldható port-forwarding szabályok felvétele segítségével a Virtuális gép beállításainak Hálózat / adapter1 / speciális / port forwarding menüpontjában.
+
+\newpage
 
 \subsection{Hálózat beállítása OpenWrt rendszeren}
 
 \subsection{A WAN port beállítása}
 
+Az OpenWrt indítása után lehetséges, hogy az internethez való csatlakozás nem sikerül. Ennek az ellenőrzését a ping parancs segítségével lehet elvégezni:
+
+\begin{lstlisting}[language=Bash]
+  root@OpenWrt:/# ping vanenet.hu
+  ping: bad address 'vanenet.hu'
+  root@OpenWrt:/# ping 1.1.1.1
+  PING 1.1.1.1 (1.1.1.1): 56 data bytes
+  ping: sendto: Network unreachable
+\end{lstlisting}
+
+Ha a ping parancs nem sikerül, akkor valószínűleg a WAN porthoz tartozó interface konfigurációja nem megfelelő. Ezt a /etc/config/network fájlban lehet szerkeszteni.
+
+Ha a csatlakozó hálózaton DHCP szerver üzemel, akkor az alábbi módosításokkal lehet a DHCP protokollt engedélyezni:
+
+\begin{lstlisting}[]
+  config interface 'lan'
+       option device 'br-lan'
+  +    option proto 'dhcp'
+  -    option proto 'static'
+  -    option ipaddr '192.168.1.1'
+  -    option netmask '255.255.255.0'
+  -    option i6assign '60'
+\end{lstlisting}
+
+A változtatások érvényesítéséhez újra kell indítani a network szolgáltatást. Ezt a következő parancs segítségével lehet elvégezni:
+
+\begin{lstlisting}[language=Bash]
+   service network restart
+\end{lstlisting}
+
+Ezután a ping parancs segítségével lehet ellenőrizni, hogy a WAN port beállítása sikeres volt-e:
+
+\begin{lstlisting}[language=Bash]
+  root@OpenWrt:/# ping vanenet.hu
+  PING vanenet.hu (185.33.54.12): 56 data bytes
+  64 bytes from 185.33.54.12: seq=0 ttl=54 time=8.351 ms
+  64 bytes from 185.33.64.12: seq=1 ttl=54 time=8.104 ms
+  64 bytes from 185.33.64.12: seq=2 ttl=54 time=7.570 ms
+\end{lstlisting}
+
+
 \subsection{A WLAN beállítása}
+
+Az eszközhöz készített image általában tartalmazza a szükséges drivereket, ekkor a WLAN beállítása egyszerűen megoldható a webes felületen keresztül.
+
+Azonban ha a szükséges driverek nincsenek benne, akkor azokat telepíteni kell. Az \texttt{opkg} csomagkezelő segítségével lehet telepíteni a szükséges csomagokat. A telepítéshez először frissíteni kell a csomaglistát:
+
+\begin{lstlisting}[language=Bash]
+  root@OpenWrt:/# opkg update
+\end{lstlisting}
+
+Ezután a gyártóhoz tartozó kernel modult is telepíteni kell. Ez intel kártyák esetében a \texttt{kmod-iwlwifi} csomag. A telepítés után engedélyezni kell a modult, majd újra kell indítani a rendszert.
+
+\begin{lstlisting}[language=Bash]
+  root@OpenWrt:/# opkg install kmod-iwlwifi
+  root@OpenWrt:/# modprobe iwlwifi
+  root@OpenWrt:/# reboot
+\end{lstlisting}
+
+Ha ezután sem jelenik meg a WLAN interface, akkor valószínűleg nincsen telepítve a szükséges driver. A \texttt{dmesg} parancs segítségével lehet megtekinteni a rendszerüzeneteket, és ebből kideríteni, hogy melyik drivert kell telepíteni.
+
+\begin{lstlisting}
+  [ 4.953303] iwlwifi 0000:07:00.0: Direct firmware load for iwlwifi-QuZ-a0-hr-b0-39.ucode failed with error -2
+  [ 4.957677] iwlwifi 0000:07:00.0: minimum version required: iwlwifi-QuZ-a0-hr-b0-39
+  [ 4.958681] iwlwifi 0000:07:00.0: maximum version supported: iwlwifi-QuZ-a0-hr-b0-66
+\end{lstlisting}
+
+A fenti üzenet azt jelenti, hogy a \texttt{iwlwifi-QuZ-a0-hr-b0-39.ucode} fájl hiányzik, és ezt kell telepíteni. A népszerűbb driverek elérhetőek az OPKG csomagkezelőben, de gyártói oldalakról is letölthetőek.
+Az Ubuntu operációs rendszer készítői egy olyan tárolót tartanak fent, ami tartalmazza a legtöbb gyártóhoz tartozó illesztőprogramokat.
+
+Ezt az alábbi linken lehet elérni: \href[]{https://git.launchpad.net/~ubuntu-kernel/ubuntu/+source/linux-firmware/tree/}{https://git.launchpad.net/~ubuntu-kernel/ubuntu/+source/linux-firmware/tree/}
+
+% TODO: move files to /lib/firmware
+
 
 \section{Vezetéknélküli hálózati topológiák}
 
 %laptörés:
 \newpage
 
-\section*{Fuggelek}
+\section*{Függelék}
 \subsection*{A program forráskódja}
 A függelékbe kerülhetnek a hosszú táblázatok, vagy mondjuk egy programlista:
 % \begin{lstlisting}[language=Python]
