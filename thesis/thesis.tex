@@ -1,0 +1,279 @@
+\documentclass[12pt]{article}
+
+\usepackage[magyar]{babel}
+\usepackage{t1enc}
+\usepackage{times}
+% \usepackage{lipsum}
+\usepackage{graphicx}
+\usepackage[]{hyperref}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=blue,
+    filecolor=magenta,
+    urlcolor=cyan
+}
+\usepackage[backend=biber]{biblatex}
+% \usepackage[]{biblatex}
+\addbibresource{hivatkozasok.bib}
+
+\usepackage{listings}
+
+\usepackage{xcolor}
+
+\definecolor{codegreen}{rgb}{0,0.6,0}
+\definecolor{codegray}{rgb}{0.5,0.5,0.5}
+\definecolor{codepurple}{rgb}{0.58,0,0.82}
+\definecolor{backcolour}{rgb}{0.95,0.95,0.92}
+
+\lstdefinestyle{mystyle}{
+    backgroundcolor=\color{backcolour},
+    commentstyle=\color{codegreen},
+    keywordstyle=\color{magenta},
+    numberstyle=\tiny\color{codegray},
+    stringstyle=\color{codepurple},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbers=left,
+    numbersep=5pt,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=2
+}
+
+\lstset{style=mystyle}
+
+%A fejléc láblécek kialakításához:
+\usepackage{fancyhdr}
+
+%Margók:
+\hoffset -1in
+\voffset -1in
+\oddsidemargin 35mm
+\textwidth 150mm
+\topmargin 15mm
+\headheight 10mm
+\headsep 5mm
+\textheight 237mm
+
+\author{Südi Tamás}
+\title{Terhelés-kiegyenlítés AP-asszisztált roaming segítségével OpenWrt-en}
+\makeatletter
+
+\begin{document}
+
+%A FEJEZETEK KEZDŐOLDALAINAK FEJ ES LÁBLÉCE:
+%a plain oldalstílust kell átdefiniálni, hogy ott ne legyen fejléc:
+\fancypagestyle{plain}{%
+%ez mindent töröl:
+\fancyhf{}
+% a láblécbe jobboldalra kerüljön az oldalszám:
+\fancyfoot[R]{\thepage}
+%elválasztó vonal sem kell:
+\renewcommand{\headrulewidth}{0pt}
+}
+
+%A TÖBBI OLDAL FEJ ÉS LÁBLÉCE:
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\@title}
+\fancyfoot[R]{\thepage}
+
+
+%A címoldalra se fej- se lábléc nem kell:
+\thispagestyle{empty}
+
+\begin{center}
+\vspace*{1cm}
+{\Large\bf Szegedi Tudományegyetem}
+
+\vspace{0.5cm}
+
+{\Large\bf Informatikai Intézet}
+
+\vspace*{3.8cm}
+
+
+{\LARGE\bf \@title}
+
+
+\vspace*{3.6cm}
+
+{\Large Szakdolgozat}
+
+\vspace*{4cm}
+
+%TODO: supervisorok hozzáadása
+{\large
+\begin{tabular}{c@{\hspace{4cm}}c}
+	\emph{Készítette:}     &\emph{Témavezető:}\\
+	\bf{\@author}  &\bf{??????.?}\\
+	programtervező informatikus szakos     &egyetemi docens\\
+	hallgató&
+\end{tabular}
+}
+
+\vspace*{2.3cm}
+
+{\Large
+Szeged
+\\
+\vspace{2mm}
+\the\year{}
+}
+\end{center}
+
+
+%A tartalomjegyzék:
+\tableofcontents
+
+\section*{Feladatkiírás}
+
+
+A témavezető által megfogalmazott feladatkiírás. Önálló oldalon szerepel.
+\newpage
+
+\section*{Tartalmi összefoglaló}
+
+% A tartalmi összefoglalónak tartalmaznia kell (rövid, legfeljebb egy oldalas, összefüggő megfogalmazásban)
+% a következőket: a téma megnevezése, a megadott feladat megfogalmazása - a feladatkiíráshoz viszonyítva-,
+%a megoldási mód, az alkalmazott eszközök, módszerek, az elért eredmények, kulcsszavak (4-6 darab).
+%
+%Az összefoglaló nyelvének meg kell egyeznie a dolgozat nyelvével. Ha a dolgozat idegen nyelven készül,
+%magyar nyelvű tartalmi összefoglaló készítése is kötelező (külön lapon), melynek terjedelmét a TVSZ szabályozza.
+
+A dolgozat célja az AP-asszisztált roaming megvalósítása OpenWrt alapú rendszerekre.
+A dolgozat célja továbbra, hogy bemutassa az OpenWrt rendszert, a roaming technikákat és a szükséges 802.11 protokollokat.
+
+A dolgozat első fejezete az OpenWrt rendszer bemutatásával és telepítésével foglalkozik. Összehasonlítja a virtuális fejlesztői környezet előnyeit és hátrányait a fizikai környezettel, telepítés, használat, sebesség és konfigurálhatóság szempontjából.
+A dolgozat második fejezete a hálózati topológiákkal, a roaming technikákkal és a szükséges 802.11 protokollok bemutatásával foglalkozik, ismerteti az AP-asszisztált roamingot.
+A dolgozat harmadik fejezete a terhelés-kiegyenlítési algoritmusokkal foglalkozik.
+A dolgozat negyedik részében az éles környezetben történő tesztelésről és a kapott eredményekről szól.
+A dolgozat utolsó fejezete a szakirodalmat és a kapcsolódó projekteket mutatja be.
+
+\newpage
+
+\section{OpenWrt}
+
+Az OpenWrt egy Linux-alapú, nyílt forráskódú, hálózati eszközökhöz készült operációs rendszer.
+
+Az OpenWrt a gyártói firmware helyett telepíthető a támogatott eszközökön. Ahhoz képest számos előnyt kínál a felhasználóknak, beleértve a letisztultságot, a nagyobb testreszabhatóságot, több funckiót és jobb biztonságot.
+
+A legtöbb komponens és a build rendszer a GNU General Public License Version 2 licensz alatt érhető el, azonban néhány, elsősorban a nem OpenWrt-ben létrehozott részek más licensek alatt állnak. \cite{openwrt_about} \cite{openwrt_faq} \cite{openwrt_home}
+
+\subsection{Telepítés fizikai eszközre}
+
+Egyes eszközök már rendelkeznek OpenWrt vagy OpenWrt alapú firmwarrel, azonban legtöbbször ennek telepítése a felhasználó feladata.
+
+A telepítés folyamata eszközönként eltérő lehet, de általában az alábbi módokon történhet: az eszköz webes kezelőfelületen keresztül, FTP-n keresztül, SD-kártya vagy USB-meghajtó segítségével, soros port használatával.
+
+A támogatott eszközök listája a \url{https://openwrt.org/toh/start} oldalon található. Itt az eszköz támogatottságától és népszerűségétől függően megtalálhatóak annak specifikációi, a hozzá tartozó firmwarek letöltési linkje és a telepítési, visszaállítási útmútatók.
+
+
+\cite{openwrt_install}
+\cite{openwrt_stock}
+
+\subsection{Telepítés virtuális környezetbe}
+
+A virtuális környezet egy olyan szoftveres megoldás, ami lehetővé teszi azt, hogy a felhasználó egyszerre futtasson több, akár különböző operációs rendszert is a számítógépén.
+
+A virtuális környezet rengeteg előnnyel járhat egy fejlesztő számára, mint például az extra eszköz használatának elkerülése, az egyszerűbb fájlátvitel, a kijelző és a billentyűzet használata, a gyorsabb hardver, mentések készítése és visszaállítása és ezek megosztása más fejlesztőkkel. Azonban az ilyen környezeteknek is lehetnek hátrányai, mint például, hogy a hálózati kártya nem rendelkezik a szükséges hardveres támogatással és nem olyan megbízható a teljesítménye, mint egy erre tervezett eszköznek.
+
+\subsubsection{Virtuális környezet Linux alatt}
+
+A Linux-alapú operációs rendszerek népszerűek a fejlesztők körében, mivel ingyenesek és számos olyan funkcióval rendelkeznek, amelyek lehetővé teszik a hatékony és kényelmes munkavégzést.
+
+Ezen a platformon több virtuális környezet is elérhető, mint például a VirtualBox, a VMware Workstation vagy a KVM.
+
+A nyílt forráskódú Kernel-based Virtual Machine (KVM) egyik előnye, hogy képes
+átadni PCI csatlakozású eszközöket is virtuális gépnek, így alacsony szintű hozzáférést biztosít a hardverhez. \cite{kvm} \cite{pci_passthrough}
+
+Több virtuális környezet kezelő is támogatja mind az USB, mind a PCI csatlakozású eszközök átadását. Én ezek közül a virt-manager nevű programot választottam.
+
+
+Hogy egyszerűsítsem a telepítési folyamatot \href{https://github.com/uwzis/gpu-passthrough-manager}{gpu-passthrough-manager} nevű szoftvert használtam, amely segítségével felkészítettem a rendszeremet a PCI csatornán keresztül csatlakoztatott WLAN-vezérlő átadására.
+
+Ezután már csak meg kellett adnom a grub rendszerbetöltőnek, hogy a rendszert a vfio-pci.ids=8086:06f paraméterrel indítsa el, amely a WLAN-vezérlő azonoítóját jelöli.
+
+% Ehhez ugye nem kell forrást megjelölnöm?
+
+A számítógépem specifikációjának megfelelően a \href{https://downloads.openwrt.org/releases/22.03.2/targets/x86/64/openwrt-22.03.2-x86-64-generic-ext4-combined.img.gz}{openwrt-22.03.2-x86-64-generic-ext4-combined.img} képet használtam a virtuális gép létrehozásához. Ez nem tartalmaz semmilyen telepítőt, helyette grub rendszerbetöltő segítségével indítja el a rendszert.
+
+\subsubsection{Virtuális környezet Windows alatt WSL2 segítségével}
+
+A Windows Subsystem for Linux (WSL) egy olyan alkalmazás, amely lehetővé teszi a Linux-alapú operációs rendszerek futtatását Windows alatt. A WSL2 egy újabb verziója a WSL-nek, amely a Linux kernelt futtatja a Windows alatt, így alacsonyabb szintű hozzáférést biztosít a hardverhez. \cite{wsl2}
+
+Bár a WSL2 a Hyper-V alapú virtualizáció segítségével egy tényleges Linux rendszert futtat, mégsem képes sem a PCI csatornán keresztül csatlakoztatott eszközöket, sem az USB csatlakozású eszközöket átadni a virtuális gépnek. Bár elméletileg lehetséges lenne a külső eszközök átadása a virtuális rendszernek USB over IP protokoll használatával, de a gyakorlatban ez nehezen elvégezhető, mivel ennek a protokollnak kifejlesztésekor a cél eszközök nem hálózati kontrollerek, hanem perifériák és tárolóeszközök voltak. \cite{wsl2_usbip}
+
+\subsubsection{Virtuális környezet Windows alatt Oracle VirtualBox segítségével}
+
+Az Oracle VirtualBox egy alternatív virtális környezet, amely használatához először ki le kell tiltani a WSL környezetet, mivel a kettő nem egyidejűleg futtatható. Ezután telepíthető a VirtualBox.
+
+Ezt legegyszerűbben a host rendszeren futó parancsorból lehet elvégezni:
+
+\begin{lstlisting}[language=Bash]
+    bcdedit /set hypervisorlaunchtype off
+\end{lstlisting}
+
+
+Ez a parancs letiltja a WSL indítását, így az Oracle VirtualBox is futtatható lesz a gépen. A módosítások érvényesítéséhez újra kell indítani a gépet. \cite*{virtualbox_and_wsl}
+
+Ámbár az Oracle Virtualbox nem támogatja a .img kiterjesztésű képeket, de tartalmazza a VBoxManage nevű programot, amely segítségével az img kép átkonvertálható .vdi kiterjesztésű virtuális lemezzé.
+
+\begin{lstlisting}[language=Bash]
+    & 'C:\Program Files\Oracle\VirtualBox\VBoxManage.exe' convertfromraw  --format VDI '.\openwrt-22.03.3-x86-64-generic-ext4-combined.img' '.\openwrt.vdi'
+\end{lstlisting}
+
+Az újonnan létrejött openwrt.vdi kép segítségével létrehozható a virtuális gép. Alapértelmezetten a host gépről nem érhető el a virtuális gép hálózata, azonban ez megoldható port-forwarding szabályok felvétele segítségével a Virtuaális gép beállításainak Hálózat / adapter1 / speciális / port forwarding menüpontjában.
+
+\subsection{Hálózat beállítása OpenWrt rendszeren}
+
+\subsection{A WAN port beállítása}
+
+\subsection{A WLAN beállítása}
+
+%laptörés:
+\newpage
+
+\section*{Fuggelek}
+\subsection{A program forráskódja}
+A függelékbe kerülhetnek a hosszú táblázatok, vagy mondjuk egy programlista:
+% \begin{lstlisting}[language=Python]
+% for i in range(3):
+% 	print(i)
+% \end{lstlisting}
+
+
+\section*{Nyilatkozat}
+\noindent
+Alulírott \@author, programtervező informatikus szakos hallgató, kijelentem, hogy a dolgozatomat a Szegedi Tudományegyetem, Informatikai Intézet XY Tanszékén készítettem, XY  diploma megszerzése érdekében.
+%TODO tanszek es diplomahoz valami
+Kijelentem, hogy a dolgozatot más szakon korábban nem védtem meg, saját munkám eredménye, és csak a hivatkozott forrásokat (szakirodalom, eszközök, stb.) használtam fel.
+
+Tudomásul veszem, hogy szakdolgozatomat a Szegedi Tudományegyetem Diplomamunka Repozitóriumában tárolja.
+
+\vspace*{2cm}
+
+\begin{tabular}{lc}
+Szeged, \today\
+\hspace{2cm} & \makebox[6cm]{\dotfill} \\
+& aláírás \\
+\end{tabular}
+
+\section*{Köszönetnyilvánítás}
+
+Ezúton szeretnék köszönetet mondani \textbf{X. Y-nak} ezért és ezért \ldots
+
+%\section*{hivatkozások}
+
+
+\printbibliography
+
+%\bibliography{hivatkozasok}{}
+% \bibliographystyle{plain}
+% \addcontentsline{toc}{section}{Hivatkozások}
+
+\end{document}
