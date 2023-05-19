@@ -1,0 +1,1620 @@
+
+F0: 102B 0000
+FA: 1040 0000
+FA: 1040 0000 [0200]
+F9: 0000 0000
+V0: 0000 0000 [0001]
+00: 0000 0000
+BP: 2400 0041 [0000]
+G0: 1190 0000
+EC: 0000 0000 [1000]
+T0: 0000 0209 [010F]
+Jump to BL
+
+NOTICE:  BL2: v2.6(release):
+NOTICE:  BL2: Built : 14:46:08, Jul 22 2022
+NOTICE:  WDT: disabled
+NOTICE:  CPU: MT7986 (1998MHz)
+NOTICE:  EMI: Using DDR3 settings
+NOTICE:  EMI: Detected DRAM size: 512MB
+NOTICE:  EMI: complex R/W mem test passed
+NOTICE:  SPI_NAND parses attributes from parameter page.
+NOTICE:  SPI_NAND Detected ID 0xef
+NOTICE:  Page size 2048, Block size 131072, size 268435456
+NOTICE:  BL2: Booting BL31
+NOTICE:  BL31: v2.6(release):
+NOTICE:  BL31: Built : 14:46:14, Jul 22 2022
+
+
+U-Boot 2022.04-rc1 (Aug 17 2022 - 13:47:14 +0800)
+TUF-AX4200 bootloader version: 1.0.0.1
+
+CPU:   MediaTek MT7986
+Model: mt7986-rfb
+DRAM:  512 MiB
+Core:  43 devices, 15 uclasses, devicetree: embed
+MMC:   mmc@11230000: 0
+Loading Environment from MTD... 
+SPINAND raw ID: 00 EF AA 22 
+spi-nand: spi_nand spi_nand@1: Winbond SPI NAND was found.
+spi-nand: spi_nand spi_nand@1: 256 MiB, block size: 128 KiB, page size: 2048, OOB size: 64
+*** Warning - bad CRC, using default environment
+
+In:    serial@11002000
+Out:   serial@11002000
+Err:   serial@11002000
+ASUS TUF-AX4200 gpio/led init
+Net:   
+Warning: ethernet1@15100000 (eth0) using random MAC address - 32:82:93:bf:52:16
+eth0: ethernet1@15100000
+Warning: ethernet0@15100000 (eth1) using random MAC address - 6e:f0:22:8e:5e:ff
+, eth1: ethernet0@15100000
+ubi0: attaching mtd4
+ubi0: scanning is finished
+ubi0: attached mtd4 (name "UBI_DEV", size 252 MiB)
+ubi0: PEB size: 131072 bytes (128 KiB), LEB size: 126976 bytes
+ubi0: min./max. I/O unit sizes: 2048/2048, sub-page size 2048
+ubi0: VID header offset: 2048 (aligned 2048), data offset: 4096
+ubi0: good PEBs: 2016, bad PEBs: 0, corrupted PEBs: 0
+ubi0: user volume: 6, internal volumes: 1, max. volumes count: 128
+ubi0: max/mean erase counter: 4/1, WL threshold: 4096, image sequence number: 2037501690
+ubi0: available PEBs: 0, total reserved PEBs: 2016, PEBs reserved for bad PEB handling: 40
+UBI:   vol_id  reserved_pebs  alignment  data_pad  vol_type  usable_leb_size  used_ebs  used_bytes  last_eb_bytes  corrupted  upd_marker  name_len  name
+UBI:        0              1          1         0   dynamic            1f000         1       1f000         1f000          0           0         5  nvram
+UBI:        1              8          1         0   dynamic            1f000         8       f8000         1f000          0           0         7  Factory
+UBI:        2              8          1         0   dynamic            1f000         8       f8000         1f000          0           0         8  Factory2
+UBI:        3            242          1         0   dynamic            1f000       242     45fe000         1f000          0           0         5  linux
+UBI:        4            242          1         0   dynamic            1f000       242     45fe000         1f000          0           0         6  linux2
+UBI:        5            31f          1         0   dynamic            1f000       31f     60c1000         1f000          0           0         5  jffs2
+UBI: 7fffefff              2          1         0   dynamic            1f000         2       3e000             2          0           0         d  layout volume
+Read 1015808 bytes from volume Factory to 000000005f707ac0
+EEPROM set 0: OK (version 65)
+Read 1015808 bytes from volume Factory2 to 000000005f707ac0
+EEPROM set 1: OK (version 65)
+Read 1015808 bytes from volume Factory to 000000005fb45590
+Select EEPROM set 0 at offset 0x0.
+
+Please choose the operation: 
+   1: Load System code to SDRAM via TFTP.
+   2: Load System code then write to Flash via TFTP.
+   3: Boot System code via Flash (default).
+   4: Entr boot command line interface.
+   7: Load Boot Loader code then write to Flash via Serial.
+   9: Load Boot Loader code then write to Flash via TFTP.
+
+You choosed 4
+
+
+   4: Entr boot command line interface.
+
+U-Boot 2022.04-rc1 (Aug 17 2022 - 13:47:14 +0800)
+MT7986> setenv ipaddr 192.168.1.1
+MT7986> setenv serverip 192.168.1.66
+MT7986> tftpboot 0x46000000 tufax4200.bin             openwrt.bin
+switch prereq:0
+Using ethernet0@15100000 device
+TFTP from server 192.168.1.66; our IP address is 192.168.1.1
+Filename 'openwrt.bin'.
+Load address: 0x46000000
+Loading: *Got ARP REPLY, set eth addr (40:8d:5c:4e:07:cb)
+T T T T T T T T T T 
+Retry count exceeded; starting again
+MT7986> tftpboot 0x46000000 openwrt.bin
+switch prereq:0
+Using ethernet0@15100000 device
+TFTP from server 192.168.1.66; our IP address is 192.168.1.1
+Filename 'openwrt.bin'.
+Load address: 0x46000000
+Loading: *Got ARP REPLY, set eth addr (40:8d:5c:4e:07:cb)
+T T T T T T T T T T 
+Retry count exceeded; starting again
+MT7986> tftpboot 0x46000000 openwrt.bin
+switch prereq:0
+Using ethernet0@15100000 device
+TFTP from server 192.168.1.66; our IP address is 192.168.1.1
+Filename 'openwrt.bin'.
+Load address: 0x46000000
+Loading: *Got ARP REPLY, set eth addr (40:8d:5c:4e:07:cb)
+T T T T T T T T T T 
+Retry count exceeded; starting again
+MT7986> tftpboot 0x46000000 openwrt.bin
+switch prereq:0
+Using ethernet0@15100000 device
+TFTP from server 192.168.1.66; our IP address is 192.168.1.1
+Filename 'openwrt.bin'.
+Load address: 0x46000000
+Loading: *Got ARP REPLY, set eth addr (40:8d:5c:4e:07:cb)
+
+TFTP error: 'Server error.' (0)
+Starting again
+
+MT7986> tftpboot 0x46000000 openwrt.bin
+switch prereq:0
+Using ethernet0@15100000 device
+TFTP from server 192.168.1.66; our IP address is 192.168.1.1
+Filename 'openwrt.bin'.
+Load address: 0x46000000
+Loading: *Got ARP REQUEST, return our IP
+Got ARP REQUEST, return our IP
+Got ARP REQUEST, return our IP
+Got ARP REPLY, set eth addr (40:8d:5c:4e:07:cb)
+
+TFTP error: 'Server error.' (0)
+Starting again
+
+MT7986> tftpboot 0x46000000 openwrt.bin
+switch prereq:0
+Using ethernet0@15100000 device
+TFTP from server 192.168.1.66; our IP address is 192.168.1.1
+Filename 'openwrt.bin'.
+Load address: 0x46000000
+Loading: *Got ARP REPLY, set eth addr (40:8d:5c:4e:07:cb)
+
+TFTP error: 'Server error.' (0)
+Starting again
+
+MT7986> tftpboot 0x46000000 openwrt.bin
+switch prereq:0
+Using ethernet0@15100000 device
+TFTP from server 192.168.1.66; our IP address is 192.168.1.1
+Filename 'openwrt.bin'.
+Load address: 0x46000000
+Loading: *Got ARP REPLY, set eth addr (40:8d:5c:4e:07:cb)
+
+TFTP error: 'Server error.' (0)
+Starting again
+
+MT7986> tftpboot 0x46000000 openwrt.bin
+switch prereq:0
+Using ethernet0@15100000 device
+TFTP from server 192.168.1.66; our IP address is 192.168.1.1
+Filename 'openwrt.bin'.
+Load address: 0x46000000
+Loading: *Got ARP REQUEST, return our IP
+Got ARP REQUEST, return our IP
+Got ARP REQUEST, return our IP
+Got ARP REPLY, set eth addr (40:8d:5c:4e:07:cb)
+##T T T T T T 
+TFTP error: 'Unknown transfer ID.' (5)
+Starting again
+
+MT7986> tftpboot 0x46000000 openwrt.bin
+switch prereq:0
+Using ethernet0@15100000 device
+TFTP from server 192.168.1.66; our IP address is 192.168.1.1
+Filename 'openwrt.bin'.
+Load address: 0x46000000
+Loading: *Got ARP REQUEST, return our IP
+Got ARP REQUEST, return our IP
+Got ARP REQUEST, return our IP
+Got ARP REPLY, set eth addr (40:8d:5c:4e:07:cb)
+#T T T T T T Got ARP REQUEST, return our IP
+T T T T #
+Retry count exceeded; starting again
+MT7986> tftpboot 0x46000000 openwrt.bin
+switch prereq:0
+Using ethernet0@15100000 device
+TFTP from server 192.168.1.66; our IP address is 192.168.1.1
+Filename 'openwrt.bin'.
+Load address: 0x46000000
+Loading: *Got ARP REPLY, set eth addr (40:8d:5c:4e:07:cb)
+#T Got ARP REQUEST, return our IP
+T T T T T Got ARP REQUEST, return our IP
+T T T T #
+Retry count exceeded; starting again
+MT7986> tftpboot 0x46000000 openwrt.bin
+switch prereq:0
+Using ethernet0@15100000 device
+TFTP from server 192.168.1.66; our IP address is 192.168.1.1
+Filename 'openwrt.bin'.
+Load address: 0x46000000
+Loading: *Got ARP REPLY, set eth addr (40:8d:5c:4e:07:cb)
+#T Got ARP REQUEST, return our IP
+T T T T T Got ARP REQUEST, return our IP
+T T 
+TFTP error: 'Unknown transfer ID.' (5)
+Starting again
+
+MT7986> 
+MT7986> tftpboot 0x46000000 openwrt.bin
+switch prereq:0
+Using ethernet0@15100000 device
+TFTP from server 192.168.1.66; our IP address is 192.168.1.1
+Filename 'openwrt.bin'.
+Load address: 0x46000000
+Loading: *Got ARP REPLY, set eth addr (40:8d:5c:4e:07:cb)
+#################################################################
+	 #################################################################
+	 #################################################################
+	 #################################################################
+	 #################################################################
+	 #################################################################
+	 #################################################################
+	 ############################
+	 13.2 MiB/s
+done
+Bytes transferred = 7077888 (6c0000 hex)
+MT7986> bootm 0x46000000
+## Loading kernel from FIT Image at 46000000 ...
+   Using 'config-1' configuration
+   Trying 'kernel-1' kernel subimage
+     Description:  ARM64 OpenWrt Linux-5.15.111
+     Type:         Kernel Image
+     Compression:  lzma compressed
+     Data Start:   0x460000ec
+     Data Size:    3971103 Bytes = 3.8 MiB
+     Architecture: AArch64
+     OS:           Linux
+     Load Address: 0x48000000
+     Entry Point:  0x48000000
+     Hash algo:    crc32
+     Hash value:   cff89d53
+     Hash algo:    sha1
+     Hash value:   761d7b253ab303db648e88bed12e4f317acc16e3
+   Verifying Hash Integrity ... crc32+ sha1+ OK
+## Loading ramdisk from FIT Image at 46000000 ...
+   Using 'config-1' configuration
+   Trying 'initrd-1' ramdisk subimage
+     Description:  ARM64 OpenWrt asus_tuf-ax4200 initrd
+     Type:         RAMDisk Image
+     Compression:  Unknown Compression
+     Data Start:   0x463c9a48
+     Data Size:    3072024 Bytes = 2.9 MiB
+     Architecture: AArch64
+     OS:           Linux
+     Load Address: unavailable
+     Entry Point:  unavailable
+     Hash algo:    crc32
+     Hash value:   d3598061
+     Hash algo:    sha1
+     Hash value:   626551d91f9c327611d15f507845be6a982334fd
+   Verifying Hash Integrity ... crc32+ sha1+ OK
+WARNING: 'compression' nodes for ramdisks are deprecated, please fix your .its file!
+## Loading fdt from FIT Image at 46000000 ...
+   Using 'config-1' configuration
+   Trying 'fdt-1' fdt subimage
+     Description:  ARM64 OpenWrt asus_tuf-ax4200 device tree blob
+     Type:         Flat Device Tree
+     Compression:  uncompressed
+     Data Start:   0x466b7b6c
+     Data Size:    23983 Bytes = 23.4 KiB
+     Architecture: AArch64
+     Load Address: 0x47000000
+     Hash algo:    crc32
+     Hash value:   0e864c6a
+     Hash algo:    sha1
+     Hash value:   9546c1b44d5ae860aba1748191ca987a34aa23fd
+   Verifying Hash Integrity ... crc32+ sha1+ OK
+   Loading fdt from 0x466b7b6c to 0x47000000
+   Booting using the fdt blob at 0x47000000
+   Uncompressing Kernel Image
+   Loading Ramdisk to 5f50d000, end 5f7fb018 ... OK
+   Loading Device Tree to 000000005f504000, end 000000005f50cdae ... OK
+volume linux seq: 4
+
+Starting kernel ...
+
+[    0.000000] Booting Linux on physical CPU 0x0000000000 [0x410fd034]
+[    0.000000] Linux version 5.15.111 (builder@buildhost) (aarch64-openwrt-linux-musl-gcc (OpenWrt GCC 12.3.0 r22900-abec62a542) 12.3.0, GNU ld (GNU Binutils) 2.40.0) #0 SMP Tue May 16 20:54:29 2023
+[    0.000000] Machine model: ASUS TUF-AX4200
+[    0.000000] Zone ranges:
+[    0.000000]   DMA      [mem 0x0000000040000000-0x000000005fffffff]
+[    0.000000]   DMA32    empty
+[    0.000000]   Normal   empty
+[    0.000000] Movable zone start for each node
+[    0.000000] Early memory node ranges
+[    0.000000]   node   0: [mem 0x0000000040000000-0x0000000042ffffff]
+[    0.000000]   node   0: [mem 0x0000000043000000-0x000000004302ffff]
+[    0.000000]   node   0: [mem 0x0000000043030000-0x000000004fbfffff]
+[    0.000000]   node   0: [mem 0x000000004fc00000-0x000000004ffbffff]
+[    0.000000]   node   0: [mem 0x000000004ffc0000-0x000000005fffffff]
+[    0.000000] Initmem setup node 0 [mem 0x0000000040000000-0x000000005fffffff]
+[    0.000000] psci: probing for conduit method from DT.
+[    0.000000] psci: PSCIv1.1 detected in firmware.
+[    0.000000] psci: Using standard PSCI v0.2 function IDs
+[    0.000000] psci: MIGRATE_INFO_TYPE not supported.
+[    0.000000] psci: SMC Calling Convention v1.2
+[    0.000000] percpu: Embedded 17 pages/cpu s30040 r8192 d31400 u69632
+[    0.000000] pcpu-alloc: s30040 r8192 d31400 u69632 alloc=17*4096
+[    0.000000] pcpu-alloc: [0] 0 [0] 1 [0] 2 [0] 3 
+[    0.000000] Detected VIPT I-cache on CPU0
+[    0.000000] CPU features: detected: GIC system register CPU interface
+[    0.000000] CPU features: kernel page table isolation disabled by kernel configuration
+[    0.000000] Built 1 zonelists, mobility grouping on.  Total pages: 129024
+[    0.000000] Kernel command line: ubi.mtd=UBI_DEV
+[    0.000000] Dentry cache hash table entries: 65536 (order: 7, 524288 bytes, linear)
+[    0.000000] Inode-cache hash table entries: 32768 (order: 6, 262144 bytes, linear)
+[    0.000000] mem auto-init: stack:off, heap alloc:off, heap free:off
+[    0.000000] Memory: 494360K/524288K available (8384K kernel code, 904K rwdata, 2232K rodata, 448K init, 303K bss, 29928K reserved, 0K cma-reserved)
+[    0.000000] SLUB: HWalign=64, Order=0-3, MinObjects=0, CPUs=4, Nodes=1
+[    0.000000] rcu: Hierarchical RCU implementation.
+[    0.000000] 	Tracing variant of Tasks RCU enabled.
+[    0.000000] rcu: RCU calculated value of scheduler-enlistment delay is 10 jiffies.
+[    0.000000] NR_IRQS: 64, nr_irqs: 64, preallocated irqs: 0
+[    0.000000] GICv3: GIC: Using split EOI/Deactivate mode
+[    0.000000] GICv3: 640 SPIs implemented
+[    0.000000] GICv3: 0 Extended SPIs implemented
+[    0.000000] GICv3: Distributor has no Range Selector support
+[    0.000000] Root IRQ handler: gic_handle_irq
+[    0.000000] GICv3: 16 PPIs implemented
+[    0.000000] GICv3: CPU0: found redistributor 0 region 0:0x000000000c080000
+[    0.000000] arch_timer: cp15 timer(s) running at 13.00MHz (phys).
+[    0.000000] clocksource: arch_sys_counter: mask: 0xffffffffffffff max_cycles: 0x2ff89eacb, max_idle_ns: 440795202429 ns
+[    0.000000] sched_clock: 56 bits at 13MHz, resolution 76ns, wraps every 4398046511101ns
+[    0.000120] Calibrating delay loop (skipped), value calculated using timer frequency.. 26.00 BogoMIPS (lpj=130000)
+[    0.000127] pid_max: default: 32768 minimum: 301
+[    0.000331] Mount-cache hash table entries: 1024 (order: 1, 8192 bytes, linear)
+[    0.000339] Mountpoint-cache hash table entries: 1024 (order: 1, 8192 bytes, linear)
+[    0.001367] rcu: Hierarchical SRCU implementation.
+[    0.001658] smp: Bringing up secondary CPUs ...
+[    0.001918] Detected VIPT I-cache on CPU1
+[    0.001940] GICv3: CPU1: found redistributor 1 region 0:0x000000000c0a0000
+[    0.001965] CPU1: Booted secondary processor 0x0000000001 [0x410fd034]
+[    0.002225] Detected VIPT I-cache on CPU2
+[    0.002236] GICv3: CPU2: found redistributor 2 region 0:0x000000000c0c0000
+[    0.002247] CPU2: Booted secondary processor 0x0000000002 [0x410fd034]
+[    0.002489] Detected VIPT I-cache on CPU3
+[    0.002498] GICv3: CPU3: found redistributor 3 region 0:0x000000000c0e0000
+[    0.002507] CPU3: Booted secondary processor 0x0000000003 [0x410fd034]
+[    0.002532] smp: Brought up 1 node, 4 CPUs
+[    0.002546] SMP: Total of 4 processors activated.
+[    0.002549] CPU features: detected: 32-bit EL0 Support
+[    0.002553] CPU features: detected: CRC32 instructions
+[    0.002573] CPU features: emulated: Privileged Access Never (PAN) using TTBR0_EL1 switching
+[    0.002626] CPU: All CPU(s) started at EL2
+[    0.002635] alternatives: patching kernel code
+[    0.005198] clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 19112604462750000 ns
+[    0.005220] futex hash table entries: 1024 (order: 4, 65536 bytes, linear)
+[    0.005371] pinctrl core: initialized pinctrl subsystem
+[    0.005981] NET: Registered PF_NETLINK/PF_ROUTE protocol family
+[    0.006211] DMA: preallocated 128 KiB GFP_KERNEL pool for atomic allocations
+[    0.006233] DMA: preallocated 128 KiB GFP_KERNEL|GFP_DMA pool for atomic allocations
+[    0.006250] DMA: preallocated 128 KiB GFP_KERNEL|GFP_DMA32 pool for atomic allocations
+[    0.006494] thermal_sys: Registered thermal governor 'fair_share'
+[    0.006497] thermal_sys: Registered thermal governor 'bang_bang'
+[    0.006500] thermal_sys: Registered thermal governor 'step_wise'
+[    0.006503] thermal_sys: Registered thermal governor 'user_space'
+[    0.006686] ASID allocator initialised with 65536 entries
+[    0.006991] pstore: Registered ramoops as persistent store backend
+[    0.006995] ramoops: using 0x10000@0x42ff0000, ecc: 0
+[    0.014987] cryptd: max_cpu_qlen set to 1000
+[    0.016760] SCSI subsystem initialized
+[    0.016839] libata version 3.00 loaded.
+[    0.017676] clocksource: Switched to clocksource arch_sys_counter
+[    0.018193] NET: Registered PF_INET protocol family
+[    0.018273] IP idents hash table entries: 8192 (order: 4, 65536 bytes, linear)
+[    0.018632] tcp_listen_portaddr_hash hash table entries: 256 (order: 0, 4096 bytes, linear)
+[    0.018644] Table-perturb hash table entries: 65536 (order: 6, 262144 bytes, linear)
+[    0.018650] TCP established hash table entries: 4096 (order: 3, 32768 bytes, linear)
+[    0.018671] TCP bind hash table entries: 4096 (order: 4, 65536 bytes, linear)
+[    0.018718] TCP: Hash tables configured (established 4096 bind 4096)
+[    0.018779] UDP hash table entries: 256 (order: 1, 8192 bytes, linear)
+[    0.018791] UDP-Lite hash table entries: 256 (order: 1, 8192 bytes, linear)
+[    0.018883] NET: Registered PF_UNIX/PF_LOCAL protocol family
+[    0.018906] PCI: CLS 0 bytes, default 64
+[    0.019041] Unpacking initramfs...
+[    0.039653] workingset: timestamp_bits=46 max_order=17 bucket_order=0
+[    0.042176] squashfs: version 4.0 (2009/01/31) Phillip Lougher
+[    0.042190] jffs2: version 2.2 (NAND) (SUMMARY) (LZMA) (RTIME) (CMODE_PRIORITY) (c) 2001-2006 Red Hat, Inc.
+[    0.064603] Block layer SCSI generic (bsg) driver version 0.4 loaded (major 251)
+[    0.067841] Serial: 8250/16550 driver, 16 ports, IRQ sharing enabled
+[    0.069561] printk: console [ttyS0] disabled
+[    0.089730] 11002000.serial: ttyS0 at MMIO 0x11002000 (irq = 121, base_baud = 2500000) is a ST16650V2
+[    0.603967] Freeing initrd memory: 3000K
+[    0.607394] printk: console [ttyS0] enabled
+[    0.740879] mtk_rng 1020f000.trng: registered RNG driver
+[    0.740937] hwrng: no data available
+[    0.746408] cacheinfo: Unable to detect cache hierarchy for CPU 0
+[    0.758042] loop: module loaded
+[    0.761191] Loading iSCSI transport class v2.0-870.
+[    0.767595] spi-nand spi0.0: Winbond SPI NAND was found.
+[    0.772920] spi-nand spi0.0: 256 MiB, block size: 128 KiB, page size: 2048, OOB size: 128
+[    0.784053] 2 fixed-partitions partitions found on MTD device spi0.0
+[    0.790456] Creating 2 MTD partitions on "spi0.0":
+[    0.795240] 0x000000000000-0x000000400000 : "Bootloader"
+[    0.805063] 0x000000400000-0x000010000000 : "UBI_DEV"
+[    1.268153] Maxlinear Ethernet GPY211C mdio-bus:06: Firmware Version: 0x886F (release)
+[    1.277602] mtk_soc_eth 15100000.ethernet: generated random MAC address c2:6e:51:86:45:4b
+[    1.286475] mtk_soc_eth 15100000.ethernet eth0: mediatek frame engine at 0xffffffc00d600000, irq 129
+[    1.295646] mtk_soc_eth 15100000.ethernet: generated random MAC address 72:8d:8f:1e:a3:c9
+[    1.304469] mtk_soc_eth 15100000.ethernet eth1: mediatek frame engine at 0xffffffc00d600000, irq 129
+[    1.313978] i2c_dev: i2c /dev entries driver
+[    1.319284] mtk-wdt 1001c000.watchdog: Watchdog enabled (timeout=31 sec, nowayout=0)
+[    1.327719] NET: Registered PF_INET6 protocol family
+[    1.333309] Segment Routing with IPv6
+[    1.336978] In-situ OAM (IOAM) with IPv6
+[    1.340927] NET: Registered PF_PACKET protocol family
+[    1.345988] bridge: filtering via arp/ip/ip6tables is no longer available by default. Update your scripts to load br_netfilter if you need this.
+[    1.358984] 8021q: 802.1Q VLAN Support v1.8
+[    1.364146] pstore: Using crash dump compression: deflate
+[    1.409143] mt7530 mdio-bus:1f: no interrupt support
+[    1.431137] mt7530 mdio-bus:1f: configuring for fixed/2500base-x link mode
+[    1.440261] mt7530 mdio-bus:1f: Link is Up - 2.5Gbps/Full - flow control rx/tx
+[    1.449205] MediaTek MT7531 PHY mt7530-0:01: Configure LED registers (num=14)
+[    1.463728] mt7530 mdio-bus:1f lan1 (uninitialized): PHY [mt7530-0:01] driver [MediaTek MT7531 PHY] (irq=POLL)
+[    1.483308] MediaTek MT7531 PHY mt7530-0:02: Configure LED registers (num=14)
+[    1.497840] mt7530 mdio-bus:1f lan2 (uninitialized): PHY [mt7530-0:02] driver [MediaTek MT7531 PHY] (irq=POLL)
+[    1.517139] MediaTek MT7531 PHY mt7530-0:03: Configure LED registers (num=14)
+[    1.531671] mt7530 mdio-bus:1f lan3 (uninitialized): PHY [mt7530-0:03] driver [MediaTek MT7531 PHY] (irq=POLL)
+[    1.550947] MediaTek MT7531 PHY mt7530-0:04: Configure LED registers (num=14)
+[    1.565479] mt7530 mdio-bus:1f lan4 (uninitialized): PHY [mt7530-0:04] driver [MediaTek MT7531 PHY] (irq=POLL)
+[    1.576292] DSA: tree 0 setup
+[    1.579551] ubi0: default fastmap pool size: 100
+[    1.584160] ubi0: default fastmap WL pool size: 50
+[    1.588960] ubi0: attaching mtd1
+[    3.907673] random: crng init done
+[    5.712162] ubi0: scanning is finished
+[    5.739077] ubi0 warning: ubi_eba_init: cannot reserve enough PEBs for bad PEB handling, reserved 38, need 40
+[    5.749645] ubi0: attached mtd1 (name "UBI_DEV", size 252 MiB)
+[    5.755471] ubi0: PEB size: 131072 bytes (128 KiB), LEB size: 126976 bytes
+[    5.762336] ubi0: min./max. I/O unit sizes: 2048/2048, sub-page size 2048
+[    5.769106] ubi0: VID header offset: 2048 (aligned 2048), data offset: 4096
+[    5.776046] ubi0: good PEBs: 2016, bad PEBs: 0, corrupted PEBs: 0
+[    5.782121] ubi0: user volume: 6, internal volumes: 1, max. volumes count: 128
+[    5.789323] ubi0: max/mean erase counter: 4/1, WL threshold: 4096, image sequence number: 2037501690
+[    5.798432] ubi0: available PEBs: 0, total reserved PEBs: 2016, PEBs reserved for bad PEB handling: 38
+[    5.807723] ubi0: background thread "ubi_bgt0d" started, PID 462
+[    5.814004] Freeing unused kernel memory: 448K
+[    5.847709] Run /init as init process
+[    5.851355]   with arguments:
+[    5.854305]     /init
+[    5.856562]   with environment:
+[    5.859692]     HOME=/
+[    5.862037]     TERM=linux
+[    5.958828] init: Console is alive
+[    5.962307] init: - watchdog -
+[    5.968125] kmodloader: loading kernel modules from /etc/modules-boot.d/*
+[    5.977436] kmodloader: done loading kernel modules from /etc/modules-boot.d/*
+[    5.985827] init: - preinit -
+[    6.026961] mtk_soc_eth 15100000.ethernet eth0: configuring for fixed/2500base-x link mode
+[    6.035393] mtk_soc_eth 15100000.ethernet eth0: Link is Up - 2.5Gbps/Full - flow control rx/tx
+ip: SIOCSIFHWADDR: Resource busy
+[    6.221029] mt7530 mdio-bus:1f lan1: configuring for phy/gmii link mode
+[    6.232393] mt7530 mdio-bus:1f lan1: Link is Up - 1Gbps/Full - flow control rx/tx
+[    6.239937] IPv6: ADDRCONF(NETDEV_CHANGE): lan1: link becomes ready
+Press the [f] key and hit [enter] to enter failsafe mode
+Press the [1], [2], [3] or [4] key and hit [enter] to select the debug level
+[    8.258715] mt7530 mdio-bus:1f lan1: Link is Down
+[    8.265891] procd: - early -
+[    8.268834] procd: - watchdog -
+[    8.783590] procd: - watchdog -
+[    8.786861] procd: - ubus -
+[    8.839954] procd: - init -
+Please press Enter to activate this console.
+[    8.910933] urngd: v1.0.2 started.
+[    8.924394] kmodloader: loading kernel modules from /etc/modules.d/*
+[    8.934900] crypto-safexcel 10320000.crypto: EIP97:230(0,1,4,4)-HIA:270(0,5,5),PE:150/433(alg:7fcdfc00)/0/0/0
+[    8.949093] Loading modules backported from Linux version v6.1.24-0-g0102425ac76b
+[    8.956567] Backport generated by backports.git v5.15.92-1-44-gd6ea70fafd36
+[    9.280935] mt7986-wmac 18000000.wmac: Direct firmware load for mediatek/mt7986_rom_patch.bin failed with error -2
+[    9.291284] mt7986-wmac 18000000.wmac: Falling back to sysfs fallback for: mediatek/mt7986_rom_patch.bin
+[    9.315883] mt7986-wmac: probe of 18000000.wmac failed with error -12
+[    9.334969] PPP generic driver version 2.4.2
+[    9.339797] NET: Registered PF_PPPOX protocol family
+[    9.346631] kmodloader: done loading kernel modules from /etc/modules.d/*
+[   12.569985] mtk_soc_eth 15100000.ethernet eth0: Link is Down
+[   12.581924] mtk_soc_eth 15100000.ethernet eth0: configuring for fixed/2500base-x link mode
+[   12.590361] mtk_soc_eth 15100000.ethernet eth0: Link is Up - 2.5Gbps/Full - flow control rx/tx
+[   12.590955] device eth0 entered promiscuous mode
+[   12.604092] mt7530 mdio-bus:1f lan1: configuring for phy/gmii link mode
+[   12.611345] IPv6: ADDRCONF(NETDEV_CHANGE): eth0: link becomes ready
+[   12.617747] br-lan: port 1(lan1) entered blocking state
+[   12.622960] br-lan: port 1(lan1) entered disabled state
+[   12.629583] device lan1 entered promiscuous mode
+[   12.641209] mt7530 mdio-bus:1f lan2: configuring for phy/gmii link mode
+[   12.650681] br-lan: port 2(lan2) entered blocking state
+[   12.655913] br-lan: port 2(lan2) entered disabled state
+[   12.662834] device lan2 entered promiscuous mode
+[   12.671372] mt7530 mdio-bus:1f lan3: configuring for phy/gmii link mode
+[   12.680808] br-lan: port 3(lan3) entered blocking state
+[   12.686030] br-lan: port 3(lan3) entered disabled state
+[   12.693090] device lan3 entered promiscuous mode
+[   12.701449] mt7530 mdio-bus:1f lan4: configuring for phy/gmii link mode
+[   12.710854] br-lan: port 4(lan4) entered blocking state
+[   12.716084] br-lan: port 4(lan4) entered disabled state
+[   12.723334] device lan4 entered promiscuous mode
+[   12.748234] mtk_soc_eth 15100000.ethernet eth1: PHY [mdio-bus:06] driver [Maxlinear Ethernet GPY211C] (irq=POLL)
+[   12.758410] mtk_soc_eth 15100000.ethernet eth1: configuring for phy/2500base-x link mode
+[   15.773477] mt7530 mdio-bus:1f lan1: Link is Up - 1Gbps/Full - flow control rx/tx
+[   15.780988] br-lan: port 1(lan1) entered blocking state
+[   15.786198] br-lan: port 1(lan1) entered forwarding state
+[   15.792042] IPv6: ADDRCONF(NETDEV_CHANGE): br-lan: link becomes ready
+
+
+
+BusyBox v1.36.0 (2023-05-16 20:54:29 UTC) built-in shell (ash)
+
+  _______                     ________        __
+ |       |.-----.-----.-----.|  |  |  |.----.|  |_
+ |   -   ||  _  |  -__|     ||  |  |  ||   _||   _|
+ |_______||   __|_____|__|__||________||__|  |____|
+          |__| W I R E L E S S   F R E E D O M
+ -----------------------------------------------------
+ OpenWrt SNAPSHOT, r22900-abec62a542
+ -----------------------------------------------------
+=== WARNING! =====================================
+There is no root password defined on this device!
+Use the "passwd" command to set up a new password
+in order to prevent unauthorized SSH logins.
+--------------------------------------------------
+root@OpenWrt:/# ip a
+1: lo: <LOOPBACK,UP,LOWER_UP> mtu 65536 qdisc noqueue state UNKNOWN qlen 1000
+    link/loopback 00:00:00:00:00:00 brd 00:00:00:00:00:00
+    inet 127.0.0.1/8 scope host lo
+       valid_lft forever preferred_lft forever
+    inet6 ::1/128 scope host 
+       valid_lft forever preferred_lft forever
+2: eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1504 qdisc mq state UP qlen 1000
+    link/ether c2:6e:51:86:45:4b brd ff:ff:ff:ff:ff:ff
+    inet6 fe80::c06e:51ff:fe86:454b/64 scope link 
+       valid_lft forever preferred_lft forever
+3: eth1: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc mq state DOWN qlen 1000
+    link/ether c8:7f:54:20:a2:7e brd ff:ff:ff:ff:ff:ff
+4: lan1@eth0: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue master br-lan state UP qlen 1000
+    link/ether c8:7f:54:20:a2:7e brd ff:ff:ff:ff:ff:ff
+5: lan2@eth0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc noqueue master br-lan state LOWERLAYERDOWN qlen 1000
+    link/ether c8:7f:54:20:a2:7e brd ff:ff:ff:ff:ff:ff
+6: lan3@eth0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc noqueue master br-lan state LOWERLAYERDOWN qlen 1000
+    link/ether c8:7f:54:20:a2:7e brd ff:ff:ff:ff:ff:ff
+7: lan4@eth0: <NO-CARRIER,BROADCAST,MULTICAST,UP> mtu 1500 qdisc noqueue master br-lan state LOWERLAYERDOWN qlen 1000
+    link/ether c8:7f:54:20:a2:7e brd ff:ff:ff:ff:ff:ff
+8: br-lan: <BROADCAST,MULTICAST,UP,LOWER_UP> mtu 1500 qdisc noqueue state UP qlen 1000
+    link/ether c8:7f:54:20:a2:7e brd ff:ff:ff:ff:ff:ff
+    inet 192.168.1.1/24 brd 192.168.1.255 scope global br-lan
+       valid_lft forever preferred_lft forever
+    inet6 fdfb:48c0:7158::1/60 scope global noprefixroute 
+       valid_lft forever preferred_lft forever
+    inet6 fe80::ca7f:54ff:fe20:a27e/64 scope link 
+       valid_lft forever preferred_lft forever
+root@OpenWrt:/# nc l-l -p 2222 > /tmp/openwrt.bin
+BusyBox v1.36.0 (2023-05-16 20:54:29 UTC) multi-call binary.
+
+Usage: nc [IPADDR PORT]
+
+Open a pipe to IP:PORT
+root@OpenWrt:/# tftp
+/bin/ash: tftp: not found
+root@OpenWrt:/# dmesg
+[    0.000000] Booting Linux on physical CPU 0x0000000000 [0x410fd034]
+[    0.000000] Linux version 5.15.111 (builder@buildhost) (aarch64-openwrt-linux-musl-gcc (OpenWrt GCC 12.3.0 r22900-abec62a542) 12.3.0, GNU ld (GNU Binutils) 2.40.0) #0 SMP Tue May 16 20:54:29 2023
+[    0.000000] Machine model: ASUS TUF-AX4200
+[    0.000000] Zone ranges:
+[    0.000000]   DMA      [mem 0x0000000040000000-0x000000005fffffff]
+[    0.000000]   DMA32    empty
+[    0.000000]   Normal   empty
+[    0.000000] Movable zone start for each node
+[    0.000000] Early memory node ranges
+[    0.000000]   node   0: [mem 0x0000000040000000-0x0000000042ffffff]
+[    0.000000]   node   0: [mem 0x0000000043000000-0x000000004302ffff]
+[    0.000000]   node   0: [mem 0x0000000043030000-0x000000004fbfffff]
+[    0.000000]   node   0: [mem 0x000000004fc00000-0x000000004ffbffff]
+[    0.000000]   node   0: [mem 0x000000004ffc0000-0x000000005fffffff]
+[    0.000000] Initmem setup node 0 [mem 0x0000000040000000-0x000000005fffffff]
+[    0.000000] psci: probing for conduit method from DT.
+[    0.000000] psci: PSCIv1.1 detected in firmware.
+[    0.000000] psci: Using standard PSCI v0.2 function IDs
+[    0.000000] psci: MIGRATE_INFO_TYPE not supported.
+[    0.000000] psci: SMC Calling Convention v1.2
+[    0.000000] percpu: Embedded 17 pages/cpu s30040 r8192 d31400 u69632
+[    0.000000] pcpu-alloc: s30040 r8192 d31400 u69632 alloc=17*4096
+[    0.000000] pcpu-alloc: [0] 0 [0] 1 [0] 2 [0] 3 
+[    0.000000] Detected VIPT I-cache on CPU0
+[    0.000000] CPU features: detected: GIC system register CPU interface
+[    0.000000] CPU features: kernel page table isolation disabled by kernel configuration
+[    0.000000] Built 1 zonelists, mobility grouping on.  Total pages: 129024
+[    0.000000] Kernel command line: ubi.mtd=UBI_DEV
+[    0.000000] Dentry cache hash table entries: 65536 (order: 7, 524288 bytes, linear)
+[    0.000000] Inode-cache hash table entries: 32768 (order: 6, 262144 bytes, linear)
+[    0.000000] mem auto-init: stack:off, heap alloc:off, heap free:off
+[    0.000000] Memory: 494360K/524288K available (8384K kernel code, 904K rwdata, 2232K rodata, 448K init, 303K bss, 29928K reserved, 0K cma-reserved)
+[    0.000000] SLUB: HWalign=64, Order=0-3, MinObjects=0, CPUs=4, Nodes=1
+[    0.000000] rcu: Hierarchical RCU implementation.
+[    0.000000] 	Tracing variant of Tasks RCU enabled.
+[    0.000000] rcu: RCU calculated value of scheduler-enlistment delay is 10 jiffies.
+[    0.000000] NR_IRQS: 64, nr_irqs: 64, preallocated irqs: 0
+[    0.000000] GICv3: GIC: Using split EOI/Deactivate mode
+[    0.000000] GICv3: 640 SPIs implemented
+[    0.000000] GICv3: 0 Extended SPIs implemented
+[    0.000000] GICv3: Distributor has no Range Selector support
+[    0.000000] Root IRQ handler: gic_handle_irq
+[    0.000000] GICv3: 16 PPIs implemented
+[    0.000000] GICv3: CPU0: found redistributor 0 region 0:0x000000000c080000
+[    0.000000] arch_timer: cp15 timer(s) running at 13.00MHz (phys).
+[    0.000000] clocksource: arch_sys_counter: mask: 0xffffffffffffff max_cycles: 0x2ff89eacb, max_idle_ns: 440795202429 ns
+[    0.000000] sched_clock: 56 bits at 13MHz, resolution 76ns, wraps every 4398046511101ns
+[    0.000120] Calibrating delay loop (skipped), value calculated using timer frequency.. 26.00 BogoMIPS (lpj=130000)
+[    0.000127] pid_max: default: 32768 minimum: 301
+[    0.000331] Mount-cache hash table entries: 1024 (order: 1, 8192 bytes, linear)
+[    0.000339] Mountpoint-cache hash table entries: 1024 (order: 1, 8192 bytes, linear)
+[    0.001367] rcu: Hierarchical SRCU implementation.
+[    0.001658] smp: Bringing up secondary CPUs ...
+[    0.001918] Detected VIPT I-cache on CPU1
+[    0.001940] GICv3: CPU1: found redistributor 1 region 0:0x000000000c0a0000
+[    0.001965] CPU1: Booted secondary processor 0x0000000001 [0x410fd034]
+[    0.002225] Detected VIPT I-cache on CPU2
+[    0.002236] GICv3: CPU2: found redistributor 2 region 0:0x000000000c0c0000
+[    0.002247] CPU2: Booted secondary processor 0x0000000002 [0x410fd034]
+[    0.002489] Detected VIPT I-cache on CPU3
+[    0.002498] GICv3: CPU3: found redistributor 3 region 0:0x000000000c0e0000
+[    0.002507] CPU3: Booted secondary processor 0x0000000003 [0x410fd034]
+[    0.002532] smp: Brought up 1 node, 4 CPUs
+[    0.002546] SMP: Total of 4 processors activated.
+[    0.002549] CPU features: detected: 32-bit EL0 Support
+[    0.002553] CPU features: detected: CRC32 instructions
+[    0.002573] CPU features: emulated: Privileged Access Never (PAN) using TTBR0_EL1 switching
+[    0.002626] CPU: All CPU(s) started at EL2
+[    0.002635] alternatives: patching kernel code
+[    0.005198] clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 19112604462750000 ns
+[    0.005220] futex hash table entries: 1024 (order: 4, 65536 bytes, linear)
+[    0.005371] pinctrl core: initialized pinctrl subsystem
+[    0.005981] NET: Registered PF_NETLINK/PF_ROUTE protocol family
+[    0.006211] DMA: preallocated 128 KiB GFP_KERNEL pool for atomic allocations
+[    0.006233] DMA: preallocated 128 KiB GFP_KERNEL|GFP_DMA pool for atomic allocations
+[    0.006250] DMA: preallocated 128 KiB GFP_KERNEL|GFP_DMA32 pool for atomic allocations
+[    0.006494] thermal_sys: Registered thermal governor 'fair_share'
+[    0.006497] thermal_sys: Registered thermal governor 'bang_bang'
+[    0.006500] thermal_sys: Registered thermal governor 'step_wise'
+[    0.006503] thermal_sys: Registered thermal governor 'user_space'
+[    0.006686] ASID allocator initialised with 65536 entries
+[    0.006991] pstore: Registered ramoops as persistent store backend
+[    0.006995] ramoops: using 0x10000@0x42ff0000, ecc: 0
+[    0.014987] cryptd: max_cpu_qlen set to 1000
+[    0.016760] SCSI subsystem initialized
+[    0.016839] libata version 3.00 loaded.
+[    0.017676] clocksource: Switched to clocksource arch_sys_counter
+[    0.018193] NET: Registered PF_INET protocol family
+[    0.018273] IP idents hash table entries: 8192 (order: 4, 65536 bytes, linear)
+[    0.018632] tcp_listen_portaddr_hash hash table entries: 256 (order: 0, 4096 bytes, linear)
+[    0.018644] Table-perturb hash table entries: 65536 (order: 6, 262144 bytes, linear)
+[    0.018650] TCP established hash table entries: 4096 (order: 3, 32768 bytes, linear)
+[    0.018671] TCP bind hash table entries: 4096 (order: 4, 65536 bytes, linear)
+[    0.018718] TCP: Hash tables configured (established 4096 bind 4096)
+[    0.018779] UDP hash table entries: 256 (order: 1, 8192 bytes, linear)
+[    0.018791] UDP-Lite hash table entries: 256 (order: 1, 8192 bytes, linear)
+[    0.018883] NET: Registered PF_UNIX/PF_LOCAL protocol family
+[    0.018906] PCI: CLS 0 bytes, default 64
+[    0.019041] Unpacking initramfs...
+[    0.039653] workingset: timestamp_bits=46 max_order=17 bucket_order=0
+[    0.042176] squashfs: version 4.0 (2009/01/31) Phillip Lougher
+[    0.042190] jffs2: version 2.2 (NAND) (SUMMARY) (LZMA) (RTIME) (CMODE_PRIORITY) (c) 2001-2006 Red Hat, Inc.
+[    0.064603] Block layer SCSI generic (bsg) driver version 0.4 loaded (major 251)
+[    0.067841] Serial: 8250/16550 driver, 16 ports, IRQ sharing enabled
+[    0.069561] printk: console [ttyS0] disabled
+[    0.089730] 11002000.serial: ttyS0 at MMIO 0x11002000 (irq = 121, base_baud = 2500000) is a ST16650V2
+[    0.603967] Freeing initrd memory: 3000K
+[    0.607394] printk: console [ttyS0] enabled
+[    0.740879] mtk_rng 1020f000.trng: registered RNG driver
+[    0.740937] hwrng: no data available
+[    0.746408] cacheinfo: Unable to detect cache hierarchy for CPU 0
+[    0.758042] loop: module loaded
+[    0.761191] Loading iSCSI transport class v2.0-870.
+[    0.767595] spi-nand spi0.0: Winbond SPI NAND was found.
+[    0.772920] spi-nand spi0.0: 256 MiB, block size: 128 KiB, page size: 2048, OOB size: 128
+[    0.784053] 2 fixed-partitions partitions found on MTD device spi0.0
+[    0.790456] Creating 2 MTD partitions on "spi0.0":
+[    0.795240] 0x000000000000-0x000000400000 : "Bootloader"
+[    0.805063] 0x000000400000-0x000010000000 : "UBI_DEV"
+[    1.268153] Maxlinear Ethernet GPY211C mdio-bus:06: Firmware Version: 0x886F (release)
+[    1.277602] mtk_soc_eth 15100000.ethernet: generated random MAC address c2:6e:51:86:45:4b
+[    1.286475] mtk_soc_eth 15100000.ethernet eth0: mediatek frame engine at 0xffffffc00d600000, irq 129
+[    1.295646] mtk_soc_eth 15100000.ethernet: generated random MAC address 72:8d:8f:1e:a3:c9
+[    1.304469] mtk_soc_eth 15100000.ethernet eth1: mediatek frame engine at 0xffffffc00d600000, irq 129
+[    1.313978] i2c_dev: i2c /dev entries driver
+[    1.319284] mtk-wdt 1001c000.watchdog: Watchdog enabled (timeout=31 sec, nowayout=0)
+[    1.327719] NET: Registered PF_INET6 protocol family
+[    1.333309] Segment Routing with IPv6
+[    1.336978] In-situ OAM (IOAM) with IPv6
+[    1.340927] NET: Registered PF_PACKET protocol family
+[    1.345988] bridge: filtering via arp/ip/ip6tables is no longer available by default. Update your scripts to load br_netfilter if you need this.
+[    1.358984] 8021q: 802.1Q VLAN Support v1.8
+[    1.364146] pstore: Using crash dump compression: deflate
+[    1.409143] mt7530 mdio-bus:1f: no interrupt support
+[    1.431137] mt7530 mdio-bus:1f: configuring for fixed/2500base-x link mode
+[    1.440261] mt7530 mdio-bus:1f: Link is Up - 2.5Gbps/Full - flow control rx/tx
+[    1.449205] MediaTek MT7531 PHY mt7530-0:01: Configure LED registers (num=14)
+[    1.463728] mt7530 mdio-bus:1f lan1 (uninitialized): PHY [mt7530-0:01] driver [MediaTek MT7531 PHY] (irq=POLL)
+[    1.483308] MediaTek MT7531 PHY mt7530-0:02: Configure LED registers (num=14)
+[    1.497840] mt7530 mdio-bus:1f lan2 (uninitialized): PHY [mt7530-0:02] driver [MediaTek MT7531 PHY] (irq=POLL)
+[    1.517139] MediaTek MT7531 PHY mt7530-0:03: Configure LED registers (num=14)
+[    1.531671] mt7530 mdio-bus:1f lan3 (uninitialized): PHY [mt7530-0:03] driver [MediaTek MT7531 PHY] (irq=POLL)
+[    1.550947] MediaTek MT7531 PHY mt7530-0:04: Configure LED registers (num=14)
+[    1.565479] mt7530 mdio-bus:1f lan4 (uninitialized): PHY [mt7530-0:04] driver [MediaTek MT7531 PHY] (irq=POLL)
+[    1.576292] DSA: tree 0 setup
+[    1.579551] ubi0: default fastmap pool size: 100
+[    1.584160] ubi0: default fastmap WL pool size: 50
+[    1.588960] ubi0: attaching mtd1
+[    3.907673] random: crng init done
+[    5.712162] ubi0: scanning is finished
+[    5.739077] ubi0 warning: ubi_eba_init: cannot reserve enough PEBs for bad PEB handling, reserved 38, need 40
+[    5.749645] ubi0: attached mtd1 (name "UBI_DEV", size 252 MiB)
+[    5.755471] ubi0: PEB size: 131072 bytes (128 KiB), LEB size: 126976 bytes
+[    5.762336] ubi0: min./max. I/O unit sizes: 2048/2048, sub-page size 2048
+[    5.769106] ubi0: VID header offset: 2048 (aligned 2048), data offset: 4096
+[    5.776046] ubi0: good PEBs: 2016, bad PEBs: 0, corrupted PEBs: 0
+[    5.782121] ubi0: user volume: 6, internal volumes: 1, max. volumes count: 128
+[    5.789323] ubi0: max/mean erase counter: 4/1, WL threshold: 4096, image sequence number: 2037501690
+[    5.798432] ubi0: available PEBs: 0, total reserved PEBs: 2016, PEBs reserved for bad PEB handling: 38
+[    5.807723] ubi0: background thread "ubi_bgt0d" started, PID 462
+[    5.814004] Freeing unused kernel memory: 448K
+[    5.847709] Run /init as init process
+[    5.851355]   with arguments:
+[    5.854305]     /init
+[    5.856562]   with environment:
+[    5.859692]     HOME=/
+[    5.862037]     TERM=linux
+[    5.958828] init: Console is alive
+[    5.962307] init: - watchdog -
+[    5.968125] kmodloader: loading kernel modules from /etc/modules-boot.d/*
+[    5.977436] kmodloader: done loading kernel modules from /etc/modules-boot.d/*
+[    5.985827] init: - preinit -
+[    6.026961] mtk_soc_eth 15100000.ethernet eth0: configuring for fixed/2500base-x link mode
+[    6.035393] mtk_soc_eth 15100000.ethernet eth0: Link is Up - 2.5Gbps/Full - flow control rx/tx
+[    6.221029] mt7530 mdio-bus:1f lan1: configuring for phy/gmii link mode
+[    6.232393] mt7530 mdio-bus:1f lan1: Link is Up - 1Gbps/Full - flow control rx/tx
+[    6.239937] IPv6: ADDRCONF(NETDEV_CHANGE): lan1: link becomes ready
+[    8.258715] mt7530 mdio-bus:1f lan1: Link is Down
+[    8.265891] procd: - early -
+[    8.268834] procd: - watchdog -
+[    8.783590] procd: - watchdog -
+[    8.786861] procd: - ubus -
+[    8.839954] procd: - init -
+[    8.910933] urngd: v1.0.2 started.
+[    8.924394] kmodloader: loading kernel modules from /etc/modules.d/*
+[    8.934900] crypto-safexcel 10320000.crypto: EIP97:230(0,1,4,4)-HIA:270(0,5,5),PE:150/433(alg:7fcdfc00)/0/0/0
+[    8.949093] Loading modules backported from Linux version v6.1.24-0-g0102425ac76b
+[    8.956567] Backport generated by backports.git v5.15.92-1-44-gd6ea70fafd36
+[    9.280935] mt7986-wmac 18000000.wmac: Direct firmware load for mediatek/mt7986_rom_patch.bin failed with error -2
+[    9.291284] mt7986-wmac 18000000.wmac: Falling back to sysfs fallback for: mediatek/mt7986_rom_patch.bin
+[    9.315883] mt7986-wmac: probe of 18000000.wmac failed with error -12
+[    9.334969] PPP generic driver version 2.4.2
+[    9.339797] NET: Registered PF_PPPOX protocol family
+[    9.346631] kmodloader: done loading kernel modules from /etc/modules.d/*
+[   12.569985] mtk_soc_eth 15100000.ethernet eth0: Link is Down
+[   12.581924] mtk_soc_eth 15100000.ethernet eth0: configuring for fixed/2500base-x link mode
+[   12.590361] mtk_soc_eth 15100000.ethernet eth0: Link is Up - 2.5Gbps/Full - flow control rx/tx
+[   12.590955] device eth0 entered promiscuous mode
+[   12.604092] mt7530 mdio-bus:1f lan1: configuring for phy/gmii link mode
+[   12.611345] IPv6: ADDRCONF(NETDEV_CHANGE): eth0: link becomes ready
+[   12.617747] br-lan: port 1(lan1) entered blocking state
+[   12.622960] br-lan: port 1(lan1) entered disabled state
+[   12.629583] device lan1 entered promiscuous mode
+[   12.641209] mt7530 mdio-bus:1f lan2: configuring for phy/gmii link mode
+[   12.650681] br-lan: port 2(lan2) entered blocking state
+[   12.655913] br-lan: port 2(lan2) entered disabled state
+[   12.662834] device lan2 entered promiscuous mode
+[   12.671372] mt7530 mdio-bus:1f lan3: configuring for phy/gmii link mode
+[   12.680808] br-lan: port 3(lan3) entered blocking state
+[   12.686030] br-lan: port 3(lan3) entered disabled state
+[   12.693090] device lan3 entered promiscuous mode
+[   12.701449] mt7530 mdio-bus:1f lan4: configuring for phy/gmii link mode
+[   12.710854] br-lan: port 4(lan4) entered blocking state
+[   12.716084] br-lan: port 4(lan4) entered disabled state
+[   12.723334] device lan4 entered promiscuous mode
+[   12.748234] mtk_soc_eth 15100000.ethernet eth1: PHY [mdio-bus:06] driver [Maxlinear Ethernet GPY211C] (irq=POLL)
+[   12.758410] mtk_soc_eth 15100000.ethernet eth1: configuring for phy/2500base-x link mode
+[   15.773477] mt7530 mdio-bus:1f lan1: Link is Up - 1Gbps/Full - flow control rx/tx
+[   15.780988] br-lan: port 1(lan1) entered blocking state
+[   15.786198] br-lan: port 1(lan1) entered forwarding state
+[   15.792042] IPv6: ADDRCONF(NETDEV_CHANGE): br-lan: link becomes ready
+root@OpenWrt:/# cd /dev
+root@OpenWrt:/dev# ls
+console       loop5         ptmx          ttyS12        ubi0
+full          loop6         pts           ttyS13        ubi0_0
+gpiochip0     loop7         random        ttyS14        ubi0_1
+hwrng         mtd0          shm           ttyS15        ubi0_2
+kmsg          mtd0ro        stderr        ttyS2         ubi0_3
+log           mtd1          stdin         ttyS3         ubi0_4
+loop-control  mtd1ro        stdout        ttyS4         ubi0_5
+loop0         mtdblock0     tty           ttyS5         ubi_ctrl
+loop1         mtdblock1     ttyS0         ttyS6         urandom
+loop2         null          ttyS1         ttyS7         watchdog
+loop3         port          ttyS10        ttyS8         watchdog0
+loop4         ppp           ttyS11        ttyS9         zero
+root@OpenWrt:/dev# wget
+Usage: wget [options] <URL>
+Options:
+	-4				Use IPv4 only
+	-6				Use IPv6 only
+	-O <file>			Redirect output to file (use "-" for stdout)
+	-P <dir>			Set directory for output files
+	--quiet | -q			Turn off status messages
+	--continue | -c			Continue a partially-downloaded file
+	--user=<user>			HTTP authentication username
+	--password=<password>		HTTP authentication password
+	--user-agent | -U <str>		Set HTTP user agent
+	--post-data=STRING		use the POST method; send STRING as the data
+	--post-file=FILE		use the POST method; send FILE as the data
+	--spider | -s			Spider mode - only check file existence
+	--timeout=N | -T N		Set connect/request timeout to N seconds
+	--proxy=on | -Y on		Enable interpretation of proxy env vars (default)
+	--proxy=off | -Y off |
+	--no-proxy           		Disable interpretation of proxy env vars
+
+HTTPS options:
+	--ca-certificate=<cert>		Load CA certificates from file <cert>
+	--no-check-certificate		don't validate the server's certificate
+	--ciphers=<cipherlist>		Set the cipher list string
+
+root@OpenWrt:/dev# wget ^C
+
+root@OpenWrt:/dev# cd /tmp
+root@OpenWrt:/tmp# wget httpL/://192/168/.168.1.66/openwrt.bin
+Downloading 'http://192.168.1.66/openwrt.bin'
+Connecting to 192.168.1.66:80
+Writing to 'openwrt.bin'
+Cannot open output file: File exists
+root@OpenWrt:/tmp# ls
+TZ             hosts          openwrt.bin    shm
+dhcp.leases    lib            resolv.conf    state
+dnsmasq.d      lock           resolv.conf.d  sysinfo
+etc            log            run            tmp
+root@OpenWrt:/tmp# rm operoot@OpenWrt:/tmp# rm openwrt.bin 
+root@OpenWrt:/tmp# root@OpenWrt:/tmp# rm openwrt.bin root@OpenWrt:/tmp# lsroot@OpenWrt:/tmp# wget http://192.168.1.66/openwrt.bin
+Downloading 'http://192.168.1.66/openwrt.bin'
+Connecting to 192.168.1.66:80
+Writing to 'openwrt.bin'
+openwrt.bin          100% |*******************************|  8390k  0:00:00 ETA
+Download completed (8591665 bytes)
+root@OpenWrt:/tmp# dydsysroot@OpenWrt:/tmp# sysuroot@OpenWrt:/tmp# sysupgrade -n operoot@OpenWrt:/tmp# sysupgrade -n openwrt.bin 
+verifying sysupgrade tar file integrity
+Tue May 16 21:00:28 UTC 2023 upgrade: Commencing upgrade. Closing all shell sessions.
+Watchdog handover: fd=3
+- watchdog -
+Watchdog does not have CARDRESET support
+Tue May 16 21:00:29 UTC 2023 upgrade: Sending TERM to remaining processes ...
+Tue May 16 21:00:33 UTC 2023 upgrade: Sending KILL to remaining processes ...
+[  379.131010] stage2 (2573): drop_caches: 3
+Tue May 16 21:00:39 UTC 2023 upgrade: Switching to ramdisk...
+Tue May 16 21:00:39 UTC 2023 upgrade: Performing system upgrade...
+verifying sysupgrade tar file integrity
+[  379.994008] ubi0: reserved more 2 PEBs for bad PEB handling
+Volume ID 3, size 32 LEBs (4063232 bytes, 3.8 MiB), LEB size 126976 bytes (124.0 KiB), dynamic, name "linux", alignment 1
+Volume ID 6, size 37 LEBs (4698112 bytes, 4.4 MiB), LEB size 126976 bytes (124.0 KiB), dynamic, name "rootfs", alignment 1
+Set volume size to 64376832
+Volume ID 7, size 507 LEBs (64376832 bytes, 61.3 MiB), LEB size 126976 bytes (124.0 KiB), dynamic, name "rootfs_data", alignment 1
+sysupgrade successful
+umount: can't unmount /dev: Resource busy[  387.179448] mt7530 mdio-bus:1f lan1: Link is Down
+
+umount: can't unmount /tmp: Resource busy
+[  387.188549] br-lan: port 1(lan1) entered disabled state
+[  387.194659] br-lan: port 2(lan2) entered disabled state
+[  387.199918] br-lan: port 3(lan3) entered disabled state
+[  387.205169] br-lan: port 4(lan4) entered disabled state
+[  387.211164] device lan1 left promiscuous mode
+[  387.215515] br-lan: port 1(lan1) entered disabled state
+[  387.299940] device lan2 left promiscuous mode
+[  387.304288] br-lan: port 2(lan2) entered disabled state
+[  387.379122] device lan3 left promiscuous mode
+[  387.383462] br-lan: port 3(lan3) entered disabled state
+[  387.449104] device lan4 left promiscuous mode
+[  387.453446] br-lan: port 4(lan4) entered disabled state
+[  387.519674] device eth0 left promiscuous mode
+[  387.567907] reboot: Restarting system
+
+F0: 102B 0000
+FA: 1040 0000
+FA: 1040 0000 [0200]
+F9: 0000 0000
+V0: 0000 0000 [0001]
+00: 0000 0000
+BP: 2400 0041 [0000]
+G0: 1190 0000
+EC: 0000 0000 [1000]
+T0: 0000 0209 [010F]
+Jump to BL
+
+NOTICE:  BL2: v2.6(release):
+NOTICE:  BL2: Built : 14:46:08, Jul 22 2022
+NOTICE:  WDT: disabled
+NOTICE:  CPU: MT7986 (2000MHz)
+NOTICE:  EMI: Using DDR3 settings
+NOTICE:  EMI: Detected DRAM size: 512MB
+NOTICE:  EMI: complex R/W mem test passed
+NOTICE:  SPI_NAND parses attributes from parameter page.
+NOTICE:  SPI_NAND Detected ID 0xef
+NOTICE:  Page size 2048, Block size 131072, size 268435456
+NOTICE:  BL2: Booting BL31
+NOTICE:  BL31: v2.6(release):
+NOTICE:  BL31: Built : 14:46:14, Jul 22 2022
+
+
+U-Boot 2022.04-rc1 (Aug 17 2022 - 13:47:14 +0800)
+TUF-AX4200 bootloader version: 1.0.0.1
+
+CPU:   MediaTek MT7986
+Model: mt7986-rfb
+DRAM:  512 MiB
+Core:  43 devices, 15 uclasses, devicetree: embed
+MMC:   mmc@11230000: 0
+Loading Environment from MTD... 
+SPINAND raw ID: 00 EF AA 22 
+spi-nand: spi_nand spi_nand@1: Winbond SPI NAND was found.
+spi-nand: spi_nand spi_nand@1: 256 MiB, block size: 128 KiB, page size: 2048, OOB size: 64
+*** Warning - bad CRC, using default environment
+
+In:    serial@11002000
+Out:   serial@11002000
+Err:   serial@11002000
+ASUS TUF-AX4200 gpio/led init
+Net:   
+Warning: ethernet1@15100000 (eth0) using random MAC address - f2:a4:2b:b0:34:a7
+eth0: ethernet1@15100000
+Warning: ethernet0@15100000 (eth1) using random MAC address - 82:9d:b4:5e:da:d1
+, eth1: ethernet0@15100000
+ubi0: attaching mtd4
+ubi0: scanning is finished
+ubi0: attached mtd4 (name "UBI_DEV", size 252 MiB)
+ubi0: PEB size: 131072 bytes (128 KiB), LEB size: 126976 bytes
+ubi0: min./max. I/O unit sizes: 2048/2048, sub-page size 2048
+ubi0: VID header offset: 2048 (aligned 2048), data offset: 4096
+ubi0: good PEBs: 2016, bad PEBs: 0, corrupted PEBs: 0
+ubi0: user volume: 8, internal volumes: 1, max. volumes count: 128
+ubi0: max/mean erase counter: 5/1, WL threshold: 4096, image sequence number: 2037501690
+ubi0: available PEBs: 2, total reserved PEBs: 2014, PEBs reserved for bad PEB handling: 40
+UBI:   vol_id  reserved_pebs  alignment  data_pad  vol_type  usable_leb_size  used_ebs  used_bytes  last_eb_bytes  corrupted  upd_marker  name_len  name
+UBI:        0              1          1         0   dynamic            1f000         1       1f000         1f000          0           0         5  nvram
+UBI:        1              8          1         0   dynamic            1f000         8       f8000         1f000          0           0         7  Factory
+UBI:        2              8          1         0   dynamic            1f000         8       f8000         1f000          0           0         8  Factory2
+UBI:        3             20          1         0   dynamic            1f000        20      3e0000         1f000          0           0         5  linux
+UBI:        4            242          1         0   dynamic            1f000       242     45fe000         1f000          0           0         6  linux2
+UBI:        5            31f          1         0   dynamic            1f000       31f     60c1000         1f000          0           0         5  jffs2
+UBI:        6             25          1         0   dynamic            1f000        25      47b000         1f000          0           0         6  rootfs
+UBI:        7            1fb          1         0   dynamic            1f000       1fb     3d65000         1f000          0           0         b  rootfs_data
+UBI: 7fffefff              2          1         0   dynamic            1f000         2       3e000             2          0           0         d  layout volume
+UBI volume [linux] size 3e0000 smaller than 45fe000!
+Read 1015808 bytes from volume Factory to 000000005f707ac0
+EEPROM set 0: OK (version 65)
+Read 1015808 bytes from volume Factory2 to 000000005f707ac0
+EEPROM set 1: OK (version 65)
+Read 1015808 bytes from volume Factory to 000000005fb45590
+Select EEPROM set 0 at offset 0x0.
+
+Please choose the operation: 
+   1: Load System code to SDRAM via TFTP.
+   2: Load System code then write to Flash via TFTP.
+   3: Boot System code via Flash (default).
+   4: Entr boot command line interface.
+   7: Load Boot Loader code then write to Flash via Serial.
+   9: Load Boot Loader code then write to Flash via TFTP.
+ 1  0 
+   3: Boot System code via Flash (default).
+
+TUF-AX4200 bootloader version: 1.0.0.1
+MAC Address: C8:7F:54:20:A2:7E
+HwID A
+Read 40 bytes from volume linux to 0000000046000000
+   FIT/FDT format image found at 0x46000000,size 0x3cfef0
+Read 3997464 bytes from volume linux to 0000000046000000
+## Loading kernel from FIT Image at 46000000 ...
+   Using 'config-1' configuration
+   Trying 'kernel-1' kernel subimage
+     Description:  ARM64 OpenWrt Linux-5.15.111
+     Type:         Kernel Image
+     Compression:  lzma compressed
+     Data Start:   0x460000ec
+     Data Size:    3971557 Bytes = 3.8 MiB
+     Architecture: AArch64
+     OS:           Linux
+     Load Address: 0x48000000
+     Entry Point:  0x48000000
+     Hash algo:    crc32
+     Hash value:   1fa2cc62
+     Hash algo:    sha1
+     Hash value:   d12d775ca00a46a9f9f42fdf37e98a69e29cbf6f
+   Verifying Hash Integrity ... crc32+ sha1+ OK
+## Loading fdt from FIT Image at 46000000 ...
+   Using 'config-1' configuration
+   Trying 'fdt-1' fdt subimage
+     Description:  ARM64 OpenWrt asus_tuf-ax4200 device tree blob
+     Type:         Flat Device Tree
+     Compression:  uncompressed
+     Data Start:   0x463c9c14
+     Data Size:    23983 Bytes = 23.4 KiB
+     Architecture: AArch64
+     Load Address: 0x47000000
+     Hash algo:    crc32
+     Hash value:   0e864c6a
+     Hash algo:    sha1
+     Hash value:   9546c1b44d5ae860aba1748191ca987a34aa23fd
+   Verifying Hash Integrity ... crc32+ sha1+ OK
+   Loading fdt from 0x463c9c14 to 0x47000000
+   Booting using the fdt blob at 0x47000000
+Read 40 bytes from volume linux2 to 000000005f7ffb90
+Copy firmware from linux1(c060f000) to linux2(c4c0d000), length 3cff18
+0x3cff18 bytes written to volume linux2
+   Uncompressing Kernel Image
+   Loading Device Tree to 000000005f7f2000, end 000000005f7fadae ... OK
+volume linux seq: 4
+
+Starting kernel ...
+
+[    0.000000] Booting Linux on physical CPU 0x0000000000 [0x410fd034]
+[    0.000000] Linux version 5.15.111 (builder@buildhost) (aarch64-openwrt-linux-musl-gcc (OpenWrt GCC 12.3.0 r22900-abec62a542) 12.3.0, GNU ld (GNU Binutils) 2.40.0) #0 SMP Tue May 16 20:54:29 2023
+[    0.000000] Machine model: ASUS TUF-AX4200
+[    0.000000] Zone ranges:
+[    0.000000]   DMA      [mem 0x0000000040000000-0x000000005fffffff]
+[    0.000000]   DMA32    empty
+[    0.000000]   Normal   empty
+[    0.000000] Movable zone start for each node
+[    0.000000] Early memory node ranges
+[    0.000000]   node   0: [mem 0x0000000040000000-0x0000000042ffffff]
+[    0.000000]   node   0: [mem 0x0000000043000000-0x000000004302ffff]
+[    0.000000]   node   0: [mem 0x0000000043030000-0x000000004fbfffff]
+[    0.000000]   node   0: [mem 0x000000004fc00000-0x000000004ffbffff]
+[    0.000000]   node   0: [mem 0x000000004ffc0000-0x000000005fffffff]
+[    0.000000] Initmem setup node 0 [mem 0x0000000040000000-0x000000005fffffff]
+[    0.000000] psci: probing for conduit method from DT.
+[    0.000000] psci: PSCIv1.1 detected in firmware.
+[    0.000000] psci: Using standard PSCI v0.2 function IDs
+[    0.000000] psci: MIGRATE_INFO_TYPE not supported.
+[    0.000000] psci: SMC Calling Convention v1.2
+[    0.000000] percpu: Embedded 17 pages/cpu s30040 r8192 d31400 u69632
+[    0.000000] pcpu-alloc: s30040 r8192 d31400 u69632 alloc=17*4096
+[    0.000000] pcpu-alloc: [0] 0 [0] 1 [0] 2 [0] 3 
+[    0.000000] Detected VIPT I-cache on CPU0
+[    0.000000] CPU features: detected: GIC system register CPU interface
+[    0.000000] CPU features: kernel page table isolation disabled by kernel configuration
+[    0.000000] Built 1 zonelists, mobility grouping on.  Total pages: 129024
+[    0.000000] Kernel command line: ubi.mtd=UBI_DEV
+[    0.000000] Dentry cache hash table entries: 65536 (order: 7, 524288 bytes, linear)
+[    0.000000] Inode-cache hash table entries: 32768 (order: 6, 262144 bytes, linear)
+[    0.000000] mem auto-init: stack:off, heap alloc:off, heap free:off
+[    0.000000] Memory: 497368K/524288K available (8384K kernel code, 904K rwdata, 2232K rodata, 448K init, 303K bss, 26920K reserved, 0K cma-reserved)
+[    0.000000] SLUB: HWalign=64, Order=0-3, MinObjects=0, CPUs=4, Nodes=1
+[    0.000000] rcu: Hierarchical RCU implementation.
+[    0.000000] 	Tracing variant of Tasks RCU enabled.
+[    0.000000] rcu: RCU calculated value of scheduler-enlistment delay is 10 jiffies.
+[    0.000000] NR_IRQS: 64, nr_irqs: 64, preallocated irqs: 0
+[    0.000000] GICv3: GIC: Using split EOI/Deactivate mode
+[    0.000000] GICv3: 640 SPIs implemented
+[    0.000000] GICv3: 0 Extended SPIs implemented
+[    0.000000] GICv3: Distributor has no Range Selector support
+[    0.000000] Root IRQ handler: gic_handle_irq
+[    0.000000] GICv3: 16 PPIs implemented
+[    0.000000] GICv3: CPU0: found redistributor 0 region 0:0x000000000c080000
+[    0.000000] arch_timer: cp15 timer(s) running at 13.00MHz (phys).
+[    0.000000] clocksource: arch_sys_counter: mask: 0xffffffffffffff max_cycles: 0x2ff89eacb, max_idle_ns: 440795202429 ns
+[    0.000000] sched_clock: 56 bits at 13MHz, resolution 76ns, wraps every 4398046511101ns
+[    0.000120] Calibrating delay loop (skipped), value calculated using timer frequency.. 26.00 BogoMIPS (lpj=130000)
+[    0.000128] pid_max: default: 32768 minimum: 301
+[    0.000333] Mount-cache hash table entries: 1024 (order: 1, 8192 bytes, linear)
+[    0.000341] Mountpoint-cache hash table entries: 1024 (order: 1, 8192 bytes, linear)
+[    0.001376] rcu: Hierarchical SRCU implementation.
+[    0.001664] smp: Bringing up secondary CPUs ...
+[    0.001925] Detected VIPT I-cache on CPU1
+[    0.001947] GICv3: CPU1: found redistributor 1 region 0:0x000000000c0a0000
+[    0.001972] CPU1: Booted secondary processor 0x0000000001 [0x410fd034]
+[    0.002229] Detected VIPT I-cache on CPU2
+[    0.002241] GICv3: CPU2: found redistributor 2 region 0:0x000000000c0c0000
+[    0.002252] CPU2: Booted secondary processor 0x0000000002 [0x410fd034]
+[    0.002487] Detected VIPT I-cache on CPU3
+[    0.002496] GICv3: CPU3: found redistributor 3 region 0:0x000000000c0e0000
+[    0.002505] CPU3: Booted secondary processor 0x0000000003 [0x410fd034]
+[    0.002531] smp: Brought up 1 node, 4 CPUs
+[    0.002544] SMP: Total of 4 processors activated.
+[    0.002548] CPU features: detected: 32-bit EL0 Support
+[    0.002551] CPU features: detected: CRC32 instructions
+[    0.002572] CPU features: emulated: Privileged Access Never (PAN) using TTBR0_EL1 switching
+[    0.002624] CPU: All CPU(s) started at EL2
+[    0.002634] alternatives: patching kernel code
+[    0.005204] clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 19112604462750000 ns
+[    0.005226] futex hash table entries: 1024 (order: 4, 65536 bytes, linear)
+[    0.005373] pinctrl core: initialized pinctrl subsystem
+[    0.005987] NET: Registered PF_NETLINK/PF_ROUTE protocol family
+[    0.006217] DMA: preallocated 128 KiB GFP_KERNEL pool for atomic allocations
+[    0.006238] DMA: preallocated 128 KiB GFP_KERNEL|GFP_DMA pool for atomic allocations
+[    0.006256] DMA: preallocated 128 KiB GFP_KERNEL|GFP_DMA32 pool for atomic allocations
+[    0.006503] thermal_sys: Registered thermal governor 'fair_share'
+[    0.006507] thermal_sys: Registered thermal governor 'bang_bang'
+[    0.006510] thermal_sys: Registered thermal governor 'step_wise'
+[    0.006513] thermal_sys: Registered thermal governor 'user_space'
+[    0.006695] ASID allocator initialised with 65536 entries
+[    0.006995] pstore: Registered ramoops as persistent store backend
+[    0.006999] ramoops: using 0x10000@0x42ff0000, ecc: 0
+[    0.015017] cryptd: max_cpu_qlen set to 1000
+[    0.016767] SCSI subsystem initialized
+[    0.016849] libata version 3.00 loaded.
+[    0.017684] clocksource: Switched to clocksource arch_sys_counter
+[    0.018210] NET: Registered PF_INET protocol family
+[    0.018289] IP idents hash table entries: 8192 (order: 4, 65536 bytes, linear)
+[    0.018647] tcp_listen_portaddr_hash hash table entries: 256 (order: 0, 4096 bytes, linear)
+[    0.018658] Table-perturb hash table entries: 65536 (order: 6, 262144 bytes, linear)
+[    0.018664] TCP established hash table entries: 4096 (order: 3, 32768 bytes, linear)
+[    0.018685] TCP bind hash table entries: 4096 (order: 4, 65536 bytes, linear)
+[    0.018734] TCP: Hash tables configured (established 4096 bind 4096)
+[    0.018794] UDP hash table entries: 256 (order: 1, 8192 bytes, linear)
+[    0.018806] UDP-Lite hash table entries: 256 (order: 1, 8192 bytes, linear)
+[    0.018904] NET: Registered PF_UNIX/PF_LOCAL protocol family
+[    0.018922] PCI: CLS 0 bytes, default 64
+[    0.020817] workingset: timestamp_bits=46 max_order=17 bucket_order=0
+[    0.023345] squashfs: version 4.0 (2009/01/31) Phillip Lougher
+[    0.023358] jffs2: version 2.2 (NAND) (SUMMARY) (LZMA) (RTIME) (CMODE_PRIORITY) (c) 2001-2006 Red Hat, Inc.
+[    0.046018] Block layer SCSI generic (bsg) driver version 0.4 loaded (major 251)
+[    0.049271] Serial: 8250/16550 driver, 16 ports, IRQ sharing enabled
+[    0.051056] printk: console [ttyS0] disabled
+[    0.071201] 11002000.serial: ttyS0 at MMIO 0x11002000 (irq = 121, base_baud = 2500000) is a ST16650V2
+[    0.709547] printk: console [ttyS0] enabled
+[    0.714347] mtk_rng 1020f000.trng: registered RNG driver
+[    0.714588] random: crng init done
+[    0.719878] cacheinfo: Unable to detect cache hierarchy for CPU 0
+[    0.731153] loop: module loaded
+[    0.734304] Loading iSCSI transport class v2.0-870.
+[    0.740676] spi-nand spi0.0: Winbond SPI NAND was found.
+[    0.745981] spi-nand spi0.0: 256 MiB, block size: 128 KiB, page size: 2048, OOB size: 128
+[    0.754295] 2 fixed-partitions partitions found on MTD device spi0.0
+[    0.760641] Creating 2 MTD partitions on "spi0.0":
+[    0.765416] 0x000000000000-0x000000400000 : "Bootloader"
+[    0.775076] 0x000000400000-0x000010000000 : "UBI_DEV"
+[    1.230248] Maxlinear Ethernet GPY211C mdio-bus:06: Firmware Version: 0x886F (release)
+[    1.239675] mtk_soc_eth 15100000.ethernet: generated random MAC address 12:ac:89:38:16:66
+[    1.248503] mtk_soc_eth 15100000.ethernet eth0: mediatek frame engine at 0xffffffc009680000, irq 129
+[    1.257661] mtk_soc_eth 15100000.ethernet: generated random MAC address 0a:06:38:a3:bc:50
+[    1.266447] mtk_soc_eth 15100000.ethernet eth1: mediatek frame engine at 0xffffffc009680000, irq 129
+[    1.275958] i2c_dev: i2c /dev entries driver
+[    1.281216] mtk-wdt 1001c000.watchdog: Watchdog enabled (timeout=31 sec, nowayout=0)
+[    1.289608] NET: Registered PF_INET6 protocol family
+[    1.295155] Segment Routing with IPv6
+[    1.298831] In-situ OAM (IOAM) with IPv6
+[    1.302770] NET: Registered PF_PACKET protocol family
+[    1.307846] bridge: filtering via arp/ip/ip6tables is no longer available by default. Update your scripts to load br_netfilter if you need this.
+[    1.320831] 8021q: 802.1Q VLAN Support v1.8
+[    1.325998] pstore: Using crash dump compression: deflate
+[    1.367810] mt7530 mdio-bus:1f: no interrupt support
+[    1.378907] mt7530 mdio-bus:1f: configuring for fixed/2500base-x link mode
+[    1.388063] mt7530 mdio-bus:1f: Link is Up - 2.5Gbps/Full - flow control rx/tx
+[    1.397000] MediaTek MT7531 PHY mt7530-0:01: Configure LED registers (num=14)
+[    1.411529] mt7530 mdio-bus:1f lan1 (uninitialized): PHY [mt7530-0:01] driver [MediaTek MT7531 PHY] (irq=POLL)
+[    1.431092] MediaTek MT7531 PHY mt7530-0:02: Configure LED registers (num=14)
+[    1.445625] mt7530 mdio-bus:1f lan2 (uninitialized): PHY [mt7530-0:02] driver [MediaTek MT7531 PHY] (irq=POLL)
+[    1.464897] MediaTek MT7531 PHY mt7530-0:03: Configure LED registers (num=14)
+[    1.479427] mt7530 mdio-bus:1f lan3 (uninitialized): PHY [mt7530-0:03] driver [MediaTek MT7531 PHY] (irq=POLL)
+[    1.498697] MediaTek MT7531 PHY mt7530-0:04: Configure LED registers (num=14)
+[    1.513226] mt7530 mdio-bus:1f lan4 (uninitialized): PHY [mt7530-0:04] driver [MediaTek MT7531 PHY] (irq=POLL)
+[    1.524034] DSA: tree 0 setup
+[    1.527297] ubi0: default fastmap pool size: 100
+[    1.531981] ubi0: default fastmap WL pool size: 50
+[    1.536754] ubi0: attaching mtd1
+[    5.651286] ubi0: scanning is finished
+[    5.678946] ubi0: attached mtd1 (name "UBI_DEV", size 252 MiB)
+[    5.684774] ubi0: PEB size: 131072 bytes (128 KiB), LEB size: 126976 bytes
+[    5.691636] ubi0: min./max. I/O unit sizes: 2048/2048, sub-page size 2048
+[    5.698405] ubi0: VID header offset: 2048 (aligned 2048), data offset: 4096
+[    5.705344] ubi0: good PEBs: 2016, bad PEBs: 0, corrupted PEBs: 0
+[    5.711418] ubi0: user volume: 8, internal volumes: 1, max. volumes count: 128
+[    5.718620] ubi0: max/mean erase counter: 5/1, WL threshold: 4096, image sequence number: 2037501690
+[    5.727728] ubi0: available PEBs: 0, total reserved PEBs: 2016, PEBs reserved for bad PEB handling: 40
+[    5.737012] ubi0: background thread "ubi_bgt0d" started, PID 463
+[    5.740712] block ubiblock0_6: created from ubi0:6(rootfs)
+[    5.748495] ubiblock: device ubiblock0_6 (rootfs) set to be root filesystem
+[    5.771270] VFS: Mounted root (squashfs filesystem) readonly on device 254:0.
+[    5.778584] Freeing unused kernel memory: 448K
+[    5.837722] Run /sbin/init as init process
+[    5.841802]   with arguments:
+[    5.844752]     /sbin/init
+[    5.847443]   with environment:
+[    5.850575]     HOME=/
+[    5.852920]     TERM=linux
+[    6.161715] init: Console is alive
+[    6.165197] init: - watchdog -
+[    6.850786] kmodloader: loading kernel modules from /etc/modules-boot.d/*
+[    6.888064] usbcore: registered new interface driver usbfs
+[    6.893571] usbcore: registered new interface driver hub
+[    6.898905] usbcore: registered new device driver usb
+[    6.907704] phy phy-soc:t-phy@11e10000.0: u2 auto load valid efuse: ENABLE with value: 1
+[    6.915846] phy phy-soc:t-phy@11e10000.1: u3 auto load valid efuse: ENABLE with value: 1
+[    6.923984] phy phy-soc:t-phy@11e10000.2: u2 auto load valid efuse: ENABLE with value: 1
+[    6.932711] xhci-mtk 11200000.usb: xHCI Host Controller
+[    6.937935] xhci-mtk 11200000.usb: new USB bus registered, assigned bus number 1
+[    6.948382] xhci-mtk 11200000.usb: hcc params 0x01403f99 hci version 0x110 quirks 0x0000000000210010
+[    6.957521] xhci-mtk 11200000.usb: irq 123, io mem 0x11200000
+[    6.963351] xhci-mtk 11200000.usb: xHCI Host Controller
+[    6.968567] xhci-mtk 11200000.usb: new USB bus registered, assigned bus number 2
+[    6.975944] xhci-mtk 11200000.usb: Host supports USB 3.2 Enhanced SuperSpeed
+[    6.983318] hub 1-0:1.0: USB hub found
+[    6.987072] hub 1-0:1.0: 2 ports detected
+[    6.991329] usb usb2: We don't know the algorithms for LPM for this host, disabling LPM.
+[    6.999660] hub 2-0:1.0: USB hub found
+[    7.003411] hub 2-0:1.0: 1 port detected
+[    7.009889] kmodloader: done loading kernel modules from /etc/modules-boot.d/*
+[    7.027331] init: - preinit -
+[    7.519783] mtk_soc_eth 15100000.ethernet eth0: configuring for fixed/2500base-x link mode
+[    7.528207] mtk_soc_eth 15100000.ethernet eth0: Link is Up - 2.5Gbps/Full - flow control rx/tx
+ip: SIOCSIFHWADDR: Resource busy
+[    7.721077] mt7530 mdio-bus:1f lan1: configuring for phy/gmii link mode
+[    7.732463] mt7530 mdio-bus:1f lan1: Link is Up - 1Gbps/Full - flow control rx/tx
+[    7.740016] IPv6: ADDRCONF(NETDEV_CHANGE): lan1: link becomes ready
+Press the [f] key and hit [enter] to enter failsafe mode
+Press the [1], [2], [3] or [4] key and hit [enter] to select the debug level
+[    9.808988] UBIFS (ubi0:7): default file-system created
+[    9.816250] UBIFS (ubi0:7): Mounting in unauthenticated mode
+[    9.821964] UBIFS (ubi0:7): background thread "ubifs_bgt0_7" started, PID 601
+[   10.021190] UBIFS (ubi0:7): UBIFS: mounted UBI device 0, volume 7, name "rootfs_data"
+[   10.029012] UBIFS (ubi0:7): LEB size: 126976 bytes (124 KiB), min./max. I/O unit sizes: 2048 bytes/2048 bytes
+[   10.038903] UBIFS (ubi0:7): FS size: 63107072 bytes (60 MiB, 497 LEBs), max 507 LEBs, journal size 3174400 bytes (3 MiB, 25 LEBs)
+[   10.050528] UBIFS (ubi0:7): reserved for root: 2980702 bytes (2910 KiB)
+[   10.057120] UBIFS (ubi0:7): media format: w5/r0 (latest is w5/r0), UUID FCACCB0D-DEC3-4BFD-8CF2-8492C15C458C, small LPT model
+[   10.072156] mount_root: overlay filesystem has not been fully initialized yet
+[   10.079436] mount_root: switching to ubifs overlay
+[   10.089767] overlayfs: null uuid detected in lower fs '/', falling back to xino=off,index=off,nfs_export=off.
+[   10.100548] urandom-seed: Seed file not found (/etc/urandom.seed)
+[   10.150150] mt7530 mdio-bus:1f lan1: Link is Down
+[   10.157525] procd: - early -
+[   10.160472] procd: - watchdog -
+[   10.700391] procd: - watchdog -
+[   10.703729] procd: - ubus -
+[   10.772532] procd: - init -
+Please press Enter to activate this console.
+[   10.964054] urngd: v1.0.2 started.
+[   10.975677] kmodloader: loading kernel modules from /etc/modules.d/*
+[   10.987104] crypto-safexcel 10320000.crypto: EIP97:230(0,1,4,4)-HIA:270(0,5,5),PE:150/433(alg:7fcdfc00)/0/0/0
+[   11.001253] Loading modules backported from Linux version v6.1.24-0-g0102425ac76b
+[   11.008741] Backport generated by backports.git v5.15.92-1-44-gd6ea70fafd36
+[   11.331103] mt7986-wmac 18000000.wmac: HW/SW Version: 0x8a108a10, Build Time: 20221012174648a
+[   11.331103] 
+[   11.654333] mt7986-wmac 18000000.wmac: WM Firmware Version: ____000000, Build Time: 20221012174725
+[   11.803138] mt7986-wmac 18000000.wmac: WA Firmware Version: DEV_000000, Build Time: 20221012174937
+[   11.949969] mt7986-wmac 18000000.wmac: eeprom load fail, use default bin
+[   11.956728] mt7986-wmac 18000000.wmac: Direct firmware load for mediatek/mt7986_eeprom_mt7976_dbdc.bin failed with error -2
+[   11.967844] mt7986-wmac 18000000.wmac: Falling back to sysfs fallback for: mediatek/mt7986_eeprom_mt7976_dbdc.bin
+[   14.959068] PPP generic driver version 2.4.2
+[   14.963961] NET: Registered PF_PPPOX protocol family
+[   14.971427] kmodloader: done loading kernel modules from /etc/modules.d/*
+[   19.150720] mtk_soc_eth 15100000.ethernet eth0: Link is Down
+[   19.162722] mtk_soc_eth 15100000.ethernet eth0: configuring for fixed/2500base-x link mode
+[   19.171150] mtk_soc_eth 15100000.ethernet eth0: Link is Up - 2.5Gbps/Full - flow control rx/tx
+[   19.171775] device eth0 entered promiscuous mode
+[   19.184872] mt7530 mdio-bus:1f lan1: configuring for phy/gmii link mode
+[   19.194509] br-lan: port 1(lan1) entered blocking state
+[   19.199727] br-lan: port 1(lan1) entered disabled state
+[   19.206347] device lan1 entered promiscuous mode
+[   19.213066] IPv6: ADDRCONF(NETDEV_CHANGE): eth0: link becomes ready
+[   19.224413] mt7530 mdio-bus:1f lan2: configuring for phy/gmii link mode
+[   19.233859] br-lan: port 2(lan2) entered blocking state
+[   19.239116] br-lan: port 2(lan2) entered disabled state
+[   19.245985] device lan2 entered promiscuous mode
+[   19.254481] mt7530 mdio-bus:1f lan3: configuring for phy/gmii link mode
+[   19.263921] br-lan: port 3(lan3) entered blocking state
+[   19.269166] br-lan: port 3(lan3) entered disabled state
+[   19.276201] device lan3 entered promiscuous mode
+[   19.284625] mt7530 mdio-bus:1f lan4: configuring for phy/gmii link mode
+[   19.294139] br-lan: port 4(lan4) entered blocking state
+[   19.299410] br-lan: port 4(lan4) entered disabled state
+[   19.306660] device lan4 entered promiscuous mode
+[   19.328243] mtk_soc_eth 15100000.ethernet eth1: PHY [mdio-bus:06] driver [Maxlinear Ethernet GPY211C] (irq=POLL)
+[   19.338434] mtk_soc_eth 15100000.ethernet eth1: configuring for phy/2500base-x link mode
+
+
+
+BusyBox v1.36.0 (2023-05-16 20:54:29 UTC) built-in shell (ash)
+
+  _______                     ________        __
+ |       |.-----.-----.-----.|  |  |  |.----.|  |_
+ |   -   ||  _  |  -__|     ||  |  |  ||   _||   _|
+ |_______||   __|_____|__|__||________||__|  |____|
+          |__| W I R E L E S S   F R E E D O M
+ -----------------------------------------------------
+ OpenWrt SNAPSHOT, r22900-abec62a542
+ -----------------------------------------------------
+=== WARNING! =====================================
+There is no root password defined on this device!
+Use the "passwd" command to set up a new password
+in order to prevent unauthorized SSH logins.
+--------------------------------------------------
+root@OpenWrt:/# [   22.332223] mt7530 mdio-bus:1f lan1: Link is Up - 1Gbps/Full - flow control rx/tx
+[   22.339734] br-lan: port 1(lan1) entered blocking state
+[   22.344943] br-lan: port 1(lan1) entered forwarding state
+[   22.351056] IPv6: ADDRCONF(NETDEV_CHANGE): br-lan: link becomes ready
+cd /etc/fonconroot@OpenWrt:/# cd /etc/config/
+root@OpenWrt:/etc/config# ls
+dhcp      dropbear  firewall  network   system    ubootenv  wireless
+root@OpenWrt:/etc/config# cat netroot@OpenWrt:/etc/config# cat network 
+
+config interface 'loopback'
+	option device 'lo'
+	option proto 'static'
+	option ipaddr '127.0.0.1'
+	option netmask '255.0.0.0'
+
+config globals 'globals'
+	option ula_prefix 'fd5d:be93:f550::/48'
+
+config device
+	option name 'br-lan'
+	option type 'bridge'
+	list ports 'lan1'
+	list ports 'lan2'
+	list ports 'lan3'
+	list ports 'lan4'
+
+config device
+	option name 'lan1'
+	option macaddr 'c8:7f:54:20:a2:7e'
+
+config device
+	option name 'lan2'
+	option macaddr 'c8:7f:54:20:a2:7e'
+
+config device
+	option name 'lan3'
+	option macaddr 'c8:7f:54:20:a2:7e'
+
+config device
+	option name 'lan4'
+	option macaddr 'c8:7f:54:20:a2:7e'
+
+config interface 'lan'
+	option device 'br-lan'
+	option proto 'static'
+	option ipaddr '192.168.1.1'
+	option netmask '255.255.255.0'
+	option ip6assign '60'
+
+config device
+	option name 'eth1'
+	option macaddr 'c8:7f:54:20:a2:7e'
+
+config interface 'wan'
+	option device 'eth1'
+	option proto 'dhcp'
+
+config interface 'wan6'
+	option device 'eth1'
+	option proto 'dhcpv6'
+
+root@OpenWrt:/etc/config# 
+root@OpenWrt:/etc/config# 
+root@OpenWrt:/etc/config# ls
+dhcp      dropbear  firewall  network   system    ubootenv  wireless
+root@OpenWrt:/etc/config# cat fireroot@OpenWrt:/etc/config# cat firewall 
+config defaults
+	option syn_flood	1
+	option input		REJECT
+	option output		ACCEPT
+	option forward		REJECT
+# Uncomment this line to disable ipv6 rules
+#	option disable_ipv6	1
+
+config zone
+	option name		lan
+	list   network		'lan'
+	option input		ACCEPT
+	option output		ACCEPT
+	option forward		ACCEPT
+
+config zone
+	option name		wan
+	list   network		'wan'
+	list   network		'wan6'
+	option input		REJECT
+	option output		ACCEPT
+	option forward		REJECT
+	option masq		1
+	option mtu_fix		1
+
+config forwarding
+	option src		lan
+	option dest		wan
+
+# We need to accept udp packets on port 68,
+# see https://dev.openwrt.org/ticket/4108
+config rule
+	option name		Allow-DHCP-Renew
+	option src		wan
+	option proto		udp
+	option dest_port	68
+	option target		ACCEPT
+	option family		ipv4
+
+# Allow IPv4 ping
+config rule
+	option name		Allow-Ping
+	option src		wan
+	option proto		icmp
+	option icmp_type	echo-request
+	option family		ipv4
+	option target		ACCEPT
+
+config rule
+	option name		Allow-IGMP
+	option src		wan
+	option proto		igmp
+	option family		ipv4
+	option target		ACCEPT
+
+# Allow DHCPv6 replies
+# see https://github.com/openwrt/openwrt/issues/5066
+config rule
+	option name		Allow-DHCPv6
+	option src		wan
+	option proto		udp
+	option dest_port	546
+	option family		ipv6
+	option target		ACCEPT
+
+config rule
+	option name		Allow-MLD
+	option src		wan
+	option proto		icmp
+	option src_ip		fe80::/10
+	list icmp_type		'130/0'
+	list icmp_type		'131/0'
+	list icmp_type		'132/0'
+	list icmp_type		'143/0'
+	option family		ipv6
+	option target		ACCEPT
+
+# Allow essential incoming IPv6 ICMP traffic
+config rule
+	option name		Allow-ICMPv6-Input
+	option src		wan
+	option proto	icmp
+	list icmp_type		echo-request
+	list icmp_type		echo-reply
+	list icmp_type		destination-unreachable
+	list icmp_type		packet-too-big
+	list icmp_type		time-exceeded
+	list icmp_type		bad-header
+	list icmp_type		unknown-header-type
+	list icmp_type		router-solicitation
+	list icmp_type		neighbour-solicitation
+	list icmp_type		router-advertisement
+	list icmp_type		neighbour-advertisement
+	option limit		1000/sec
+	option family		ipv6
+	option target		ACCEPT
+
+# Allow essential forwarded IPv6 ICMP traffic
+config rule
+	option name		Allow-ICMPv6-Forward
+	option src		wan
+	option dest		*
+	option proto		icmp
+	list icmp_type		echo-request
+	list icmp_type		echo-reply
+	list icmp_type		destination-unreachable
+	list icmp_type		packet-too-big
+	list icmp_type		time-exceeded
+	list icmp_type		bad-header
+	list icmp_type		unknown-header-type
+	option limit		1000/sec
+	option family		ipv6
+	option target		ACCEPT
+
+config rule
+	option name		Allow-IPSec-ESP
+	option src		wan
+	option dest		lan
+	option proto		esp
+	option target		ACCEPT
+
+config rule
+	option name		Allow-ISAKMP
+	option src		wan
+	option dest		lan
+	option dest_port	500
+	option proto		udp
+	option target		ACCEPT
+
+
+### EXAMPLE CONFIG SECTIONS
+# do not allow a specific ip to access wan
+#config rule
+#	option src		lan
+#	option src_ip	192.168.45.2
+#	option dest		wan
+#	option proto	tcp
+#	option target	REJECT
+
+# block a specific mac on wan
+#config rule
+#	option dest		wan
+#	option src_mac	00:11:22:33:44:66
+#	option target	REJECT
+
+# block incoming ICMP traffic on a zone
+#config rule
+#	option src		lan
+#	option proto	ICMP
+#	option target	DROP
+
+# port redirect port coming in on wan to lan
+#config redirect
+#	option src			wan
+#	option src_dport	80
+#	option dest			lan
+#	option dest_ip		192.168.16.235
+#	option dest_port	80
+#	option proto		tcp
+
+# port redirect of remapped ssh port (22001) on wan
+#config redirect
+#	option src		wan
+#	option src_dport	22001
+#	option dest		lan
+#	option dest_port	22
+#	option proto		tcp
+
+### FULL CONFIG SECTIONS
+#config rule
+#	option src		lan
+#	option src_ip	192.168.45.2
+#	option src_mac	00:11:22:33:44:55
+#	option src_port	80
+#	option dest		wan
+#	option dest_ip	194.25.2.129
+#	option dest_port	120
+#	option proto	tcp
+#	option target	REJECT
+
+#config redirect
+#	option src		lan
+#	option src_ip	192.168.45.2
+#	option src_mac	00:11:22:33:44:55
+#	option src_port		1024
+#	option src_dport	80
+#	option dest_ip	194.25.2.129
+#	option dest_port	120
+#	option proto	tcp
+root@OpenWrt:/etc/config# dd -rs--s -tlnp
+/bin/ash: ss: not found
+root@OpenWrt:/etc/config# netsattat
+Active Internet connections (w/o servers)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State       
+Active UNIX domain sockets (w/o servers)
+Proto RefCnt Flags       Type       State         I-Node Path
+unix  8      [ ]         DGRAM      CONNECTED       5174 /dev/log
+unix  2      [ ]         DGRAM                      3403 /var/run/wpa_supplicant/global
+unix  2      [ ]         DGRAM                      5381 /var/run/hostapd/global
+unix  3      [ ]         STREAM     CONNECTED       3699 
+unix  2      [ ]         DGRAM      CONNECTED       5380 
+unix  3      [ ]         STREAM     CONNECTED       5524 
+unix  3      [ ]         STREAM     CONNECTED       3405 
+unix  3      [ ]         STREAM     CONNECTED       5383 
+unix  3      [ ]         STREAM     CONNECTED       6150 /var/run/ubus/ubus.sock
+unix  2      [ ]         DGRAM      CONNECTED       3402 
+unix  2      [ ]         DGRAM                      5384 
+unix  3      [ ]         STREAM     CONNECTED       3598 
+unix  3      [ ]         STREAM     CONNECTED       2263 
+unix  3      [ ]         STREAM     CONNECTED       6151 /var/run/ubus/ubus.sock
+unix  3      [ ]         STREAM     CONNECTED       3241 /var/run/ubus/ubus.sock
+unix  2      [ ]         DGRAM      CONNECTED       3701 
+unix  3      [ ]         STREAM     CONNECTED       3350 
+unix  3      [ ]         STREAM     CONNECTED       1139 /var/run/ubus/ubus.sock
+unix  3      [ ]         STREAM     CONNECTED       3680 /var/run/ubus/ubus.sock
+unix  3      [ ]         STREAM     CONNECTED       5283 /var/run/ubus/ubus.sock
+unix  3      [ ]         STREAM     CONNECTED       1888 
+unix  3      [ ]         STREAM     CONNECTED       5337 
+unix  2      [ ]         DGRAM      CONNECTED       3348 
+unix  2      [ ]         DGRAM      CONNECTED       6313 
+unix  2      [ ]         DGRAM      CONNECTED       3285 
+unix  2      [ ]         DGRAM                      1138 
+unix  3      [ ]         STREAM     CONNECTED       5090 
+unix  3      [ ]         STREAM     CONNECTED       2291 /var/run/ubus/ubus.sock
+unix  3      [ ]         STREAM     CONNECTED       6167 /var/run/ubus/ubus.sock
+unix  3      [ ]         STREAM     CONNECTED       3367 /var/run/ubus/ubus.sock
+unix  3      [ ]         STREAM     CONNECTED       5282 /var/run/ubus/ubus.sock
+unix  3      [ ]         STREAM     CONNECTED       5529 /var/run/ubus/ubus.sock
+unix  3      [ ]         STREAM     CONNECTED       5175 
+root@OpenWrt:/etc/config# root@OpenWrt:/etc/config# netstat -t
+Active Internet connections (w/o servers)
+Proto Recv-Q Send-Q Local Address           Foreign Address         State       
+root@OpenWrt:/etc/config# ls
+dhcp      dropbear  firewall  network   system    ubootenv  wireless
+root@OpenWrt:/etc/config# cat dfdroroot@OpenWrt:/etc/config# cat dropbear 
+config dropbear
+	option PasswordAuth 'on'
+	option RootPasswordAuth 'on'
+	option Port         '22'
+#	option BannerFile   '/etc/banner'
+root@OpenWrt:/etc/config# [   97.099481] br-lan: port 1(lan1) entered disabled state
+[   97.105810] device lan1 left promiscuous mode
+[   97.110347] br-lan: port 1(lan1) entered disabled state
+[   97.230183] mt7530 mdio-bus:1f lan1: Link is Down
+[   97.235775] device lan2 left promiscuous mode
+[   97.240167] br-lan: port 2(lan2) entered disabled state
+[   97.310870] device lan3 left promiscuous mode
+[   97.315253] br-lan: port 3(lan3) entered disabled state
+[   97.400679] device lan4 left promiscuous mode
+[   97.405068] br-lan: port 4(lan4) entered disabled state
+[   97.491694] mtk_soc_eth 15100000.ethernet eth0: Link is Down
+[  101.747919] reboot: Power down

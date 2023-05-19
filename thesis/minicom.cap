@@ -1,0 +1,1467 @@
+
+F0: 102B 0000
+FA: 1040 0000
+FA: 1040 0000 [0200]
+F9: 0000 0000
+V0: 0000 0000 [0001]
+00: 0000 0000
+BP: 2400 0041 [0000]
+G0: 1190 0000
+EC: 0000 0000 [1000]
+T0: 0000 0209 [010F]
+Jump to BL
+
+NOTICE:  BL2: v2.6(release):
+NOTICE:  BL2: Built : 14:46:08, Jul 22 2022
+NOTICE:  WDT: disabled
+NOTICE:  CPU: MT7986 (2000MHz)
+NOTICE:  EMI: Using DDR3 settings
+NOTICE:  EMI: Detected DRAM size: 512MB
+NOTICE:  EMI: complex R/W mem test passed
+NOTICE:  SPI_NAND parses attributes from parameter page.
+NOTICE:  SPI_NAND Detected ID 0xef
+NOTICE:  Page size 2048, Block size 131072, size 268435456
+NOTICE:  BL2: Booting BL31
+NOTICE:  BL31: v2.6(release):
+NOTICE:  BL31: Built : 14:46:14, Jul 22 2022
+
+
+U-Boot 2022.04-rc1 (Aug 17 2022 - 13:47:14 +0800)
+TUF-AX4200 bootloader version: 1.0.0.1
+
+CPU:   MediaTek MT7986
+Model: mt7986-rfb
+DRAM:  512 MiB
+Core:  43 devices, 15 uclasses, devicetree: embed
+MMC:   mmc@11230000: 0
+Loading Environment from MTD... 
+SPINAND raw ID: 00 EF AA 22 
+spi-nand: spi_nand spi_nand@1: Winbond SPI NAND was found.
+spi-nand: spi_nand spi_nand@1: 256 MiB, block size: 128 KiB, page size: 2048, OOB size: 64
+*** Warning - bad CRC, using default environment
+
+In:    serial@11002000
+Out:   serial@11002000
+Err:   serial@11002000
+ASUS TUF-AX4200 gpio/led init
+Net:   
+Warning: ethernet1@15100000 (eth0) using random MAC address - 72:f1:ec:fa:2e:5c
+eth0: ethernet1@15100000
+Warning: ethernet0@15100000 (eth1) using random MAC address - 06:1a:e0:c3:db:4e
+, eth1: ethernet0@15100000
+ubi0: attaching mtd4
+ubi0: scanning is finished
+ubi0: attached mtd4 (name "UBI_DEV", size 252 MiB)
+ubi0: PEB size: 131072 bytes (128 KiB), LEB size: 126976 bytes
+ubi0: min./max. I/O unit sizes: 2048/2048, sub-page size 2048
+ubi0: VID header offset: 2048 (aligned 2048), data offset: 4096
+ubi0: good PEBs: 2016, bad PEBs: 0, corrupted PEBs: 0
+ubi0: user volume: 6, internal volumes: 1, max. volumes count: 128
+ubi0: max/mean erase counter: 4/1, WL threshold: 4096, image sequence number: 2037501690
+ubi0: available PEBs: 0, total reserved PEBs: 2016, PEBs reserved for bad PEB handling: 40
+UBI:   vol_id  reserved_pebs  alignment  data_pad  vol_type  usable_leb_size  used_ebs  used_bytes  last_eb_bytes  corrupted  upd_marker  name_len  name
+UBI:        0              1          1         0   dynamic            1f000         1       1f000         1f000          0           0         5  nvram
+UBI:        1              8          1         0   dynamic            1f000         8       f8000         1f000          0           0         7  Factory
+UBI:        2              8          1         0   dynamic            1f000         8       f8000         1f000          0           0         8  Factory2
+UBI:        3            242          1         0   dynamic            1f000       242     45fe000         1f000          0           0         5  linux
+UBI:        4            242          1         0   dynamic            1f000       242     45fe000         1f000          0           0         6  linux2
+UBI:        5            31f          1         0   dynamic            1f000       31f     60c1000         1f000          0           0         5  jffs2
+UBI: 7fffefff              2          1         0   dynamic            1f000         2       3e000             2          0           0         d  layout volume
+Read 1015808 bytes from volume Factory to 000000005f707ac0
+EEPROM set 0: OK (version 65)
+Read 1015808 bytes from volume Factory2 to 000000005f707ac0
+EEPROM set 1: OK (version 65)
+Read 1015808 bytes from volume Factory to 000000005fb45590
+Select EEPROM set 0 at offset 0x0.
+
+Please choose the operation: 
+   1: Load System code to SDRAM via TFTP.
+   2: Load System code then write to Flash via TFTP.
+   3: Boot System code via Flash (default).
+   4: Entr boot command line interface.
+   7: Load Boot Loader code then write to Flash via Serial.
+   9: Load Boot Loader code then write to Flash via TFTP.
+ 1  0 
+   3: Boot System code via Flash (default).
+
+TUF-AX4200 bootloader version: 1.0.0.1
+MAC Address: C8:7F:54:20:A2:7E
+HwID A
+Read 40 bytes from volume linux to 0000000046000000
+   FIT/FDT format image found at 0x46000000,size 0x238b7f8
+Read 37271584 bytes from volume linux to 0000000046000000
+## Loading kernel from FIT Image at 46000000 ...
+   Using 'config-1' configuration
+   Trying 'kernel-1' kernel subimage
+     Description:  ARM64 OpenWrt Linux-3.0
+     Type:         Kernel Image
+     Compression:  lzma compressed
+     Data Start:   0x460000e4
+     Data Size:    3287168 Bytes = 3.1 MiB
+     Architecture: AArch64
+     OS:           Linux
+     Load Address: 0x48080000
+     Entry Point:  0x48080000
+     Hash algo:    crc32
+     Hash value:   68c95292
+     Hash algo:    sha1
+     Hash value:   74adb68a9783397f0d1ae9e1886eb328e2bfaaaa
+   Verifying Hash Integrity ... crc32+ sha1+ OK
+## Loading ramdisk from FIT Image at 46000000 ...
+   Using 'config-1' configuration
+   Trying 'rootfs-1' ramdisk subimage
+     Description:  Root File System
+     Type:         RAMDisk Image
+     Compression:  Unknown Compression
+     Data Start:   0x463280ec
+     Data Size:    33960471 Bytes = 32.4 MiB
+     Architecture: Unknown Architecture
+     OS:           Unknown OS
+     Load Address: 0x00000000
+     Entry Point:  0x00000000
+     Hash algo:    crc32
+     Hash value:   0d60701c
+     Hash algo:    sha1
+     Hash value:   42fd93532b9188c21b5e316615ae47d9ae53695e
+   Verifying Hash Integrity ... crc32+ sha1+ OK
+## Loading fdt from FIT Image at 46000000 ...
+   Using 'config-1' configuration
+   Trying 'fdt-1' fdt subimage
+     Description:  ARM64 OpenWrt mt7986a-tuf-ax4200 device tree blob
+     Type:         Flat Device Tree
+     Compression:  uncompressed
+     Data Start:   0x46322aa8
+     Data Size:    21838 Bytes = 21.3 KiB
+     Architecture: AArch64
+     Hash algo:    crc32
+     Hash value:   1e502b26
+     Hash algo:    sha1
+     Hash value:   64bcc295d1bef64fd2b4c74e3da4c2172e7432e1
+   Verifying Hash Integrity ... crc32+ sha1+ OK
+   Booting using the fdt blob at 0x46322aa8
+Read 40 bytes from volume linux2 to 000000005f7ffb90
+   Uncompressing Kernel Image
+   Loading Device Tree to 000000005f7f3000, end 000000005f7fb54d ... OK
+volume linux seq: 4
+
+Starting kernel ...
+
+Booting Linux on physical CPU 0x0000000000 [0x410fd034]
+Linux version 5.4.182 (root@asus) (gcc version 8.4.0 (OpenWrt GCC 8.4.0 r16468-43d105ec2a)) #1 SMP Wed Nov 2 14:12:41 CST 2022
+Machine model: TUF-AX4200/TUF-AX4200Q
+earlycon: uart8250 at MMIO32 0x0000000011002000 (options '')
+printk: bootconsole [uart8250] enabled
+On node 0 totalpages: 130062
+  DMA32 zone: 2048 pages used for memmap
+  DMA32 zone: 0 pages reserved
+  DMA32 zone: 130062 pages, LIFO batch:31
+psci: probing for conduit method from DT.
+psci: PSCIv1.1 detected in firmware.
+psci: Using standard PSCI v0.2 function IDs
+psci: MIGRATE_INFO_TYPE not supported.
+psci: SMC Calling Convention v1.0
+percpu: Embedded 20 pages/cpu s43032 r8192 d30696 u81920
+pcpu-alloc: s43032 r8192 d30696 u81920 alloc=20*4096
+pcpu-alloc: [0] 0 [0] 1 [0] 2 [0] 3 
+Detected VIPT I-cache on CPU0
+CPU features: detected: GIC system register CPU interface
+CPU features: kernel page table isolation disabled by kernel configuration
+Built 1 zonelists, mobility grouping on.  Total pages: 128014
+Kernel command line: root_rfs=0x3280ec rootfstype=squashfs ubi.mtd=UBI_DEV console=ttyS0,115200n1 loglevel=8  				earlycon=uart8250,mmio32,0x11002000 root=/dev/mtdblock6 
+Dentry cache hash table entries: 65536 (order: 7, 524288 bytes, linear)
+Inode-cache hash table entries: 32768 (order: 6, 262144 bytes, linear)
+mem auto-init: stack:off, heap alloc:off, heap free:off
+Memory: 492028K/520248K available (6590K kernel code, 522K rwdata, 1676K rodata, 448K init, 288K bss, 28220K reserved, 0K cma-reserved)
+SLUB: HWalign=64, Order=0-3, MinObjects=0, CPUs=4, Nodes=1
+Invalid signature of oopsbuf: FF-FF-FF-FF-FF-FF-FF-FF (len -1)
+rcu: Hierarchical RCU implementation.
+rcu: 	CONFIG_RCU_FANOUT set to non-default value of 32.
+rcu: RCU calculated value of scheduler-enlistment delay is 25 jiffies.
+NR_IRQS: 64, nr_irqs: 64, preallocated irqs: 0
+GICv3: GIC: Using split EOI/Deactivate mode
+GICv3: 640 SPIs implemented
+GICv3: 0 Extended SPIs implemented
+GICv3: Distributor has no Range Selector support
+GICv3: 16 PPIs implemented
+GICv3: no VLPI support, no direct LPI support
+GICv3: CPU0: found redistributor 0 region 0:0x000000000c080000
+random: get_random_bytes called from start_kernel+0x2d4/0x418 with crng_init=0
+arch_timer: cp15 timer(s) running at 13.00MHz (phys).
+clocksource: arch_sys_counter: mask: 0xffffffffffffff max_cycles: 0x2ff89eacb, max_idle_ns: 440795202429 ns
+sched_clock: 56 bits at 13MHz, resolution 76ns, wraps every 4398046511101ns
+Calibrating delay loop (skipped), value calculated using timer frequency.. 26.00 BogoMIPS (lpj=52000)
+pid_max: default: 32768 minimum: 301
+Mount-cache hash table entries: 1024 (order: 1, 8192 bytes, linear)
+Mountpoint-cache hash table entries: 1024 (order: 1, 8192 bytes, linear)
+ASID allocator initialised with 65536 entries
+rcu: Hierarchical SRCU implementation.
+smp: Bringing up secondary CPUs ...
+Detected VIPT I-cache on CPU1
+GICv3: CPU1: found redistributor 1 region 0:0x000000000c0a0000
+CPU1: Booted secondary processor 0x0000000001 [0x410fd034]
+Detected VIPT I-cache on CPU2
+GICv3: CPU2: found redistributor 2 region 0:0x000000000c0c0000
+CPU2: Booted secondary processor 0x0000000002 [0x410fd034]
+Detected VIPT I-cache on CPU3
+GICv3: CPU3: found redistributor 3 region 0:0x000000000c0e0000
+CPU3: Booted secondary processor 0x0000000003 [0x410fd034]
+smp: Brought up 1 node, 4 CPUs
+SMP: Total of 4 processors activated.
+CPU features: detected: 32-bit EL0 Support
+CPU features: detected: CRC32 instructions
+CPU: All CPU(s) started at EL2
+alternatives: patching kernel code
+devtmpfs: initialized
+clocksource: jiffies: mask: 0xffffffff max_cycles: 0xffffffff, max_idle_ns: 7645041785100000 ns
+futex hash table entries: 1024 (order: 4, 65536 bytes, linear)
+pinctrl core: initialized pinctrl subsystem
+NET: Registered protocol family 16
+DMA: preallocated 256 KiB pool for atomic allocations
+cryptd: max_cpu_qlen set to 1000
+SCSI subsystem initialized
+libata version 3.00 loaded.
+rbus 18000000.wbsys: PCI host bridge to bus 0000:00
+pci_bus 0000:00: root bus resource [mem 0x18000000-0x18ffffff]
+pci_bus 0000:00: root bus resource [bus 00-ff]
+pci_bus 0000:00: scanning bus
+pci 0000:00:00.0: [14c3:7986] type 00 class 0x000280
+pci 0000:00:00.0: reg 0x10: [mem 0x18000000-0x1800000f 64bit]
+pci 0000:00:00.0: reg 0x18: [mem 0x00000000-0x0000000f]
+pci 0000:00:00.0: reg 0x1c: [mem 0x00000000-0x0000000f]
+pci 0000:00:00.0: reg 0x20: [mem 0x00000000-0x0000000f]
+pci 0000:00:00.0: reg 0x24: [mem 0x00000000-0x0000000f]
+pci_bus 0000:00: fixups for bus
+pci_bus 0000:00: bus scan returning with max=00
+clocksource: Switched to clocksource arch_sys_counter
+thermal_sys: Registered thermal governor 'fair_share'
+thermal_sys: Registered thermal governor 'bang_bang'
+thermal_sys: Registered thermal governor 'step_wise'
+thermal_sys: Registered thermal governor 'user_space'
+thermal_sys: Registered thermal governor 'power_allocator'
+NET: Registered protocol family 2
+IP idents hash table entries: 8192 (order: 4, 65536 bytes, linear)
+tcp_listen_portaddr_hash hash table entries: 256 (order: 0, 4096 bytes, linear)
+TCP established hash table entries: 4096 (order: 3, 32768 bytes, linear)
+TCP bind hash table entries: 4096 (order: 4, 65536 bytes, linear)
+TCP: Hash tables configured (established 4096 bind 4096)
+UDP hash table entries: 256 (order: 1, 8192 bytes, linear)
+UDP-Lite hash table entries: 256 (order: 1, 8192 bytes, linear)
+NET: Registered protocol family 1
+PCI: CLS 0 bytes, default 64
+workingset: timestamp_bits=62 max_order=17 bucket_order=0
+squashfs: version 4.0 (2009/01/31) Phillip Lougher
+mtk-pcie 11280000.pcie: host bridge /pcie@11280000 ranges:
+mtk-pcie 11280000.pcie: Parsing ranges property...
+mtk-pcie 11280000.pcie:   MEM 0x20000000..0x2fffffff -> 0x20000000
+phy phy-pcie-phy@11c00000.0: try to get sw efuse
+phy phy-pcie-phy@11c00000.0: try to get sw efuse+
+phy phy-pcie-phy@11c00000.0: u3 auto load valid efuse: ENABLE with value: 1
+phy phy-pcie-phy@11c00000.0: u3 efuse - intr 29, rx_imp f, tx_imp d
+phy phy-pcie-phy@11c00000.0: pcie auto load valid efuse: ENABLE with value: 1
+phy phy-pcie-phy@11c00000.0: u3 lane1 efuse - intr 29, rx_imp f, tx_imp d
+mtk-pcie 11280000.pcie: PCIe link down, ltssm reg val: 0x0
+mtk-pcie: probe of 11280000.pcie failed with error -110
+Serial: 8250/16550 driver, 3 ports, IRQ sharing disabled
+printk: console [ttyS0] disabled
+11002000.serial: ttyS0 at MMIO 0x11002000 (irq = 12, base_baud = 2500000) is a ST16650V2
+printk: console [ttyS0] enabled
+printk: console [ttyS0] enabled
+printk: bootconsole [uart8250] disabled
+printk: bootconsole [uart8250] disabled
+11003000.serial: ttyS1 at MMIO 0x11003000 (irq = 13, base_baud = 1625000) is a ST16650V2
+11004000.serial: ttyS2 at MMIO 0x11004000 (irq = 14, base_baud = 1625000) is a ST16650V2
+mtk_rng 1020f000.trng: registered RNG driver
+random: fast init done
+cacheinfo: Unable to detect cache hierarchy for CPU 0
+crng init done
+loop: module loaded
+mt7986-pinctrl 1001f000.pinctrl: pin_config_set op failed for pin 36
+mtk-spi 1100a000.spi: Error applying setting, reverse things back
+spi-nor spi0.0: unrecognized JEDEC id bytes: ff ef aa 22 00 00
+spi-nor: probe of spi0.0 failed with error -2
+spi-nand spi0.1: Winbond SPI NAND was found.
+spi-nand spi0.1: 256 MiB, block size: 128 KiB, page size: 2048, OOB size: 64
+2 fixed-partitions partitions found on MTD device spi0.1
+Creating 2 MTD partitions on "spi0.1":
+0x000000000000-0x000000400000 : "Bootloader"
+0x000000400000-0x000010000000 : "UBI_DEV"
+Ethernet Channel Bonding Driver: v3.7.1 (April 27, 2011)
+IMQ driver loaded successfully. (numdevs = 8, numqueues = 1, imq_dev_accurate_stats = 1)
+	Hooking IMQ after NAT on PREROUTING.
+	Hooking IMQ before NAT on POSTROUTING.
+[mtk_hw_init] reset_lock:0, force:0
+[mtk_hw_init] execute fe cold reset
+mtk_soc_eth 15100000.ethernet eth0: mediatek frame engine at 0xffffffc011b00000, irq 124
+mtk_soc_eth 15100000.ethernet eth1: mediatek frame engine at 0xffffffc011b00000, irq 124
+(unnamed net_device) (dummy): netif_napi_add() called with weight 256
+PPP generic driver version 2.4.2
+PPP BSD Compression module registered
+PPP Deflate Compression module registered
+PPP MPPE Compression module registered
+NET: Registered protocol family 24
+PPTP driver version 0.8.5
+i2c /dev entries driver
+mtk-wdt 1001c000.watchdog: Watchdog enabled (timeout=31 sec, nowayout=0)
+crypto-safexcel 10320000.crypto: EIP97:230(0,1,4,4)-HIA:270(0,5,5),PE:150/433,alg:7fcdfc00
+u32 classifier
+    Performance counters on
+    input device check on
+xt_time: kernel timezone is -0000
+gre: GRE over IPv4 demultiplexor driver
+IPv4 over IPsec tunneling driver
+NET: Registered protocol family 10
+Segment Routing with IPv6
+NET: Registered protocol family 17
+NET: Registered protocol family 15
+Bridge firewalling registered
+l2tp_core: L2TP core driver, V2.0
+l2tp_ppp: PPPoL2TP kernel driver, V2.0
+l2tp_netlink: L2TP netlink interface
+8021q: 802.1Q VLAN Support v1.8
+mt7530 mdio-bus:1f lan1 (uninitialized): PHY [dsa-0.0:01] driver [Generic PHY]
+mt7530 mdio-bus:1f lan2 (uninitialized): PHY [dsa-0.0:02] driver [Generic PHY]
+mt7530 mdio-bus:1f lan3 (uninitialized): PHY [dsa-0.0:03] driver [Generic PHY]
+mt7530 mdio-bus:1f lan4 (uninitialized): PHY [dsa-0.0:04] driver [Generic PHY]
+mt7530 mdio-bus:1f: configuring for fixed/2500base-x link mode
+DSA: tree 0 setup
+mt7530 mdio-bus:1f: Link is Up - 2.5Gbps/Full - flow control rx/tx
+ubi0: attaching mtd1
+ubi0: scanning is finished
+ubi0: attached mtd1 (name "UBI_DEV", size 252 MiB)
+ubi0: PEB size: 131072 bytes (128 KiB), LEB size: 126976 bytes
+ubi0: min./max. I/O unit sizes: 2048/2048, sub-page size 2048
+ubi0: VID header offset: 2048 (aligned 2048), data offset: 4096
+ubi0: good PEBs: 2016, bad PEBs: 0, corrupted PEBs: 0
+ubi0: user volume: 6, internal volumes: 1, max. volumes count: 128
+ubi0: max/mean erase counter: 4/1, WL threshold: 4096, image sequence number: 2037501690
+ubi0: available PEBs: 0, total reserved PEBs: 2016, PEBs reserved for bad PEB handling: 40
+ubi0: background thread "ubi_bgt0d" started, PID 893
+gluebi_create: Hook read/write method of Factory.
+gluebi_create: Hook read/write method of Factory2.
+[Factory-0]: OK (ver: 65)
+[Factory2-0]: OK (ver: 65)
+Select [Factory-0]
+volume linux rfs_offset 3280ec mtd->size 45fe000
+Creating 1 MTD partitions on "linux":
+0x0000003280ec-0x0000045fe000 : "rootfs"
+mtd: device 6 (rootfs) set to be root filesystem
+volume linux2 rfs_offset 3280ec mtd->size 45fe000
+Creating 1 MTD partitions on "linux2":
+0x0000003280ec-0x0000045fe000 : "rootfs2"
+gluebi_create: skip jffs2 volume
+VFS: Mounted root (squashfs filesystem) readonly on device 31:6.
+devtmpfs: mounted
+Freeing unused kernel memory: 448K
+Run /sbin/init as init process
+init_main start.
+/dev/nvram: No such file or directory
+/dev/nvram: No such file or directory
+offset 0xe000 elapse 12ms
+_nvram_free: 940(modprobe) nvram_idx(1 / 2)
+found private data block and skip it
+1: set_action 0
+
+
+Hit ENTER for console...
+
+firmware version: 3.0.0.4.388_30979-g8cf925d, dev:(NBIG5S603348WH6/C8:7F:54:20:A2:7E)
+mtd productid: 8´$
+bootloader version: 8´$-01-00-00-01
+firmware version: 0.0init (1): drop_caches: 1
+.0.116
+odmpid: TUF-AX4200
+current FW productid: TUF-AX4200
+current FW firmver: 3.0.0.4
+NBIG5S603348WH6
+clean_mode(1) clean_time(2) threshold(0)
+free_caches: Start syncing...
+free_caches: Start cleaning...
+free_caches: waiting 2 second...
+free_cachesbled: GPIO#1: netdev ra0 nr_users 1.
+: Finish.
+[1 inbled: GPIO#2: netdev rax0 nr_users 1.
+it:init_nvram +10] init_nvram for model(148)
+set_basic_ifname_vars: WAN eth1 LAN lan1 lan2 lan3 lan4 [lan1 lan2 lan3 lan4 ra0 rax0] WIRED [lan1 lan2 lan3 lan4] ETH_IFNAMES [] 2G ra0 5G rax0 60G N/A USB usb AP_LAN N/A DW_WAN eth1 DW_LAN lan1 lan2 lan3 lan4 force_dwlan 0, sw_mode 1
+wan_ifnames: eth1
+init_amas_subunit: Set default value.
+init_amas_subunit(9723): update wl0_vifnames [wl0.1 wl0.2 wl0.3 wl0.4] 
+1: check_action 0: 1(init)
+1: set_action 7
+nvram_commit(): pid 1 comm [init]
+_nvram_free: 1(init) nvram_idx(0 / 2)
+found private data block and skip it
+1: set_action 0
+1: check_action 0: 1(init)
+1: set_action 7
+nvram_commit(): pid 1 comm [init]
+_nvram_free: 1(init) nvram_idx(1 / 2)
+found private data block and skip it
+1: set_action 0
+[AUTO_FW_UPGRADE] default tmp_time_str= 02:45 
+
+config_switch(0x0213): link down all ports
+config_mt7986_mt7531_LANWANPartition: LAN/P.WAN/S.WAN portmask 0000001f/00000020/00000000 Upstream eth1 (unit 0)
+config_switch(0x0263): ISP Profile/STB: none/0
+config_switch(0x0543): link up wan port(s)
+1+0 records in
+1+0 records out
+mediatek_soc_hnat 15100000.hnat: wan = eth1
+mediatek_soc_hnat 15100000.hnat: lan = lan
+mediatek_soc_hnat 15100000.hnat: ppd = eth0
+mediatek_soc_hnat 15100000.hnat: gmac num = 2
+mediatek_soc_hnat 15100000.hnat: ppe num = 1
+mediatek_soc_hnat 15100000.hnat: PPE0 entry number = 8192
+mediatek_soc_hnat 15100000.hnat: PPE0 hwnat start
+hnat roaming work enable
+conninfra@(mtk_conninfra_drv_init:644) Before platform_driver_register
+Get Index(0-TOP_MISC_BASE) phy_addr(0x11d10000) vir_addr=(0xffffffc010a75000) size=(0x1000)
+Get Index(1-TOPRGU_BASE) phy_addr(0x1001c000) vir_addr=(0xffffffc010a7d000) size=(0x1000)
+Get Index(2-GPIO_BASE) phy_addr(0x1001f000) vir_addr=(0xffffffc010a85000) size=(0x1000)
+Get Index(3-IOCFG_TR_BASE) phy_addr(0x11f00000) vir_addr=(0xffffffc010a8d000) size=(0x1000)
+Get Index(4-IOCFG_TL_BASE) phy_addr(0x11f10000) vir_addr=(0xffffffc010a95000) size=(0x1000)
+Get Index(5-INFRACFG_AO_BASE) phy_addr(0x10003000) vir_addr=(0xffffffc010a9d000) size=(0x1000)
+Get Index(6-CONN_INFRA_CFG_BASE) phy_addr(0x18001000) vir_addr=(0xffffffc010aa5000) size=(0x1000)
+Get Index(7-CONN_INFRA_SYSRAM_BASE) phy_addr(0x18050000) vir_addr=(0xffffffc010aad000) size=(0x1000)
+Get Index(8-CONN_INFRA_CLKGEN_ON_TOP_BASE) phy_addr(0x18009000) vir_addr=(0xffffffc010ab5000) size=(0x1000)
+Get Index(9-CONN_HOST_CSR_TOP_BASE) phy_addr(0x18060000) vir_addr=(0xffffffc010abd000) size=(0x1000)
+Get Index(10-CONN_INFRA_BUS_CR_BASE) phy_addr(0x1800e000) vir_addr=(0xffffffc010ac5000) size=(0x1000)
+Get Index(11-CONN_INFRA_RGU_BASE) phy_addr(0x18000000) vir_addr=(0xffffffc010acd000) size=(0x1000)
+Get Index(12-CONN_WT_SLP_CTL_REG_BASE) phy_addr(0x18005000) vir_addr=(0xffffffc010ad5000) size=(0x1000)
+Get Index(13-INST2_CONN_WT_SLP_CTL_REG_BASE) phy_addr(0x18085000) vir_addr=(0xffffffc010add000) size=(0x1000)
+Get Index(14-CONN_RF_SPI_MST_REG_BASE) phy_addr(0x18004000) vir_addr=(0xffffffc010ae5000) size=(0x1000)
+Get Index(15-INST2_CONN_RF_SPI_MST_REG_BASE) phy_addr(0x18084000) vir_addr=(0xffffffc010ae7000) size=(0x1000)
+Get Index(16-CONN_SEMAPHORE_BASE) phy_addr(0x18070000) vir_addr=(0xffffffc010e10000) size=(0x10000)
+Get Index(17-CONN_AFE_CTL_BASE) phy_addr(0x18003000) vir_addr=(0xffffffc010ae9000) size=(0x1000)
+Get Index(18-CONN_AFE_CTL_2ND_BASE) phy_addr(0x18083000) vir_addr=(0xffffffc010aeb000) size=(0x1000)
+Get Index(19-WF_TOP_SLPPROT_ON_BASE) phy_addr(0x184c0000) vir_addr=(0xffffffc010ea0000) size=(0x10000)
+Get Index(20-WF_TOP_CFG_BASE) phy_addr(0x184b0000) vir_addr=(0xffffffc010aed000) size=(0x1000)
+Get Index(21-WF_MCU_CONFIG_LS_BASE) phy_addr(0x184f0000) vir_addr=(0xffffffc010b01000) size=(0x1000)
+Get Index(22-WF_MCU_BUS_CR_BASE) phy_addr(0x18400000) vir_addr=(0xffffffc010b03000) size=(0x1000)
+Get Index(23-WF_MCUSYS_INFRA_BUS_FULL_U_DEBUG_CTRL_AO_BASE) phy_addr(0x18500000) vir_addr=(0xffffffc010b05000) size=(0x1000)
+Get Index(24-WF_TOP_CFG_ON_BASE) phy_addr(0x184c0000) vir_addr=(0xffffffc010ec0000) size=(0x10000)
+eeFlashId: 0x7986, EEPROM_content_valid = 1
+conninfra@(consys_plt_hw_init:221) tx_stream = 0x2, rx_stream = 0x2, band0_pa_type = 0x3, band1_pa_type = 0x3
+conninfra@(consys_plt_hw_init:230) adie_cfg_type = 1, one_adie_dbdc = 1
+[emi_mng_init] gConEmiPhyBase = [0x4fc00000] size = [0x100000] fw size = [0x100000] ops=[00000000254e6454]
+conninfra@(mtk_conninfra_drv_init:650) After platform_driver_register
+ConnInfra Dev: init (0)
+conninfra@(_consys_polling_chipid_int:459) Read CONNSYS HW IP version successfully! (0x02070000)
+conninfra@(consys_bus_clock_ctrl:485) drv=[4] conninfra_bus_clock_wpll=[0]->[16] enable
+conninfra@(connsys_d_die_cfg:530) D-die efuse: 0x00000000
+conninfra@(_connsys_a_die_chip_id_confirm:1911) adie_idx[0]: A-die CHIP ID = 0x7976, HW Version = 0x8a20
+conninfra@(consys_spi_write_nolock:670) addr = 0x0a00, val = 0xffffffff
+conninfra@(consys_spi_write_nolock:670) addr = 0x04ac, val = 0x0000001c
+conninfra@(consys_spi_write_nolock:670) addr = 0x0144, val = 0x00000002
+conninfra@(consys_spi_write_nolock:670) addr = 0x0148, val = 0x00000000
+conninfra@(consys_spi_write_nolock:670) addr = 0x0148, val = 0x43a60000
+conninfra@(connsys_a_die_efuse_read_nolock:906) efuse = [0x00000001, 0x00c40000, 0x008800b7, 0x00000000]
+conninfra@(consys_spi_write_nolock:670) addr = 0x0144, val = 0x00000002
+conninfra@(consys_spi_write_nolock:670) addr = 0x0148, val = 0x23a6003a
+conninfra@(consys_spi_write_nolock:670) addr = 0x0148, val = 0x63a7003a
+conninfra@(connsys_a_die_efuse_read_nolock:906) efuse = [0x00000001, 0x00c40000, 0x008800b7, 0x00000000]
+conninfra@(consys_spi_write_nolock:670) addr = 0x0144, val = 0x00000002
+conninfra@(consys_spi_write_nolock:670) addr = 0x0148, val = 0x23a7003a
+conninfra@(consys_spi_write_nolock:670) addr = 0x0148, val = 0x63ac003a
+conninfra@(connsys_a_die_efuse_read_nolock:906) efuse = [0x00000001, 0x00c40000, 0x008800b7, 0x00000000]
+conninfra@(consys_spi_write_nolock:670) addr = 0x0038, val = 0x4a563b00
+conninfra@(consys_spi_write_nolock:670) addr = 0x065c, val = 0x1959f80f
+conninfra@(consys_spi_write_nolock:670) addr = 0x0664, val = 0x34d00fe0
+conninfra@(consys_spi_write_nolock:670) addr = 0x0070, val = 0x88888005
+conninfra@(consys_spi_write_nolock:670) addr = 0x0070, val = 0x00000005
+conninfra@(consys_spi_write_nolock:670) addr = 0x0070, val = 0x88888005
+conninfra@(consys_spi_write_nolock:670) addr = 0x0070, val = 0x00000005
+conninfra@(_consys_polling_chipid_int:459) Read CONNSYS HW IP version successfully! (0x02070000)
+conninfra@(_consys_hw_conninfra_wakeup:470) conninfra_wakeup refcnt=[0]->[1] wakeup!!
+conninfra@(_consys_hw_conninfra_sleep:490) conninfra_sleep refcnt=[1]->[0] sleep!!
+conninfra@(opfunc_power_on_internal:241) [Conninfra Pwr On] BT=[0] FM=[0] GPS=[0] WF=[0] CONNINFRA=[1]
+mt_wifi: module license 'Proprietary' taints kernel.
+Disabling lock debugging due to kernel taint
+conninfra@(conninfra_pwr_on:120) [conninfra_pwr_on] drv=[3]
+conninfra@(_consys_polling_chipid_int:459) Read CONNSYS HW IP version successfully! (0x02070000)
+Adie Type: 0x7976
+SKU Type: One_Adie_DBDC
+conninfra@(opfunc_power_on_internal:241) [Conninfra Pwr On] BT=[0] FM=[0] GPS=[0] WF=[1] CONNINFRA=[1]
+WiFi@C12L1,get_dbg_setting_by_profile() 4249: debug level setting=INDEX0_debug_level not found!!
+WiFi@C12L1,get_dbg_setting_by_profile() 4272: debug option setting=INDEX0_debug_option not found!!
+mt_rbus 0000:00:00.0: runtime IRQ mapping not provided by arch
+mt7986_init()-->
+ sku:0x7, ADIE=MT7976 
+<--mt7986_init()
+RtmpRaDevCtrlInit(): MCS_LUT not used becasue MacTb size(544) > 128!
+WiFi@C12L1,match_index_by_chipname() 507: not find chip name INDEX1
+WiFi@C12L1,match_index_by_chipname() 507: not find chip name INDEX2
+WiFi@C12L1,match_index_by_chipname() 507: not find chip name INDEX3
+WiFi@C12L1,match_index_by_chipname() 507: not find chip name INDEX4
+WiFi@C12L1,match_index_by_chipname() 507: not find chip name INDEX5
+WiFi@C12L1,match_index_by_chipname() 507: not find chip name INDEX6
+WiFi@C12L1,match_index_by_chipname() 507: not find chip name INDEX7
+WiFi@C12L1,match_index_by_chipname() 507: not find chip name INDEX8
+WiFi@C12L1,match_index_by_chipname() 507: not find chip name INDEX9
+WiFi@C12L2,match_index_by_chipname() 512: Not find slot id, back to old rule.
+msta_ifname not found
+hotplug net INTERFACE=ra0 ACTION=add SEQNUM=741
+warp_module_init(): module init and register callback for warp
+create warp_ctrl ok!!!
+wed_get_slot_map(): assign slot_id:0 for entry: 0!
+wed_get_slot_map(): assign slot_id:1 for entry: 1!
+mtk_warp_proxy: module uses symbols from proprietary module mt_wifi, inheriting taint.
+1: check_action 0: 1(init)
+*** ubifs: jffs2 0, 5, 101453824
+console fd is 0
+1: check_action 0: 1(init)
+1: set_action 7
+_nvram_free: 1(init) nvram_idx(0 / 2)
+1: set_action 0
+[adjust_vpnc_config, 184]
+Insert USB modules early.
+xhci-mtk 11200000.xhci: 11200000.xhci supply vbus not found, using dummy regulator
+xhci-mtk 11200000.xhci: 11200000.xhci supply vusb33 not found, using dummy regulator
+phy phy-usb-phy@11e10000.1: try to get sw efuse
+phy phy-usb-phy@11e10000.1: try to get sw efuse+
+phy phy-usb-phy@11e10000.2: try to get sw efuse
+phy phy-usb-phy@11e10000.2: try to get sw efuse+
+phy phy-usb-phy@11e10000.3: try to get sw efuse
+phy phy-usb-phy@11e10000.3: try to get sw efuse+
+usb hotplug INTERFACE=9/0/0 ACTION=add USBPORT=(null) HOST=(null) DEVICE=(null)
+1097: check_action 0: 1(init)
+checking for user scripts: '.usbhotplug'
+usb hotplug INTERFACE=(null) ACTION=add USBPORT=(null) HOST=(null) DEVICE=(null)
+usb hotplug INTERFACE=9/0/0 ACTION=bind USBPORT=(null) HOST=(null) DEVICE=(null)
+1101: check_action 0: 1(init)
+checking for user scripts: '.usbhotplug'
+usb hotplug INTERFACE=9/0/0 ACTION=bind USBPORT=(null) HOST=(null) DEVICE=(null)
+1110: check_action 0: 1(init)
+checking for user scripts: '.usbhotplug'
+usb hotplug INTERFACE=(null) ACTION=add USBPORT=(null) HOST=(null) DEVICE=(null)
+1107: check_action 0: 1(init)
+checking for user scripts: '.usbhotplug'
+usb hotplug INTERFACE=(null) ACTION=bind USBPORT=(null) HOST=(null) DEVICE=(null)
+usb hotplug INTERFACE=(null) ACTION=bind USBPORT=(null) HOST=(null) DEVICE=(null)
+update_lan_state(lan_, 0, 0)
+1+0 records in
+1+0 records out
+hotplug net INTERFACE=br0 ACTION=add SEQNUM=789
+_ifconfig: name=lan1 flags=1243 IFUP addr= netmask=
+hotplug net INTERFACE=br0 ACTION=add SEQNUM=789
+_ifconfig: name=lan2 flags=1243 IFUP addr= netmask=
+_ifconfig: name=lan3 flags=1243 IFUP addr= netmask=
+_ifconfig: name=lan4 flags=1243 IFUP addr= netmask=
+gen ralink config
+gen ralink iNIC config
+_ifconfig: name=WiFi@C01L2,RTMP_COM_IoctlHandle() 1511: -> CMD_RTPRIV_IOCTL_VIRTUAL_INF_INIT
+ra0 flags=1243 Imsta_ifname not found
+FUP addr= netmask=
+warp_dev0: probe of 15010000.wed2 failed with error -1
+WiFi@C02L1,HwCtrlInit() 551: ser_init() return NDIS_STATUS_FAILURE
+WiFi@C12L1,RTMPWirelessModeCfg() 599: Init: BSS0 PhyMode=78
+WiFi@C12L1,RTMPWirelessModeCfg() 599: Init: BSS1 PhyMode=177
+WiFi@C03L1,AndesSendCmdMsg() 754: Could not send in band command due to diablefRTMP_ADAPTER_MCU_SEND_IN_BAND_CMD
+WiFi@C03L2,AndesSendCmdMsg() 765: Command type = ed, Extension command type = 48
+WiFi@C03L1,AndesSendCmdMsg() 754: Could not send in band command due to diablefRTMP_ADAPTER_MCU_SEND_IN_BAND_CMD
+WiFi@C03L2,AndesSendCmdMsg() 765: Command type = ed, Extension command type = 48
+ sku:0x7, ADIE=MT7976 
+using E1 ROM patch
+using E1 RAM
+current sync CR = 0x1
+	Built date: 20220727175627a
+	Platform: ALPS
+	HW/SW version: 0x8a108a10
+	Patch version: 0xffffffff
+current sync CR = 0x1
+	Chip ID: 0x0f
+	Eco version: 0x00
+	Region number: 0x0b
+	Format version: 0x02
+	Format flag: 0x01
+	Ram version: ____000000
+	Built date: 20220727175704
+	Common crc: 0xc10eb962
+	Release info: header tag = 0, total length = 108
+	tag 1, padding length = 3, tag length = 101
+	payload: t-neptune-main-2111-7986-imp_v7640_wk2219-MT7986_E1_ASIC_ROM_RAM_REBB_IMP_V7640_WK2219-20220727171554
+	Chip ID: 0x00
+	Eco version: 0x00
+	Region number: 0x03
+	Format version: 0x02
+	Format flag: 0x01
+	Ram version: DEV_000000
+	Built date: 20220727175921
+	Common crc: 0x5e1a105a
+	Release info: header tag = 0, total length = 0
+current sync CR = 0x7
+efuse_probe: efuse = deaddead
+ sku:0x7, ADIE=MT7976 
+WiFi@C02L1,is_cal_free_ic() 1037: is_cal_free_ic(1037) offset:0, 0,0 
+ sku:0x7, ADIE=MT7976 
+WiFi@C02L1,is_cal_free_ic() 1056:  iCal free
+ sku:0x7, ADIE=MT7976 
+WiFi@C17L1,RTMPReadTxPwrPerRate() 450: (450): Don't Support this now!
+WiFi@C01L1,AntCfgInit() 3049: Not support for HIF_MT yet!
+ch_switch_monitor_state_machine_init:: enter
+ch_switch_monitor_cfg_reset:: enter
+ch_switch_monitor_cfg_reset:: enter
+WiFi@C17L1,tx_pwr_comp_init() 641: NotSupportYet!
+WiFi@C12L1,SCS_init() 880: INIT SCSEnable [0]= 1
+WiFi@C12L1,SCS_init() 887: INIT SCSEnable [1]= 0
+WiFi@C03L1,MtCmdSetMacTxRx() 10225: (ret = 0)
+WiFi@C03L1,MtCmdSetMacTxRx() 10225: (ret = 0)
+WiFi@C14L1,IPMacTable_init() 348: IPMacTable already inited!
+WiFi@C03L1,MtCmdSetMacTxRx() 10225: (ret = 0)
+WiFi@C03L1,MtCmdSetMacTxRx() 10225: (ret = 0)
+WiFi@C00L1,set_ack_timeout_mode_byband() 13315: CTS/ACK Timeout Range should between [0xFFFF:0]!!
+WiFi@C00L1,set_datcfg_ack_cts_timeout() 13403: DAT config band(0) cck_timeout Fail!
+WiFi@C00L1,set_ack_timeout_mode_byband() 13315: CTS/ACK Timeout Range should between [0xFFFF:0]!!
+WiFi@C00L1,set_datcfg_ack_cts_timeout() 13414: DAT config band(0) ofdm_timeout Fail!
+WiFi@C00L1,set_ack_timeout_mode_byband() 13315: CTS/ACK Timeout Range should between [0xFFFF:0]!!
+WiFi@C00L1,set_datcfg_ack_cts_timeout() 13425: DAT config band(0) ofdma_timeout Fail!
+WiFi@C00L1,set_ack_timeout_mode_byband() 13315: CTS/ACK Timeout Range should between [0xFFFF:0]!!
+WiFi@C00L1,set_datcfg_ack_cts_timeout() 13403: DAT config band(1) cck_timeout Fail!
+WiFi@C00L1,set_ack_timeout_mode_byband() 13315: CTS/ACK Timeout Range should between [0xFFFF:0]!!
+WiFi@C00L1,set_datcfg_ack_cts_timeout() 13414: DAT config band(1) ofdm_timeout Fail!
+WiFi@C00L1,set_ack_timeout_mode_byband() 13315: CTS/ACK Timeout Range should between [0xFFFF:0]!!
+WiFi@C00L1,set_datcfg_ack_cts_timeout() 13425: DAT config band(1) ofdma_timeout Fail!
+WiFi@C00L2,dump_ht_cap() 29: Caller: dump_ht_cap+0x10/0x20 [mt_wifi]
+hotplug net INTEWiFi@C00L2,dump_ht_cap() 29: Caller: dump_ht_cap+0x10/0x20 [mt_wifi]
+RFACE=rax0 ACTION=add SEQNUM=794
+hotplug net INTERFACE=rax0 ACTION=add SEQNUM=7:(op = 0)
+94
+WiFi@C00L2,red_tail_drop_init() 83: red_tail_drop_init: available token:8192, whnat_en:1
+hotplug net INTEWiFi@C00L1,MtCmdCr4RedSet() 914: MtCmdCr4RedSet: (ret = 0)
+RFACE=apcli0 ACTWiFi@C00L1,SendRedCmd() 1049: SendRedCmd:(ret = 1)
+ION=add SEQNUM=7WiFi@C01L2,RTMP_COM_IoctlHandle() 1488:  -> CMD_RTPRIV_IOCTL_VIRTUAL_INF_UP
+97
+hotplug net INTEWiFi@C23L1,DfsBuildChannelList() 3339: [RDM]: wdev is not 5G.
+RFACE=apclix0 ACphy_freq_adjust : no prim_ch value for adjust!
+TION=add SEQNUM=WiFi@C23L1,operate_loader_phy() 390: phy_freq_adjust failed!WiFi@C00L2,dump_ht_cap() 29: Caller: wlan_operate_init+0xac/0x110 [mt_wifi]
+800
+hotplug netwdev_attr_update(): wdevId0 = c8:7f:54:20:a2:7e
+ INTERFACE=apcliWiFi@C12L1,wifi_sys_open() 886: wifi_sys_open():band0 group_idx[0]=0, bw_grp=16 omac=0
+x0 ACTION=add SEWiFi@C23L1,HcGetBandByChannel() 1104: No hdev parking on channel:0, just return a default band_idx 0!
+QNUM=800
+WiFi@C02L2,AsicRadioOnOffCtrl() 2279: DbdcIdx=0 RadioOn
+WiFi@C00L2,ApAutoChannelAtBootUp() 333: ----------------->
+WiFi@C03L1,MtCmdSetMacTxRx() 10225: (ret = 0)
+WiFi@C03L1,MtCmdSetMacTxRx() 10225: (ret = 0)
+WiFi@C00L1,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+WiFi@C00L1,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+WiFi@C00L1,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+WiFi@C00L1,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+WiFi@C00L1,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+WiFi@C00L1,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+WiFi@C00L1,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+WiFi@C00L1,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+WiFi@C00L1,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+WiFi@C00L1,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+WiFi@C00L1,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+WiFi@C00L1,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+WiFi@C00L1,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+WiFi@C00L1,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+WiFi@C23L1,DfsBuildChannelList() 3339: [RDM]: wdev is not 5G.
+WiFi@C08L2,APStartUpForMbss() 977: ===>(caller:ap_inf_open+0x144/0x4d0 [mt_wifi]), mbss_idx:0, CfgMode:0
+WiFi@C15L2,APPMFInit() 133: [PMF] apidx=0, MFPC=0, MFPR=0, SHA256=0
+WiFi@C00L2,dump_ht_cap() 29: Caller: dump_ht_cap+0x10/0x20 [mt_wifi]
+WiFi@C03L1,MtCmdSetMacTxRx() 10225: (ret = 0)
+WiFi@C03L1,MtCmdSetMacTxRx() 10225: (ret = 0)
+WiFi@C00L1,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+WiFi@C00L1,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+WiFi@C00L1,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+WiFi@C00L1,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+WiFi@C00L1,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+WiFi@C00L1,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+WiFi@C00L1,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+WiFi@C00L1,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+WiFi@C00L1,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+WiFi@C08L2,ap_link_up() 7056: (caller:wdev_do_linkup+0x20/0x38 [mt_wifi]), wdev(0)
+PrintSrCmd:
+u1CmdSubId = 1, u1ArgNum = 0, u1DbdcIdx = 0, u1Status = 0
+u1DropTaIdx = 0, u1StaIdx = 0, u4Value = 0
+PrintSrCmd:
+u1CmdSubId = 5, u1ArgNum = 0, u1DbdcIdx = 0, u1Status = 0
+u1DropTaIdx = 0, u1StaIdx = 0, u4Value = 0
+PrintSrCmd:
+u1CmdSubId = 3, u1ArgNum = 0, u1DbdcIdx = 0, u1Status = 0
+u1DropTaIdx = 0, u1StaIdx = 0, u4Value = 0
+PrintSrCmd:
+u1CmdSubId = 23, u1ArgNum = 0, u1DbdcIdx = 0, u1Status = 0
+u1DropTaIdx = 0, u1StaIdx = 0, u4Value = 0
+PrintSrCmd:
+u1CmdSubId = 31, u1ArgNum = 0, u1DbdcIdx = 0, u1Status = 0
+u1DropTaIdx = 0, u1StaIdx = 0, u4Value = 0
+PrintSrCmd:
+u1CmdSubId = 33, u1ArgNum = 0, u1DbdcIdx = 0, u1Status = 0
+u1DropTaIdx = 0, u1StaIdx = 0, u4Value = 0
+[doSystem] iwpri[mtf_txpower_all_rate_info] band_idx:0 pwr:28 ChBand:2G ePAGain:0
+v ra0 set TxPower=100
+gen ralink iNIC config
+_ifconfig: name=7986@C08L2ra0,mbss_virtual_if_open() 134:  ===> rax0
+rax0 flags=1243 7986@C01L2ra0,RTMP_COM_IoctlHandle() 1511: -> CMD_RTPRIV_IOCTL_VIRTUAL_INF_INIT
+IFUP addr= netma7986@C01L2ra0,RTMP_COM_IoctlHandle() 1488:  -> CMD_RTPRIV_IOCTL_VIRTUAL_INF_UP
+sk=
+phy_freq_adjust : no prim_ch value for adjust!
+7986@C23L1ra0,operate_loader_phy() 390: phy_freq_adjust failed!WiFi@C00L2,dump_ht_cap() 29: Caller: wlan_operate_init+0xac/0x110 [mt_wifi]
+wdev_attr_update(): wdevId1 = ca:7f:54:30:a2:7e
+WiFi@C12L1,wifi_sys_open() 886: wifi_sys_open():band1 group_idx[1]=4, bw_grp=16 omac=0
+7986@C23L1ra0,HcGetBandByChannel() 1104: No hdev parking on channel:0, just return a default band_idx 0!
+7986@C02L2ra0,AsicRadioOnOffCtrl() 2279: DbdcIdx=0 RadioOn
+7986@C00L2ra0,ApAutoChannelAtBootUp() 333: ----------------->
+7986@C03L1ra0,MtCmdSetMacTxRx() 10225: (ret = 0)
+7986@C03L1ra0,MtCmdSetMacTxRx() 10225: (ret = 0)
+7986@C23L2ra0,AutoChSelBuildChannelListFor56G() 2719: ChListNum56G = 19
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C08L2ra0,APStartUpForMbss() 977: ===>(caller:ap_inf_open+0x144/0x4d0 [mt_wifi]), mbss_idx:1, CfgMode:0
+7986@C15L2ra0,APPMFInit() 133: [PMF] apidx=1, MFPC=0, MFPR=0, SHA256=0
+WiFi@C00L2,dump_ht_cap() 29: Caller: dump_ht_cap+0x10/0x20 [mt_wifi]
+WiFi@C08L2,ap_link_up() 7056: (caller:wdev_do_linkup+0x20/0x38 [mt_wifi]), wdev(1)
+PrintSrCmd:
+u1CmdSubId = 1, u1ArgNum = 0, u1DbdcIdx = 1, u1Status = 0
+u1DropTaIdx = 0, u1StaIdx = 0, u4Value = 0
+PrintSrCmd:
+u1CmdSubId = 5, u1ArgNum = 0, u1DbdcIdx = 1, u1Status = 0
+u1DropTaIdx = 0, u1StaIdx = 0, u4Value = 0
+PrintSrCmd:
+u1CmdSubId = 3, u1ArgNum = 0, u1DbdcIdx = 1, u1Status = 0
+u1DropTaIdx = 0, u1StaIdx = 0, u4Value = 0
+PrintSrCmd:
+u1CmdSubId = 23, u1ArgNum = 0, u1DbdcIdx = 1, u1Status = 0
+u1DropTaIdx = 0, u1StaIdx = 0, u4Value = 0
+PrintSrCmd:
+u1CmdSubId = 31, u1ArgNum = 0, u1DbdcIdx = 1, u1Status = 0
+u1DropTaIdx = 0, u1StaIdx = 0, u4Value = 0
+PrintSrCmd:
+u1CmdSubId = 33, u1ArgNum = 0, u1DbdcIdx = 1, u1Status = 0
+u1DropTaIdx = 0, u1StaIdx = 0, u4Value = 0
+[doSystem] iwpri[mtf_txpower_all_rate_info] band_idx:1 pwr:28 ChBand:5G ePAGain:0
+v rax0 set TxPower=100
+start_lan: setting MAC address of bridge br0 as C8:7F:54:20:A2:7E
+_ifconfig: name=br0 flags=1243 IFUP addr=192.168.50.1 netmask=255.255.255.0
+_ifconfig: name=lo flags=1043 IFUP addr=127.0.0.1 netmask=255.0.0.0
+_ifconfig: name=lo:0 flags=1043 IFUP addr=127.0.1.1 netmask=255.0.0.0
+route_manip: cmd=ADD name=lo addr=127.0.0.0 netmask=255.0.0.0 gateway=0.0.0.0 metric=0
+update_lan_state(lan_, 2, 0)
+nat_rule: stop_nat_rules 1.
+stop_nat_rules: apply the redirect_rules state 0 ret 0
+start_lan 2524
+# wanduck: Got LAN(-1) information:
+wanduck: delay 1 seconds before the first detect...
+[setup_nc_event_conf(10367)][WARNING] setting is empty or nc ver. is lower than 1. restore default settings.
+start_wsc_pin_enrollee: start wsc (0)
+[doSystem] iwpriv ra0 set WscConfMode=7
+WPS: PIN
+[doSystem] iwpriv ra0 set WscMode=1
+start_wsc_pin_enrollee: start wsc (1)
+[doSystem] iwpriv rax0 set WscConfMode=7
+WPS: PIN
+[doSystem] iwpriv rax0 set WscMode=1
+[1 init:start_dnsmasq +34] begin
+[1 init:stop_dnsmasq +34] begin
+[1 init:stop_stubby +34] begin
+[1 init:stop_stubby +34] end
+[1 init:stop_dnsmasq +34] end
+[1 init:start_stubby +34] begin
+[1 init:start_dnsmasq +35] end
+start_lan_port(0) 1
+stop_amas_lanctrl start_amas_lanctrl 18455
+decomp: fname=/var/lib/misc/rstats-speed.gz
+decomp: gzip -dc /var/lib/misc/rstats-speed.gz > /var/tmp/rstats-uncomp != 0
+load: speed_count = 0
+load: read source= save_path=
+load_history: fname=/var/lib/misc/rstats-history.gz
+decomp: fname=/var/lib/misc/rstats-history.gz
+decomp: gzip -dc /var/lib/misc/rstats-history.gz > /var/tmp/rstats-uncomp != 0
+decomp: fname=/var/lib/misc/rstats-history.gz
+decomp: gzip -dc /var/lib/misc/rstats-history.gz > /var/tmp/rstats-uncomp != 0
+load_history: load failed
+wanduck: delay 2 seconds before the first detect...
+### onboarding model=TUF-AX4200,set watchdog pid as: 1653
+ reboot_time=70, connection_timeset watchdog pid as: 1653
+out=90, traffic_timeout=90
+[doSystem] iwpriv ra0 set WatchdogPid=1653
+[doSystem] iwpriv rax0 set WatchdogPid=1653
+TZ watchdog
+alternative watchdog start...
+msgget ok
+disk_monitor: starting...
+disk_monitor: day=5, week=6, time=5:5.
+disk_monitor: decide if scan the target...
+disk_monitor: 0: wait_second=64800...
+disk_monitor: wait_second=64800...
+disk_monitor: Pause...
+
+get_all_pc_list, enabled_str=, enabled=0.
+rc: ==> binding interface(eth1) for lldpd
+amas_ssd_cd_main(0x0186): This is ASUS router
+ss wi num 2
+wanduck: delay 3 seconds before the first detect...
+wanduck: delay 4 seconds before the first detect...
+TZ sched_daemon
+wanduck: delay 5 seconds before the first detect...
+reinit_hwnat:WAN: unit -1,0 type 0 nat_x 1 qos 0: action 1.
+start_wan: start_wan_if(0)!
+[1 init:start_wan_if +38] unit=0.
+update_wan_state(wan0_, 0, 0)
+convert_wan_nvram(wan0_)
+_ifconfig: name=eth1 flags=1043 IFUP addr= netmask=
+update_wan_state(wan0_, 1, 0)
+start_wan_if(0x0787): ifup:eth1
+_ifconfig: name=eth1 flags=1043 IFUP addr= netmask=
+start_wan_if(0x078b): start auth:0
+start_auth:: done
+start_wan_if(0x078f): start udhcpc:eth1, 0
+start_wan_if(): End.
+Enable USB power.
+Start USB with the original procedure.
+start_usb
+udhcpc_wan:: deconfig
+_ifconfig: name=eth1 flags=1043 IFUP addr=0.0.0.0 netmask=
+wan_down(eth1)
+wan_down(eth1): .
+stop_auth:: done
+route_manip: cmd=DEL name=eth1 addr=0.0.0.0 netmask=0.0.0.0 gateway=(null) metric=0
+update_wan_state(wan0_, 3, 0)
+update_wan_state(wan0_, 4, 3)
+udhcpc:: deconfig done
+[Mastiff]init
+clean_mode(1) clean_time(2) threshold(0)
+free_caches: Start syncing...
+free_caches: Start cleaning...
+free_caches: waiting 2 second...
+wanduck(0): NC send SYS_WAN_CABLE_UNPLUGGED_EVENT.
+
+# Enable direct rule
+amas_lanctrl_main(0x0345): This is ASUS router
+free_caches: Finish.
+_ifconfig: name=7986@C01L2ra0,RTMP_COM_IoctlHandle() 1511: -> CMD_RTPRIV_IOCTL_VIRTUAL_INF_INIT
+apcli0 flags=1047986@C01L2ra0,RTMP_COM_IoctlHandle() 1488:  -> CMD_RTPRIV_IOCTL_VIRTUAL_INF_UP
+3 IFUP addr= net7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+mask=
+obdeth_main(0x0350): model=TUF-AX4200, reboot_time=70, connection_timeout=90, traffic_timeout=90
+WiFi@C00L2,dump_ht_cap() 29: Caller: wlan_operate_init+0xac/0x110 [mt_wifi]
+wdev_attr_update(): wdevId2 = ce:7f:54:20:a2:7e
+WiFi@C00L2,dump_ht_cap() 29: Caller: dump_ht_cap+0x10/0x20 [mt_wifi]
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1apclix0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1apclix0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1apclix0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1apclix0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1apclix0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1apclix0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1apclix0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1apclix0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1apclix0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1apclix0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1apclix0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1apclix0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1apclix0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+RAST 45: ROAMAST Start...
+RAST 45: ROAMING Start...
+[rast_init_bssinfo]: WI[ra0], idx[0] 
+[rast_init_bssinfo]: WIF[ra0], idx[0] 
+rssi threshold: [-70]
+rssi hit count: [2]
+idle period: [10]
+idle rate: [100]
+[rast_init_bssinfo]: WI[rax0], idx[1] 
+[rast_init_bssinfo]: WIF[rax0], idx[1] 
+rssi threshold: [-70]
+rssi hit count: [2]
+idle period: [10]
+idle rate: [100]
+[rast_init_bssinfo]: TotalWI[2] 
+
+RAST 46: ipc accept socket...
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+1653: check_action 0: 1(init)
+1653: set_action 7
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+_nvram_free: 1653(watchdog) nvram_idx(1 / 2)
+1653: set_action 0
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1apclix0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1apclix0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1apclix0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1apclix0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1apclix0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1apclix0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1apclix0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1apclix0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1apclix0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1apclix0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1apclix0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1apclix0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1apclix0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1apclix0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1apclix0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1apclix0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1apclix0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1ra0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
+7986@C00L1rax0,mt7986_apply_dpd_flatness_data() 598: DPD Pre-Cal finished, load DPD Pre-Cal data
